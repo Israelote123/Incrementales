@@ -1,6 +1,6 @@
 var nombre=prompt("Introduce tu nombre","");
 var apellido=prompt("Introduce tus apellidos","");
-var fechaNacimiento=prompt("Introduce tu fecha de nacimiento con formato","DD/MM/AAAA");
+var fechaNacimiento=prompt("Introduce tu fecha de nacimiento con formato DD/MM/AAAA","DD/MM/AAAA");
 var cursos=parseInt(prompt("Introduce los cursos de programacion que realizaste",""));
 var comparacion=fechaNacimiento.split("/");
 
