@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instatecla</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="barraNav">
+        <h1 class="titulo"><img class="logo" src="./img/logo tecla.jpg" alt="Logo">TeclaFriends</h1>
+    </nav>
+    <main>
+        <form name="subida-imagenes" type="POST" enctype="multipart/formdata" >
+            
+            <input type="file" id="profilePhoto" name="userPhoto" />
+            <label for="profilePhoto">Foto de perfil</label>
+        </form>
+        <form action="/my-handling-form-page" method="post">
+            <ul>
+             <li>
+               <label for="name">Nombre completo:</label>
+               <input type="text" id="name" name="nameUser" placeholder="Nombre completo">
+               <label for="username">Apodo:</label>
+                <input type="text" id="username" name="userName">
+             </li>
+             <li>
+                <label for="country">Pais:</label>
+                <input type="text" id="country" name="userCountry">
+                <label for="number">Numero de telefono con lada:</label>
+                <input type="text" id="number" name="userNumber">
+              </li>
+              <li>
+                <label for="studies">Estudios:</label>
+                <input type="text" id="studies" name="userStudies">
+                <label for="sex">Sexo:</label>
+                <input type="radio" id="sexM" value="M" /> Masculino
+                <input type="radio" id="sexF" value="F" /> Femenino
+              </li>
+              <li>
+                <label for="direction">Dirección:</label>
+                <input type="text" id="direction" name="userDirection">
+                <label for="habilities">Correo electronico:</label>
+                <input type="mail" id="habilities" name="userHabilities">
+              </li>
+              <li>
+                <label for="birth">Fecha de nacimiento:</label>
+                <input type="date" id="birth" name="userBirth">
+                <label for="work">Horario disponible para trabajar:</label>
+                <input type="time" id="work" name="userWorkTime">
+                <input type="time" id="work_2" name="userWorkTime_2">
+              </li>
+              <li>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="user_password">
+                <label for="passwordVerified">Repita contraseña:</label>
+                <input type="password" id="passwordVerified" name="user_passwordVerified">
+              </li>
+              <li>
+                <label for="abilities">Habilidades(Descripción personal):</label>
+                <textarea id="abilities" name="userAbilities"></textarea>
+              </li>
+              <li>
+                  <button type="submit">Registrarse</button>
+              </li>
+            </ul>
+           </form>
+    </main>
+    <footer>
+        <p class="pie_de_pagina">Pagina creada por Israel</p>
+    </footer>
+</body>
+</html>
