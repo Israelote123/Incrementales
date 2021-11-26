@@ -1,59 +1,29 @@
-mes(2)
+const arrayRegister = [{id: 1, name: "Job daniel", alta: new Date("2021-09-16")}, 
+{id: 5, name: "Juan", alta: new Date("2021-05-01")},
+{id: 6, name: "Jose", alta: new Date("2021-01-01")},
+{id: 14, name: "Citlalli", alta: new Date("2021-03-15")},
+{id: 600, name: "Maria", alta: new Date("2021-03-11")}
+];
 
-function mes(valor)
-{
-   
-    switch(valor)
-    {
-        case 1:
-        return console.log("Enero")
-        break
+let idProfile = parseInt(prompt("Inserte el id del usuario"));
 
-        case 2:
-        return console.log("Febrero")
-        break
-        
-        case 3:
-        return console.log("Marzo")
-        break
-
-        case 4:
-        return console.log("Abril")
-        break
-
-        case 5:
-        return console.log("Mayo")
-        break
-
-        case 6:
-        return console.log("Junio")
-        break
-
-        case 7:
-        return console.log("Julio")
-        break
-
-        case 8:
-        return console.log("Agosto")
-        break
-
-        case 9:
-        return console.log("Septiembre")
-        break
-
-        case 10:
-        return console.log("Octubre")
-        break
-
-        case 11:
-        return console.log("Noviembre")
-        break
-
-        case 12:
-        return console.log("Diciembre")
-        break
-
-        default:
-            return console.log("No escogio ninguan opcion")    
-    }
+let nameReport = () => {
+    return arrayRegister.find(user => user.id===idProfile).name;
 }
+
+let dateRegister = () => {
+    let year = arrayRegister.find(user => user.id===idProfile).alta.getFullYear();
+    let month = arrayRegister.find(user => user.id===idProfile).alta.toLocaleString('default', {month: 'long'});
+    let day = arrayRegister.find(user => user.id===idProfile).alta.getDate()+1;
+
+    if (day > 31) {
+        day = 32 - day + 1;
+    }
+    return  year + '-' + month + '-' + day;
+}
+
+let report = () => {
+    console.log(nameReport() + ', fecha alta: ' + dateRegister());
+}
+
+report();
