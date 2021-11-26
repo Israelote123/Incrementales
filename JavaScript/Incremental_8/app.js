@@ -1,4 +1,4 @@
-const arrayRegister = [{id: 1, name: "Job daniel", alta: new Date("2021-09-16")}, 
+const register = [{id: 1, name: "Job daniel", alta: new Date("2021-09-16")}, 
 {id: 5, name: "Juan", alta: new Date("2021-05-01")},
 {id: 6, name: "Jose", alta: new Date("2021-01-01")},
 {id: 14, name: "Citlalli", alta: new Date("2021-03-15")},
