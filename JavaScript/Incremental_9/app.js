@@ -1,24 +1,21 @@
-var amigos=[];
-var valor=0
-var i=0;
+var friends = [];
+var value = "";
+var i = 0;
 
-alert("Ingrese el nombre de sus amigos, para poder ordenarlos alfabeticamente, podra agregar la cantidad de amigos que desee")
+alert("Ingrese el nombre de sus amigos")
 
-function agregar(){
+function add(){
 
-    while(valor !='salir')
+    while(value.toLowerCase().localeCompare("salir"))
     {
-       valor=prompt("Ingrese nombre el nombre de un amigo,\n si ya no tiene amigos que agregar ingrese salir")
-       
-       if(valor!='salir')
+       value=prompt("Ingrese nombre el nombre de un amigo\n Si ya no tiene amigos que agregar ingrese salir");
+       if(value.toLowerCase().localeCompare("salir"))
        {
-           amigos[i]=valor;
+           friends[i]=value;
            i++;
-       }
-    
+       } 
     }
+    friends.sort((a, b) => a.localeCompare(b));
 }
-
-agregar();
-amigos.sort();
-console.log(amigos);
+add();
+console.log(friends);
