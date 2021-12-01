@@ -1,7 +1,7 @@
 var A, B, C, D;
-var s = 0;
+var s = "";
 
-while (s != "salir") {
+while (s.toLowerCase().localeCompare("salir")) {
     A = parseInt(prompt("Ingrese Primer numero"));
     B = parseInt(prompt("Ingrese Segundo numero"));
     while (A == B) {
@@ -44,7 +44,7 @@ while (s != "salir") {
     console.log("El mayor numero de likes en su foto es:" + A);
     console.log("El menor numero de likes en su foto es: " + C);
     alert("El mayor numero de likes en su foto es: " + A+"\ny el menor numero de likes en su foto es: " + C)
-    s = prompt("Si desea ingresar likes de otra foto ingrese 1 de lo contario salir");
+    s = prompt("Si desea ingresar likes de otra foto ingrese 1 de lo contrario salir");
 }
 
 
