@@ -1,0 +1,63 @@
+Programa: LeerValoresLikes
+Inicio
+numericas:A,B,C,D
+noNumericas:s
+
+InicioMientras
+
+Mientras1 s!=salir
+
+escribir "Introduce primer numero de likes"
+Leer A
+
+escribir "Introduce segundo numero de likes"
+Leer B
+
+Mientras2 A==B
+Si1 A==B Entonces
+mostrar El segundo numero se repite, ingrese de nuevo segundo numero
+escribir "Introduce segundo numero de likes"
+Leer B
+finSi1
+finMientras2
+
+escribir "Introduce Tercer numero de likes"
+Leer C
+
+Mientras3 A==C||B==C
+Si2 A==C||B==C Entonces
+mostrar El tercer numero se repite, ingrese de nuevo tercer numero
+escribir "Introduce tercer numero de likes"
+Leer C
+finSi2
+finMientras3
+
+Si3 (A < B) 
+        D = A;
+        A = B;
+        B = D;
+finSi3
+
+D = 0;
+
+Si4 B < C 
+        D = B;
+        B = C;
+        C = D;
+finSi4   
+ 
+D = 0
+
+Si5 A < B 
+        D = A;
+        A = B;
+        B = D;
+finSi5
+
+mostrar "El mayor numero de likes en su foto es: " + A+"\ny el menor numero de likes en su foto es: " + C
+escribir "Si desea ingresar likes de otra foto ingrese 1 de lo contario salir"
+leer salir
+
+fin mientras1
+
+mostrar "Gracias por usar nuestra aplicacion"
