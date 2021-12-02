@@ -1,17 +1,15 @@
-var amigos=9;
-
-function calcular(num1,callBack)
+function calcular(friends,callBack)
 {
-       console.log("Hola tecler")
-       console.log("El numero de amigos que tienes es" +num1);
+       console.log("Hola Tecler")
+       console.log("El numero de amigos que tienes es " + friends);
        callBack();
 }
 
 function refresh(){
 
-    setTimeout(function()
+    setTimeout(()=>
     {
-        console.log("Hola, callBack");
+        console.log("Hola callBack");
     },3500);
 
 }
