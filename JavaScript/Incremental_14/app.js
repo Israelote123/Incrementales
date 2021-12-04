@@ -14,10 +14,9 @@ function getUsuariosGit(){
             document.getElementById("data").innerHTML = 'Fecha de registro: ' + resultado.results[0].registered.date;
         })
         .catch(error => {
-            console.log("Error al solicitar los datos")
+            console.error("Error al solicitar los datos")
+            document.getElementById("profile").innerHTML = 'Conexion fallida ;-; unu :c';
         })
 }
 
 getUsuariosGit()
-
-console.log(resultado)
