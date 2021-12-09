@@ -4,14 +4,14 @@ const moment=require('moment');
 const now =moment(new Date());
 
 var utc=moment(new Date()).utc();
-const profile=document.getElementById("profile");
-profile.innerHTML=" ";
+//const profile=document.getElementById("profile");
+//profile.innerHTML=" ";
 
-const momentDay=document.createElement("div");
-momentDay.innerHTML=now.format('DD/MM/YYYY hh:mm:ss');
-profile.appendChild(momentDay);
+//const momentDay=document.createElement("div");
+//momentDay.innerHTML=now.format('DD/MM/YYYY hh:mm:ss');
+//profile.appendChild(momentDay);
 
-//console.log(now.format('DD/MM/YYYY hh:mm:ss'));
+console.log(now.format('DD/MM/YYYY hh:mm:ss'));
 
 console.log(utc.format('DD-MM-YYYY hh:mm:ss'));
 
