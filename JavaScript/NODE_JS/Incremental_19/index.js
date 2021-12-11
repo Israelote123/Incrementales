@@ -10,7 +10,7 @@ app.listen(3000, ()=>{
 function validarDatosId(req,res, next)
 {
      let validarId=req.params.id;
-     if(validarId<=0&&validarId>3){
+     if(validarId<=0||validarId>3){
         res.status(400).send("Datos invalidos, ingresaste un id que no existe");
      }
      else {
