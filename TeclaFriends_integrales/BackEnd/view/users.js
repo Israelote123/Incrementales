@@ -1,7 +1,7 @@
 const userController = require('../controller/users')
-
+const validate = require("../middlewares/midd.user")
 module.exports = (app) => {
-    app.get('/login', async (req,res)=>{
+    app.get('/login',validate.chkLogin, async (req,res)=>{
         let book = req.body
         let result = await userController.accessLogin(book);
         res.json("Bienvenido "+result[0][0].name)
