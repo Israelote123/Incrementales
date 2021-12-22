@@ -1,8 +1,7 @@
 const express = require("express")
 let app = express();
 require("dotenv").config()
-const registerView = require('./view/register')
-const loginViews = require('./view/login')
+const userView = require('./view/users')
 
 const sequelize = require('./db/conexion.js')
 
@@ -26,5 +25,4 @@ async function serverStart(){
 serverStart()
 
 //Routes
-registerView(app)
-loginViews(app);
+userView(app)
