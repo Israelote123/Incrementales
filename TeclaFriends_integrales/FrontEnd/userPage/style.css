@@ -28,7 +28,7 @@
     margin:0%;
 }
 
-h1.titulo {
+#titulo {
     font-family: "Grandista";
 }
 
@@ -53,89 +53,23 @@ main{
     margin-top: 100px;
 }
 
-/*Formulario*/
-.register{
-    width: 1330px;
-}
-
-form {
-    margin: 0 auto;
-    padding: 2em;
-    border: 1px solid #CCC;
-    border-radius: 1em;
-    background-color: rgb(255, 255, 255);
-}
-
-#profilePhoto, .textProfilePhoto{
-    display: block;
-    margin: auto;
-    text-align: center;
-}
-  
-label {
-    text-align: right;
-}
-
-#abilities{
-    display: block;
-    margin: auto;
-
-}
-
-#textAbilities{
-    display: block;
-    margin: auto;
-    text-align: center;
-    padding-top: 0.5333333333333333em;
-}
-
 input::placeholder {
     font-family: 'Patrick Hand', cursive;
   }
 
-.personalizacion {
-    display:inline;
-    font: 1em sans-serif;
-    width: 20em;
-    height: 20px;
-    box-sizing: border-box;
-    border: 1px solid #999;
-    vertical-align: top;
-    border-radius: 1.3333333333333333em;
-    font-family: 'Balsamiq Sans', cursive;
-}
- 
-.personalizacionArea{
-    vertical-align: top;
-    height: 3.3333333333333335em;
-    width: 20em;
-    border: 1px solid #999;
-    border-radius: 1.3333333333333333em;
-    font-family: 'Balsamiq Sans', cursive;
-}
-
-.personalizacion:focus, .personalizacionArea:focus{
-    animation-name: clickOn;
-    animation-duration: 1s;
-    background-color: lightgrey;
-    border: 1px solid black;
-}
-
-#boton_r{
+button{
     height: 2em;
-    border-radius: 20px;
-    width: 150px;
+    border-radius: 1.3333333333333333em;
     border-style: outset;
     border-color: lightgrey;
     background-color: white;
     text-align: center;
     font-weight: bold;
-    color: black;
     display: block;
     margin: auto;
 }
 
-#boton_r:hover{
+button:hover{
     cursor: pointer;
     border-style: outset;
     background-color: rgb(192, 187, 187);
@@ -145,7 +79,7 @@ input::placeholder {
     margin: auto;
 }
 
-#boton_r:active{
+button:active{
     border-style: inset;
     border-color: rgb(112, 112, 112);
     background-color: grey;
@@ -153,17 +87,6 @@ input::placeholder {
     font-weight: normal;
     display: block;
     margin: auto;
-}
-
-.point-radius:hover{
-    cursor:pointer;
-}
-
-#work, #work_2{
-    width: 10em;
-}
-#birth{
-    width: 13.333333333333334em;
 }
 
 /*Pie de pagina*/
@@ -179,32 +102,19 @@ input::placeholder {
     .register{
         width: 712px;
     }
-
-    .personalizacion, .personalizacionArea {
-        width: 100%;
-    }
 }
 
-@media screen and (max-width: 580px) {
-    .register{
-        width: 100%;
+@media screen and (max-width: 766px) {
+    nav{
+        height: 80px;
     }
-
-    .personalizacion, .personalizacionArea {
-        width: 100%;
+    #hamburguesa{
+        height: 40px;
+        width: 56px;
+        position: absolute;
+        right: 5%;
     }
-
-    #birth{
-        width: 100%;
-    }
-
-    #boton_r{
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 253px){
-    #work, #work_2{
+    button{
         width: 100%;
     }
 }
