@@ -2,7 +2,6 @@ const express = require("express")
 let app = express();
 require("dotenv").config()
 const userView = require('./view/users')
-
 const sequelize = require('./db/conexion.js')
 
 app.use(express.json());

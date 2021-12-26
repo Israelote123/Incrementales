@@ -1,11 +1,12 @@
 const userController = require('../controller/users')
-
+const validate=require('../middlewares/midd.user')
 module.exports = (app) => {
-    app.get('/login', async (req,res)=>{
+   
+    app.get('/login', validate.chkLogin,async (req,res)=>{
         let login = req.body
         let result = await userController.accessLogin(login);
-        res.json("Bienvenido "+result[0][0].name)
-        //res.json(result)
+        //res.json("Bienvenido "+result[0][0].name)
+        res.json(result)
     })
 
     app.get('/aleatorio', async (req, res) => {
@@ -14,7 +15,7 @@ module.exports = (app) => {
         res.json(result)
     })
 
-    app.post('/register', async (req, res) => {
+    app.post('/register', validate.chkRegister,async (req, res) => {
         let register = req.body
         console.log(register)
         let result = await userController.addRegister(register)
