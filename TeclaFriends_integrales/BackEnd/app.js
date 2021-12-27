@@ -1,10 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 let app = express();
+<<<<<<< HEAD
 require("dotenv").config();
 const userView = require("./view/users");
 
 const sequelize = require("./db/conexion.js");
+=======
+require("dotenv").config()
+const userView = require('./view/users')
+const sequelize = require('./db/conexion.js')
+>>>>>>> 81978fcc55b61602df0e5cd657d8958362a4d309
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

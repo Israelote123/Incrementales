@@ -11,6 +11,6 @@ module.exports.aleatoryTecler = async (tecler) => {
 }
 
 module.exports.addRegister = async (register) => {
-    await userModel.add(register)
-    return "userAdded"
+    let result=await userModel.add(register)
+    return result;
 }
