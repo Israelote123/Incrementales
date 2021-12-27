@@ -1,17 +1,11 @@
 const userController = require('../controller/users')
 
 module.exports = (app) => {
-    app.get('/login', async (req,res)=>{
+    app.post('/login', async (req,res)=>{
         let login = req.body
         let result = await userController.accessLogin(login);
-        res.json("Bienvenido "+result[0][0].name)
-        //res.json(result)
-    })
-
-    app.get('/aleatorio', async (req, res) => {
-        let tecler = req.body
-        let result = await userController.aleatoryTecler(tecler);
-        res.json(result)
+        //res.json("Bienvenido "+result[0][0].name)
+        res.status(200).send(JSON.stringify(result))
     })
 
     app.post('/register', async (req, res) => {

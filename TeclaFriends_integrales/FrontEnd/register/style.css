@@ -76,13 +76,13 @@ label {
     text-align: right;
 }
 
-#abilities{
+#hobbies{
     display: block;
     margin: auto;
 
 }
 
-#textAbilities{
+#textHobbies{
     display: block;
     margin: auto;
     text-align: center;
@@ -159,9 +159,6 @@ input::placeholder {
     cursor:pointer;
 }
 
-#work, #work_2{
-    width: 10em;
-}
 #birth{
     width: 13.333333333333334em;
 }
@@ -199,12 +196,6 @@ input::placeholder {
     }
 
     #boton_r{
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 253px){
-    #work, #work_2{
         width: 100%;
     }
 }
