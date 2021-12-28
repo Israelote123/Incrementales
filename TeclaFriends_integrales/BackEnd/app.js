@@ -25,6 +25,5 @@ async function serverStart() {
 }
 
 serverStart();
-
 //Routes
 userView(app);

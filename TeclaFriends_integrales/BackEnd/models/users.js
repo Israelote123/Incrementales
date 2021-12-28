@@ -10,30 +10,33 @@ module.exports.login = async (login)=> {
         const result2=await sequelize.query(`SELECT password FROM register WHERE password=MD5('${login.password}')`);
         if(result2[0]!=false)
         {
+            
             return sequelize.query(`SELECT name FROM register WHERE mail='${login.mail}' AND password=MD5('${login.password}') `); 
+            
+            
         }
         else{
            
-           return "Error: Contaseña erronea";
+           return "Contraseña erronea";
         }       
      }
      else{
       
-         return "error: usuario no encontrado";
+         return "Usuario no encontrado";
 
      }
 };
-
-
-
-
-
 
 module.exports.aleatory = async (login)=> {
     let result = await sequelize.query(`SELECT * FROM register ORDER BY rand() LIMIT 1`);
     
     return result;
 };
+
+module.exports.datos = async (data) => {
+    let result = await sequelize.query(`SELECT * FROM register where mail='${data}'`)
+    return result
+}
 
 module.exports.add = async(register) => {
     const comparacion= await sequelize.query(`SELECT mail FROM register WHERE mail='${register.mail}'`);       

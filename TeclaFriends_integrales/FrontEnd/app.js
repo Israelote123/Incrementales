@@ -2,14 +2,19 @@ var url = "http://localhost:3000/login";
 var data;
 let resultado;
 
+
 let obtainData = () => {
   data = {
     mail: document.querySelector('[name="user_mail"]').value,
     password: document.querySelector('[name="user_password"]').value,
   };
-
+  let variable=document.querySelector('[name="user_mail"]').value;
+localStorage.setItem("variable",variable);
+console.log(variable);
   return data;
 };
+
+
 
 let inicioSesion = () => {
   fetch(url, {
@@ -24,8 +29,19 @@ let inicioSesion = () => {
       resultado = json;
     })
     .then(() => {
-      console.log("Success:", resultado);
-      console.log(`inicio de sesión exitoso, bienvenido ${resultado[0][0].name}`)
+      if (resultado=="Contraseña erronea"||resultado=="Usuario no encontrado") {
+        alert(resultado);
+      }
+     else {
+        console.log("Success:", resultado);
+        console.log(`inicio de sesión exitoso, bienvenido ${resultado[0][0].name}`)
+        location.href = './chismeTecla/index.html';
+      }
+      
     })
     .catch(error => console.error("Error:", error))
 };
+
+
+//localStorage.setItem("variable",variable);
+

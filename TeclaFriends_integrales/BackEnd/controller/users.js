@@ -10,6 +10,11 @@ module.exports.aleatoryTecler = async (tecler) => {
     return result
 }
 
+module.exports.getDatos = async (data)=>{
+    let result = await userModel.datos(data)
+    return result
+}
+
 module.exports.addRegister = async (register) => {
     let result=await userModel.add(register)
     return result;

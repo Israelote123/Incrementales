@@ -29,13 +29,24 @@ let envioDatos = () => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => {
-      res.json();
-      console.log(res);
+    .then((res) => res.json())
+    .then(json => {
+      resultado = json;
     })
-    .catch((error) => console.error("Error:", error))
-    .then((response) => {
-      console.log("Success:", response);
-      location.href = "../index.html";
+    
+    .then(() => {
+      if(resultado=="userAdded")
+      {
+        console.log("Success:", resultado);
+        alert("User Added")
+        location.href = "../index.html"
+      }
+      else{
+        alert(resultado.error);
+        console.log("error: ",resultado.error);
+      }
+    
     });
+   
+    //.catch (error => console.error("Error:", error))
 };

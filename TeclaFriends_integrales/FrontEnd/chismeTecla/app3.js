@@ -3,12 +3,14 @@ let resultado;
 let imagen;
 var para=[];
 var comparacion;
-
+let variable=localStorage.getItem("variable");
+console.log(variable);
+console.log("hola")
 function getMemes(i) {
     fetch(url2)
         .then(response => response.json())
         .then(json => {
-            console.log(json);
+          
             resultado = json;
         })
 
