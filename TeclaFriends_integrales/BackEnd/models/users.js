@@ -2,8 +2,7 @@ const sequelize = require('../db/conexion')
 
 
 module.exports.login = async (login)=> {
-     //let result = await sequelize.query(`SELECT name FROM register WHERE mail='${login.mail}' AND password=MD5('${login.password}') `);
-     //return result;
+    
     const result1= await sequelize.query(`SELECT mail FROM register WHERE mail='${login.mail}'`);
     if(result1[0]!=false)
      {
@@ -12,8 +11,6 @@ module.exports.login = async (login)=> {
         {
             
             return sequelize.query(`SELECT name FROM register WHERE mail='${login.mail}' AND password=MD5('${login.password}') `); 
-            
-            
         }
         else{
            
@@ -27,11 +24,7 @@ module.exports.login = async (login)=> {
      }
 };
 
-module.exports.aleatory = async (login)=> {
-    let result = await sequelize.query(`SELECT * FROM register ORDER BY rand() LIMIT 1`);
-    
-    return result;
-};
+
 
 module.exports.datos = async (data) => {
     let result = await sequelize.query(`SELECT * FROM register where mail='${data}'`)

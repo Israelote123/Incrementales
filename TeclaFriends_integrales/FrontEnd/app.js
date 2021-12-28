@@ -9,8 +9,7 @@ let obtainData = () => {
     password: document.querySelector('[name="user_password"]').value,
   };
   let variable=document.querySelector('[name="user_mail"]').value;
-localStorage.setItem("variable",variable);
-console.log(variable);
+  localStorage.setItem("variable",variable);
   return data;
 };
 

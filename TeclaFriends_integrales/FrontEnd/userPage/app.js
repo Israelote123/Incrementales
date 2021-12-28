@@ -1,4 +1,5 @@
 let variable=localStorage.getItem("variable");
+
 console.log(variable);
 
 var url = `http://localhost:3000/${variable}`;

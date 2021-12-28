@@ -3,13 +3,13 @@ const Joi = require('joi')
 module.exports = {
     modelLogin : Joi.object().keys({
         //user: Joi.string().alphanum().min(6).max(16).required(),
-        password: Joi.string().regex(/^[a-zA-Z0-9]{5,16}$/).required(),
+        password: Joi.string().regex(/^[a-zA-Z0-9]{8,16}$/).required(),
         mail: Joi.string().email().required(),
     }).with('password','mail'),
 
     modelRegister : Joi.object().keys({
         mail: Joi.string().email().required(),
-        password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).required(),
+        password: Joi.string().regex(/^[a-zA-Z0-9]{8,16}$/).required(),
         name:Joi.string().required(),
         middle_name: Joi.string().required(),
         last_name: Joi.string().required(),

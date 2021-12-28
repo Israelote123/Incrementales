@@ -10,11 +10,7 @@ module.exports = (app) => {
         res.status(200).send(JSON.stringify(result))
     })
 
-    app.get('/aleatorio', async (req, res) => {
-        let tecler = req.body
-        let result = await userController.aleatoryTecler(tecler);
-        res.json(result)
-    })
+   
      //obtener datos
     app.get('/:mail', async (req, res)=>{
         let data=req.params.mail;

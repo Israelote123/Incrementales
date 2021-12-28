@@ -5,10 +5,7 @@ module.exports.accessLogin = async (login)=>{
     return result
 }
 
-module.exports.aleatoryTecler = async (tecler) => {
-    let result = await userModel.aleatory(tecler)
-    return result
-}
+
 
 module.exports.getDatos = async (data)=>{
     let result = await userModel.datos(data)
