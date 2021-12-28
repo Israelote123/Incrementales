@@ -24,8 +24,6 @@ module.exports.login = async (login)=> {
      }
 };
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -37,7 +35,6 @@ module.exports.aleatory = async (login)=> {
     return result;
 };
 
->>>>>>> 81978fcc55b61602df0e5cd657d8958362a4d309
 module.exports.add = async(register) => {
     const comparacion= await sequelize.query(`SELECT mail FROM register WHERE mail='${register.mail}'`);       
     if(comparacion[0]==false)
