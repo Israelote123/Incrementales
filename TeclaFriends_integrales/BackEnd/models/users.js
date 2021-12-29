@@ -39,7 +39,7 @@ module.exports.add = async(register) => {
          return "userAdded";
     }
     else{
-        return "Error: El email ya esta registrado ";
+        return {"error": "El email ya esta registrado"} ;
     }
    
 }

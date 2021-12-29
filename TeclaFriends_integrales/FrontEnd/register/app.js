@@ -44,9 +44,8 @@ let envioDatos = () => {
       else{
         alert(resultado.error);
         console.log("error: ",resultado.error);
+        console.log(resultado);
       }
     
-    });
-   
-    //.catch (error => console.error("Error:", error))
+    }).catch (error => console.error("Error:", error))
 };
