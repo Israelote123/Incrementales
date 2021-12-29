@@ -22,7 +22,7 @@ function getMemes(i) {
                 att.value = "democlass";                           // Set the value of the class attribute
                 para[i] = document.createElement('div');
                 para[i].setAttributeNode(att); 
-                para[i].innerHTML = '<br>'+'<img class="meme" src="' + resultado.url + '" alt="foto">' + '<br>';
+                para[i].innerHTML = `<br> <img class="meme" src='${resultado.url}' alt="foto">  <br>`;
                 document.body.appendChild(para[i]); 
             }
          })
