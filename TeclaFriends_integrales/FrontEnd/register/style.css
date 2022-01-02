@@ -66,6 +66,15 @@ form {
     background-color: rgb(255, 255, 255);
 }
 
+#userPhoto{
+    display: block;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
 #profilePhoto, .textProfilePhoto{
     display: block;
     margin: auto;
