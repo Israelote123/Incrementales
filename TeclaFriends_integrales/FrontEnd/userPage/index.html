@@ -40,12 +40,24 @@
                 <a class="nav-link active" aria-current="page" href="./index.html">Perfil</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
+            <!--empieza barra de busqueda-->
+
+          <!--entrada de texto-->
+          <form class="ctn-bars-search d-flex">
+            <input class="form-control me-2" id="inputSearch" type="search" placeholder="Buscar" aria-label="Search">
+            <i class="fas fa-search" id="icon-search"></i>
+          </form>
+
+          <!--icono-->
+          <div id="ctn-icon-search">
+          </div>
+          <!--contenedor de coincidencias-->
+          <div id="caja">
+          </div>
+          <!--termina barra de busqueda-->
           </div>
         </div>
+      </div>
       </nav>
       <main>
       <div id="profile"></div>

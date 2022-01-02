@@ -12,6 +12,11 @@ module.exports.getDatos = async (data)=>{
     return result
 }
 
+module.exports.getBusqueda = async (busqueda)=>{
+    let result = await userModel.busqueda(busqueda)
+    return result
+}
+
 module.exports.addRegister = async (register) => {
     let result=await userModel.add(register)
     return result;

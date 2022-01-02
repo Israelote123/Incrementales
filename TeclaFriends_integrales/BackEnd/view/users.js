@@ -2,7 +2,7 @@ const userController = require('../controller/users')
 const validate=require('../middlewares/midd.user')
 module.exports = (app) => {
    
-    //iniciar secion
+    //iniciar sesion
     app.post('/login', async (req,res)=>{
         let login = req.body
         let result = await userController.accessLogin(login);
@@ -11,10 +11,17 @@ module.exports = (app) => {
     })
 
    
-     //obtener datos
+     //obtener datos con mail
     app.get('/:mail', async (req, res)=>{
         let data=req.params.mail;
         let result = await userController.getDatos(data)
+        res.json(result)
+    })
+
+    //funcion busqueda
+    app.get('/busqueda/:entrada', async (req, res)=>{
+        let consulta=req.params.entrada;
+        let result = await userController.getBusqueda(consulta)
         res.json(result)
     })
     

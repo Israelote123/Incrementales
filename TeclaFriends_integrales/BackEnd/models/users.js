@@ -24,10 +24,13 @@ module.exports.login = async (login)=> {
      }
 };
 
-
-
 module.exports.datos = async (data) => {
     let result = await sequelize.query(`SELECT * FROM register where mail='${data}'`)
+    return result
+}
+
+module.exports.busqueda = async (busqueda) => {
+    let result = await sequelize.query(`SELECT * FROM register where name LIKE '%${busqueda}%'`)
     return result
 }
 

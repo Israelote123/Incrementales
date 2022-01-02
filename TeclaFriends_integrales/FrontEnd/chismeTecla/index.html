@@ -15,18 +15,17 @@
 <body>
   <nav id="barraNav" class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="titulo" href="#"><img class="logo"
-          src="../img/logo tecla.jpg" alt="Logo" class="d-inline-block align-text-center">TeclaFriends</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#navbarOffcanvasMd" aria-controls="navbarOffcanvasMd"  id="hamburguesa">
+      <a class="navbar-brand" id="titulo" href="#"><img class="logo" src="../img/logo tecla.jpg" alt="Logo"
+          class="d-inline-block align-text-center">TeclaFriends</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasMd"
+        aria-controls="navbarOffcanvasMd" id="hamburguesa">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasMd"
         aria-labelledby="navbarOffcanvasMdLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">TeclaFriends</h5>
-          <button type="button" class="btn-close text-reset"
-            data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -40,33 +39,33 @@
               <a class="nav-link fuente" href="../userPage/index.html">Perfil</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success fuente" type="submit">Buscar</button>
+          <!--empieza barra de busqueda-->
+
+          <!--entrada de texto-->
+          <form class="ctn-bars-search d-flex">
+            <input class="form-control me-2" id="inputSearch" type="search" placeholder="Buscar" aria-label="Search">
+            <i class="fas fa-search" id="icon-search"></i>
           </form>
+
+          <!--icono-->
+          <div id="ctn-icon-search">
+          </div>
+          <!--contenedor de coincidencias-->
+          <div id="caja">
+          </div>
+          <!--termina barra de busqueda-->
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
   <main>
-   <div >
-    
-    <!-- -->
+    <div>
 
-    <!--<script src="./app.js"></script>-->
-    <!--plantillaas de Memes en orden-->
-    <!--<script src="./app2.js"></script>-->
-    <!--chistes-->
 
-    <!--<script src="./app3.js"></script>-->
-    <!--Memes random pero se repiten-->
-    <!--<script src="./app4.js"></script>-->
-    <!--Memes random pero muy pocos-->
-    <!--<script src="./app5.js"></script>-->
-    <!--perros con datos curiosos-->
-    <h1>ChismeTecla</h1>
-   
-   </div>
-   <script  src="./app3.js"></script> 
+      <h1>ChismeTecla</h1>
+
+    </div>
+    <script src="./app3.js"></script>
   </main>
   <footer>
     <p class="pie_de_pagina">Pagina creada por Israel y Antonio</p>

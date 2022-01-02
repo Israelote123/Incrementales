@@ -60,7 +60,6 @@ div.f{
 }
 .perfil {
     width: 40%;
-    
 }
    
 
@@ -81,15 +80,7 @@ button{
     margin: auto;
 }
 
-button:hover{
-    cursor: pointer;
-    border-style: outset;
-    background-color: rgb(192, 187, 187);
-    text-align: center;
-    font-weight: bold;
-    display: block;
-    margin: auto;
-}
+
 
 button:active{
     border-style: inset;
@@ -108,7 +99,46 @@ button:active{
     color: rgb(116, 116, 116);
 }
 
-/*responsive*/
+/*busqueda*/
+ul{
+    list-style:none
+    
+   
+}
+li{
+    align-content: flex-start;
+}
+a{
+    color:black;
+    text-decoration:none 
+
+}
+#caja ul li:hover{
+    background-color:lightgray;
+}
+
+#caja{
+    position: fixed;
+    top: 10%;
+    left: 70%;
+    margin:0%;
+    padding:0ch;
+    width: 22%;
+    background-color:white;
+    z-index: 8;
+       
+}
+#icon-search:hover{
+    cursor: pointer;
+    color: blue;
+}
+
+#icon-search{
+    margin-top: 5%;
+}
+
+
+
 
 @media screen and (max-width: 1400px) {
     .register{
