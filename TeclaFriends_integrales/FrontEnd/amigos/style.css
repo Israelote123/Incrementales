@@ -43,10 +43,14 @@
 
 /*Cuerpo*/
 body { 
-    background-color: rgba(230, 230, 230, 0.712); 
+    /*background-color: rgba(105, 66, 66, 0.712);*/
     margin: 0;
     font-family: 'Patrick Hand', cursive;
     font-size: 18px;
+    background-image: url(../img/R.jpg);
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 main{
@@ -58,11 +62,13 @@ div.f{
     border-color: lightgrey;
     width: 30%;
 }
-.perfil {
+#perfil {
     width: 40%;
 }
-   
 
+.backColor{
+    background-color: rgb(255, 255, 255);
+}
 
 input::placeholder {
     font-family: 'Patrick Hand', cursive;

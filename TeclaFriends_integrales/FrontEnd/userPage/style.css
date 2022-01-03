@@ -78,11 +78,15 @@ button:active {
 }
 
 /*Cuerpo*/
-body {
-  background-color: rgba(230, 230, 230, 0.712);
+body { 
+  /*background-color: rgba(105, 66, 66, 0.712);*/
   margin: 0;
-  font-family: "Patrick Hand", cursive;
+  font-family: 'Patrick Hand', cursive;
   font-size: 18px;
+  background-image: url(../img/R.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 main {

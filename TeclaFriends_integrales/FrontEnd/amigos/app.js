@@ -6,7 +6,7 @@ function getFriends(i) {
             resultado = json;
         })
         .then(() => {
-            document.getElementById(`amigo${i}`).innerHTML = `<img class="perfil" src='${resultado.results[0].picture.large}' alt="foto"> ${resultado.results[0].name.first} ,  ${resultado.results[0].location.country}`;
+            document.getElementById(`amigo${i}`).innerHTML = `<div class="backColor"><img id="perfil" src='${resultado.results[0].picture.large}' alt="foto"> ${resultado.results[0].name.first} ,  ${resultado.results[0].location.country}</div>`;
 
         })
         .catch(error => {
