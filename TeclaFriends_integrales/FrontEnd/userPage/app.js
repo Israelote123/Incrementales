@@ -18,8 +18,8 @@ function getData() {
                            <div class="infoUser"> Direccion: ${resultado[0][0].country}, ${resultado[0][0].city}</div>
                            <div class="infoUser"> Lenguajes dominados: ${resultado[0][0].lenguages}</div>
                            <div class="infoUser"> LinkedIn: <a href="${resultado[0][0].linkedIn}"  id="linkedIn">${resultado[0][0].linkedIn}</a></div>
-                           <div class="infoUser"> Hobbies: ${resultado[0][0].hobbies}</div>
-                           <div class="infoUser"> Contacto: ${resultado[0][0].mail}</div></div>`
+                           <div class="infoUser"> Contacto: ${resultado[0][0].mail}</div>
+                           <div class="infoUser"> Hobbies: ${resultado[0][0].hobbies}</div></div>`
     })
     .catch((error) => {
       console.error("Error al solicitar los datos");

@@ -167,6 +167,10 @@ a{
     margin-top: 5%;
 }
 
+.infoUser:last-child{
+  font-style: italic;
+}
+
 /*responsive*/
 
 @media screen and (max-width: 1400px) {
