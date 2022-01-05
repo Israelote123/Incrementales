@@ -1,12 +1,14 @@
 
 h1{
     color:turquoise;
+   
 }
 .meme {
     height: 90%;
     width: 90%;
   
 }
+
 .democlass{
     width: 30%;
     margin:auto;
@@ -49,8 +51,9 @@ h1{
     font-family: "Grandista";
 }
 
+
 #barraNav{
-    position: fixed;
+    position: sticky;
     top: 0;
     background-color: turquoise;
     padding: 10px;
@@ -193,4 +196,10 @@ a{
     button{
         width: 100%;
     }
+}
+#chat{
+    height: 40px;
+    width: 56px;
+    position: absolute;
+    right: 5%;
 }

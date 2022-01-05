@@ -33,7 +33,7 @@
 }
 
 #barraNav {
-  position: fixed;
+  position: sticky;
   top: 0;
   background-color: turquoise;
   padding: 10px;

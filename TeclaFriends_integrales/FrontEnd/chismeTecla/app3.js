@@ -42,11 +42,14 @@ document.getElementById("icon-search").addEventListener("click", busqueda)
 document.getElementById("inputSearch").addEventListener("click", limpiar)
 document.getElementById("principal").addEventListener("click", limpiar)
 document.getElementById("cuerpo_barra").addEventListener("click", limpiar)
+document.getElementById("cuerpo_barra").addEventListener("click", limpiar)
+
 
 function limpiar(){
     
 document.getElementById('caja').innerHTML="";
 }
+
 function busqueda() {
     let mylista="";
     let variable = document.getElementById("inputSearch").value;
@@ -84,4 +87,6 @@ function enviar_variable(dato)
     localStorage.setItem("variable2",dato);
     console.log(dato);
 }
+
+
 
