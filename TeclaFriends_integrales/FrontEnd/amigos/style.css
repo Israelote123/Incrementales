@@ -33,12 +33,15 @@
 }
 
 #barraNav{
+    position: fixed;
+    top: 0;
     background-color: turquoise;
     padding: 10px;
     margin: 0;
     padding-left: 0;
     margin-left: 0;
     border: turquoise;
+    width: 100%;
 }
 
 /*Cuerpo*/
