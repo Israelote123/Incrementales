@@ -171,6 +171,16 @@ a{
   font-style: italic;
 }
 
+.fixed
+{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    font-size:xx-large;
+    color: aqua;
+
+}
+
 /*responsive*/
 
 @media screen and (max-width: 1400px) {
