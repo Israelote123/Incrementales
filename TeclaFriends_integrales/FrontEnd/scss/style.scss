@@ -1,3 +1,5 @@
+$navColor: turquoise;
+
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap");
 
 @font-face {
@@ -21,13 +23,13 @@
 }
 
 .barraNav {
-  background-color: turquoise;
+  background-color: $navColor;
   width: 100;
   padding: 10px;
   margin: 0;
   padding-left: 0;
   margin-left: 0;
-  border: turquoise;
+  border: $navColor;
 }
 
 .logo {
@@ -73,13 +75,13 @@ label {
   vertical-align: top;
   border-radius: 20px;
   font-family: "Balsamiq Sans", cursive;
-}
 
-.text:focus {
-  animation-name: clickOn;
-  animation-duration: 1s;
-  background-color: lightgrey;
-  border: 1px solid black;
+  &:focus {
+    animation-name: clickOn;
+    animation-duration: 1s;
+    background-color: lightgrey;
+    border: 1px solid black;
+  }
 }
 
 input::placeholder {
@@ -98,24 +100,24 @@ input::placeholder {
   color: black;
   display: block;
   margin: auto;
-}
 
-#style-button:hover {
-  cursor: pointer;
-  border-style: outset;
-  background-color: rgb(192, 187, 187);
-  text-align: center;
-  font-weight: bold;
-  margin: auto;
-}
+  &:hover {
+    cursor: pointer;
+    border-style: outset;
+    background-color: rgb(192, 187, 187);
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+  }
 
-#style-button:active {
-  border-style: inset;
-  border-color: rgb(112, 112, 112);
-  background-color: grey;
-  text-align: center;
-  font-weight: normal;
-  margin: auto;
+  &:active {
+    border-style: inset;
+    border-color: rgb(112, 112, 112);
+    background-color: grey;
+    text-align: center;
+    font-weight: normal;
+    margin: auto;
+  }
 }
 
 #style-button3 {
@@ -130,24 +132,24 @@ input::placeholder {
   color: black;
   display: block;
   margin: auto;
-}
 
-#style-button3:hover {
-  cursor: pointer;
-  border-style: outset;
-  background-color: rgb(192, 187, 187);
-  text-align: center;
-  font-weight: bold;
-  margin: auto;
-}
+  &:hover {
+    cursor: pointer;
+    border-style: outset;
+    background-color: rgb(192, 187, 187);
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+  }
 
-#style-button3:active {
-  border-style: inset;
-  border-color: rgb(112, 112, 112);
-  background-color: grey;
-  text-align: center;
-  font-weight: normal;
-  margin: auto;
+  &:active {
+    border-style: inset;
+    border-color: rgb(112, 112, 112);
+    background-color: grey;
+    text-align: center;
+    font-weight: normal;
+    margin: auto;
+  }
 }
 
 #style-button2 {
@@ -162,33 +164,29 @@ input::placeholder {
   color: black;
   display: block;
   margin: auto;
-}
 
-#style-button2:hover {
-  cursor: pointer;
-  border-style: outset;
-  background-color: rgb(192, 187, 187);
-  text-align: center;
-  font-weight: bold;
-  margin: auto;
-}
+  &:hover {
+    cursor: pointer;
+    border-style: outset;
+    background-color: rgb(192, 187, 187);
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+  }
 
-#style-button2:active {
-  border-style: inset;
-  border-color: rgb(112, 112, 112);
-  background-color: grey;
-  text-align: center;
-  font-weight: normal;
-  margin: auto;
+  &:active {
+    border-style: inset;
+    border-color: rgb(112, 112, 112);
+    background-color: grey;
+    text-align: center;
+    font-weight: normal;
+    margin: auto;
+  }
 }
 
 .pie_de_pagina {
   text-align: center;
   color: rgb(116, 116, 116);
-}
-
-nav {
-  background-color: aquamarine;
 }
 
 @media only screen and (max-width: 380px) {
