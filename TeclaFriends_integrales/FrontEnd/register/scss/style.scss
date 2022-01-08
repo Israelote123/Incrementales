@@ -1,3 +1,6 @@
+$navColor: turquoise;
+$backColor: rgba(230, 230, 230, 0.712);
+
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap');
 
 @font-face {
@@ -33,17 +36,17 @@ h1.titulo {
 }
 
 #barraNav{
-    background-color: turquoise;
+    background-color: $navColor;
     padding: 10px;
     margin: 0;
     padding-left: 0;
     margin-left: 0;
-    border: turquoise;
+    border: $navColor;
 }
 
 /*Cuerpo*/
 body { 
-    background-color: rgba(230, 230, 230, 0.712); 
+    background-color: $backColor; 
     margin: 0;
     font-family: 'Patrick Hand', cursive;
     font-size: 18px;
@@ -108,26 +111,33 @@ input::placeholder {
     width: 20em;
     height: 20px;
     box-sizing: border-box;
-    border: 1px solid #999;
+    border: 1px solid $backColor;
     vertical-align: top;
     border-radius: 1.3333333333333333em;
     font-family: 'Balsamiq Sans', cursive;
+
+    &:focus{
+      animation-name: clickOn;
+      animation-duration: 1s;
+      background-color: lightgrey;
+      border: 1px solid black;
+  }
 }
  
 .personalizacionArea{
     vertical-align: top;
     height: 3.3333333333333335em;
     width: 20em;
-    border: 1px solid #999;
+    border: 1px solid $backColor;
     border-radius: 1.3333333333333333em;
     font-family: 'Balsamiq Sans', cursive;
-}
 
-.personalizacion:focus, .personalizacionArea:focus{
-    animation-name: clickOn;
-    animation-duration: 1s;
-    background-color: lightgrey;
-    border: 1px solid black;
+    &:focus{
+      animation-name: clickOn;
+      animation-duration: 1s;
+      background-color: lightgrey;
+      border: 1px solid black;
+  }
 }
 
 #boton_r{
@@ -142,30 +152,26 @@ input::placeholder {
     color: black;
     display: block;
     margin: auto;
-}
 
-#boton_r:hover{
-    cursor: pointer;
-    border-style: outset;
-    background-color: rgb(192, 187, 187);
-    text-align: center;
-    font-weight: bold;
-    display: block;
-    margin: auto;
-}
+    &:hover{
+      cursor: pointer;
+      border-style: outset;
+      background-color: rgb(192, 187, 187);
+      text-align: center;
+      font-weight: bold;
+      display: block;
+      margin: auto;
+  }
 
-#boton_r:active{
-    border-style: inset;
-    border-color: rgb(112, 112, 112);
-    background-color: grey;
-    text-align: center;
-    font-weight: normal;
-    display: block;
-    margin: auto;
-}
-
-.point-radius:hover{
-    cursor:pointer;
+    &:active{
+      border-style: inset;
+      border-color: rgb(112, 112, 112);
+      background-color: grey;
+      text-align: center;
+      font-weight: normal;
+      display: block;
+      margin: auto;
+  }
 }
 
 #birth{
@@ -186,17 +192,16 @@ input::placeholder {
         width: 712px;
     }
 
-    .personalizacion, .personalizacionArea {
+    .personalizacion{
         width: 100%;
+        &Area {
+          width: 100%;
+      }
     }
 }
 
 @media screen and (max-width: 580px) {
     .register{
-        width: 100%;
-    }
-
-    .personalizacion, .personalizacionArea {
         width: 100%;
     }
 
