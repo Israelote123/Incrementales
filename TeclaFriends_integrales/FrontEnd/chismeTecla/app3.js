@@ -16,12 +16,10 @@ function bienvenida() {
         .then(json => {
             console.log(json);
             result = json;
-           
-            
-        })
+         })
         .then(() => {
-          welcome=result[0][0].name; 
-          document.getElementById("bienvenida").innerHTML =`Welcome ${welcome}`;
+            document.getElementById('sesion').innerHTML =`<img src='${result[0][0].profile_photo}'  class="perfil" alt="..."></img>`;
+               
         })
         .catch(error => {
             console.error("Error al solicitar los datos")
