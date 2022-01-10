@@ -5,6 +5,31 @@ var para=[];
 var comparacion;
 let variable=localStorage.getItem("variable");
 
+var welcome;
+bienvenida();
+
+function bienvenida() {
+    let result;
+    console.log(variable);
+    fetch(`http://localhost:3000/${variable}`)
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+            result = json;
+           
+            
+        })
+        .then(() => {
+          welcome=result[0][0].name; 
+          document.getElementById("bienvenida").innerHTML =`Welcome ${welcome}`;
+        })
+        .catch(error => {
+            console.error("Error al solicitar los datos")
+            alert('Conexion fallida ;-; unu :c');//document.getElementById("profile").innerHTML = 'Conexion fallida ;-; unu :c';
+        })
+}
+
+
 function getMemes(i) {
     fetch(url2)
         .then(response => response.json())
@@ -46,14 +71,13 @@ document.getElementById("cuerpo_barra").addEventListener("click", limpiar)
 
 
 function limpiar(){
-    
-document.getElementById('caja').innerHTML="";
+    document.getElementById('caja').innerHTML="";
 }
 
 function busqueda() {
     let mylista="";
     let variable = document.getElementById("inputSearch").value;
-    var url = `http://localhost:3000/busqueda/${variable}`;
+    let url = `http://localhost:3000/busqueda/${variable}`;
 
     fetch(url)
         .then(response => response.json())

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymus"></script>
+</head>
+
+<body>
+    <nav id="barraNav" class="navbar navbar-expand-md navbar-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="titulo" href="#"><img class="logo" src="../img/logo tecla.jpg" alt="Logo"
+                    class="d-inline-block align-text-center">TeclaFriends</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasMd"
+                aria-controls="navbarOffcanvasMd" id="hamburguesa">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasMd"
+                aria-labelledby="navbarOffcanvasMdLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">TeclaFriends</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div id="cuerpo_barra" class="   offcanvas-body">
+                    <ul class="d-inline-flex p-2 bd-highlight navbar-nav me-auto mb-2 mb-lg-0">
+                        <li  class="nav-item">
+                            <a  class="nav-link" href="../chismeTecla/index.html">ChismeTecla</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="../amigos/index.html">Amigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="../userPage/index.html">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link active" aria-current="page" href="./index.html">Agregar amigos</a>
+                        </li>
+                    </ul>
+
+                    <!--imagen de sesion iniciado-->
+                    <div id="sesion">
+
+                    </div>
+                    <!--empieza barra de busqueda-->
+                    <div class="d-flex justify-content-between align-content-center flex-wrap">
+                        <input class="form-control me-2" id="inputSearch" type="search" placeholder="Buscar"
+                            aria-label="Search" style="width: 60%;">
+                        <i class="icon-nav fas fa-search fa-lg" id="icon-search"></i>
+                        <i class="icon-nav fas fa-bell fa-lg"></i>
+                        <i class="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>
+                    </div>
+
+                    <!--contenedor de coincidencias-->
+                    <div id="caja">
+                    </div>
+                    <!--termina barra de busqueda-->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="principal">
+        <!--Icono de mensaje y funcionalidad-->
+        <a class="fixed " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            <div class="circle-icons blue-back">
+                <i class=" far fa-comment-dots fa-4x"></i>
+            </div>
+        </a>
+
+        <!--contenedor mensajes-->
+        <div class="collapse text_m" id="collapseExample">
+            <div style="background-color: black;" class="card card-body">
+                <form class="ctn-bars-search d-flex">
+                    <input style="width: 90%; " class="form-control me-2" id="inputMessage" type="search"
+                        placeholder="Buscar" aria-label="Search">
+                    <i class="fas fa-search fa-lg" id="icon-message"></i>
+                </form>
+                <div id="message-container">
+                </div>
+            </div>
+        </div>
+
+        <!--barra lateral-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class=" nave card" style="width:100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">New feeds</h5>
+                            <ul class="list-group">
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapsePlay" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-headphones-alt"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Playlist to program<div class="collapse" id="collapsePlay">
+                                        <div class="gustos card card-body">
+                                            <a style="background: transparent;" href="https://www.youtube.com/watch?v=GyGqV_PkfGo&list=PL7oskRpwwi_rG6BqlqkU8QKXO5gbhSFv2&index=1">One Hour of Chill Out Halo Music</a><br>
+                                            <a style="background: transparent;" href="https://www.youtube.com/watch?v=Tf1DEI2lEe0&list=PL7oskRpwwi_rG6BqlqkU8QKXO5gbhSFv2&index=2">DOOM Eternal OST Remastered Version Full Official Soundtrack by Mick Gordon</a> <br>
+                                            <a style="background: transparent;" href="https://www.youtube.com/watch?v=PAe0gyrDSyg">El muchacho de los ojos tristes</a><br>
+                                            <a style="background: transparent;" href="https://www.youtube.com/watch?v=E20G25SCAEg">El triste</a><br>
+                                        </div>
+                                    </div>
+                                </li>
+                              
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseLearn" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fas fa-palette fa-2x"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">I want to learn<div class="collapse" id="collapseLearn">
+                                    <div class="card card-body">
+                                        Dance salsa <br>
+                                        Python <br>
+                                        Java <br>
+                                        Speak German <br>
+                                        Speak Japanese <br>
+                                    </div>
+                                </div></li>
+                              
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapsePlaces" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-globe-americas"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Places to visit<div class="collapse" id="collapsePlaces">
+                                    <div class="card card-body">
+                                        Costa Amalfitana <br>
+                                        Machu Picchu <br>
+                                        Castillo de Neuschwanstein <br> 
+                                        Taj Mahal <br>
+                                        Cataratas Victoria <br>
+                                    </div>
+                                </div></li>
+
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseCompany" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-microchip"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">companies to work for<div class="collapse" id="collapseCompany">
+                                    <div class="card card-body">
+                                        Sony <br>
+                                        Amazon <br>
+                                        Meta <br>
+                                        Google <br>
+                                        Netflix <br>
+                                        Softtek <br>
+                                        Neoris <br>
+                                        Alestra <br>
+                                     </div>
+                                </div></li>
+
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseGroups" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-address-card"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Groups<div class="collapse" id="collapseGroups">
+                                    <div class="card card-body">
+                                       Spidy fans <br>
+                                       Junors developers <br>
+                                       Marvel vs Dc <br>                                       
+                                     </div>
+                                </div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class=" nave card" style="width: 100% ;">
+                        <div class="card-body">
+                            <h5 class="card-title">Reviews(spoilers alert)</h5>
+                            <ul class="list-group">
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseBooks" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-book-open"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Books<div class="collapse" id="collapseBooks">
+                                    <div class="gustos card card-body">
+                                       <a href="#" style="background: transparent;">1984 </a><br> 
+                                       <a href="#" style="background: transparent;">Un mundo feliz  </a><br>
+                                       <a href="#" style="background: transparent;">La telaraña de charlotte </a><br>
+                                       <a href="#" style="background: transparent;">Grandes esperanzas  </a><br>
+                                       <a href="#" style="background: transparent;">El hombre invisible </a><br> 
+                                       <a href="#" style="background: transparent;">El amor en tiempos de colera</a><br> 
+                                       <a href="#" style="background: transparent;">El principito </a><br> 
+                                     </div>
+                                </div></li>
+
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseMov" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-video"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Movies<div class="collapse" id="collapseMov">
+                                    <div class="gustos card card-body">
+                                       <a href="#" style="background: transparent;">Spider-Man:no way home</a><br> 
+                                       <a href="#" style="background: transparent;">Matrix 4</a><br>
+                                       <a href="#" style="background: transparent;">Isla de perros</a><br>
+                                       <a href="#" style="background: transparent;">Coach Carter</a><br>
+                                       <a href="#" style="background: transparent;">Spider-Man:Into the Spider-Verse</a><br> 
+                                       <a href="#" style="background: transparent;">Zack Snyder's Justice League</a><br> 
+                                       <a href="#" style="background: transparent;">Batman: Under the Red Hood</a><br> 
+                                     </div>
+                                </div></li>
+
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseVi" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-ghost"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Videogames<div class="collapse" id="collapseVi">
+                                    <div class="gustos card card-body">
+                                       <a href="#" style="background: transparent;">World of Warcraft</a><br> 
+                                       <a href="#" style="background: transparent;">Super Mario Bros</a><br>
+                                       <a href="#" style="background: transparent;">The Legend of Zelda</a><br>
+                                       <a href="#" style="background: transparent;">Minecraft</a><br>
+                                       <a href="#" style="background: transparent;">Grand Theft Auto IV</a><br> 
+                                       <a href="#" style="background: transparent;">Gears of Wars</a><br> 
+                                       <a href="#" style="background: transparent;">The Witcher 3: Wild Hunt</a><br> 
+                                     </div>
+                                </div></li>
+
+                                
+                                <a style="padding: 5px;" data-bs-toggle="collapse" href="#collapseSe" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="circle-icon">
+                                        <i class="fa-2x fas fa-play-circle"></i>
+                                    </div>
+                                </a>
+                                <li class="list-group-item">Series<div class="collapse" id="collapseSe">
+                                    <div class="gustos card card-body">
+                                       <a href="#" style="background: transparent;">Smallville</a><br> 
+                                       <a href="#" style="background: transparent;">Justice league Unlimited</a><br>
+                                       <a href="#" style="background: transparent;">The big bang theory</a><br>
+                                       <a href="#" style="background: transparent;">Stranger things</a><br>
+                                       <a href="#" style="background: transparent;">House of Cards</a><br> 
+                                       <a href="#" style="background: transparent;">Batman: The Animated Series</a><br> 
+                                       <a href="#" style="background: transparent;">The Witcher</a><br> 
+                                     </div>
+                                </div></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--contenedor de lista de amigos para agregar-->
+                <div class="col-lg-6">
+                    <div id="container-friends" class="d-flex justify-content-between flex-wrap">
+                        <!--poner en javascrip-->
+                    </div>
+                </div>
+                <!--barra lateral 2-->
+                <div class="col-lg-3">
+                    <div class="nave card" style="width:100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Geek activity</h5>
+                            <ul class="list-group">
+                                <a data-bs-toggle="collapse" href="#collapseMovie" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    <i class="fa-2x fas fa-ticket-alt"></i>
+                                </a>
+                                <li class="list-group-item">Movie premiere<div class="collapse" id="collapseMovie">
+                                        <div class="card card-body">
+                                            Uncharted <br>
+                                            Sonic 2 <br>
+                                            The Northman <br>
+                                            The batman <br>
+                                            Doctor strange <br>
+                                            Jurassic World:Dominion <br>
+                                            Avatar 2 <br>
+                                            Super Mario <br>
+                                            
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <a data-bs-toggle="collapse" href="#collapseSerie" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    <i class="fa-2x fas fa-tv"></i>
+                                </a>
+
+                                <li class="list-group-item">New Series<div class="collapse" id="collapseSerie">
+                                        <div class="card card-body">
+                                            The lord of the rings <br>
+                                            Halo <br>
+                                            The last of Us <br>
+                                            House of the dragon <br>
+
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <a data-bs-toggle="collapse" href="#collapseGame" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    <i class="fa-2x fas fa-gamepad"></i>
+                                </a>
+
+                                <li class="list-group-item">Videogames<div class="collapse" id="collapseGame">
+                                        <div class="card card-body">
+                                            God of War <br>
+                                            Leyendas Pokémon Arceus <br>
+                                            Uncharted: Legacy of Thieves Collection <br>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <a data-bs-toggle="collapse" href="#collapseTec" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    <i class="fa-2x fas fa-robot"></i>
+                                </a>
+
+                                <li class="list-group-item">Tecnology<div class="collapse" id="collapseTec">
+                                        <div class="card card-body">
+                                            Facebook compra youtube <br>
+                                            WhatsApp prohibe enviar nudes
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <a data-bs-toggle="collapse" href="#collapseJob" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    <i class="fa-2x fas fa-laptop-house"></i>
+                                </a>
+
+                                <li class="list-group-item">News Job<div class="collapse" id="collapseJob">
+                                        <div class="card card-body">
+                                            LinkeInd
+                                            Computrabajo
+                                            Indeed
+                                            OCCMundial
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./app.js"></script>
+    </main>
+    <footer class="d-flex align-content-center justify-content-center flex-wrap" style="background-color: turquoise ; ">
+        <p class="pie_de_pagina">Pagina creada por Israel y Antonio</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

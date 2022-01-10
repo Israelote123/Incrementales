@@ -1,7 +1,7 @@
 var url = "http://localhost:3000/login";
 var data;
 let resultado;
-
+localStorage.setItem("variable3",3);
 
 let obtainData = () => {
   data = {
