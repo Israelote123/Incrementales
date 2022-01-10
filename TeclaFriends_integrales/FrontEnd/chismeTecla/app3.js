@@ -4,8 +4,6 @@ let imagen;
 var para=[];
 var comparacion;
 let variable=localStorage.getItem("variable");
-
-var welcome;
 bienvenida();
 
 function bienvenida() {
@@ -15,13 +13,10 @@ function bienvenida() {
         .then(response => response.json())
         .then(json => {
             console.log(json);
-            result = json;
-           
-            
+            result = json;            
         })
-        .then(() => {
-          welcome=result[0][0].name; 
-          document.getElementById("bienvenida").innerHTML =`Welcome ${welcome}`;
+        .then(() => { 
+          document.getElementById('sesion').innerHTML =`<img src='${result[0][0].profile_photo}'  class="perfilUser" alt="..."></img>`;
         })
         .catch(error => {
             console.error("Error al solicitar los datos")

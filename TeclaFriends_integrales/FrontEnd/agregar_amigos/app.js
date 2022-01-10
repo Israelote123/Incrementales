@@ -29,7 +29,7 @@ function getFriends() {
                          </div>`
                 }
                 else{
-                    document.getElementById('sesion').innerHTML =`<img src='${resultado[0][i].profile_photo}'  class="perfil" alt="..."></img>`;
+                    document.getElementById('sesion').innerHTML =`<img src='${resultado[0][i].profile_photo}'  class="perfilUser" alt="..."></img>`;
                 }
             }
             document.getElementById('container-friends').innerHTML = agregar;

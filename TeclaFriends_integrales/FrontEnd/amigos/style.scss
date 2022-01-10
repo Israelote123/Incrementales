@@ -87,19 +87,18 @@ button{
     font-weight: bold;
     display: block;
     margin: auto;
+
+    &:active{
+        border-style: inset;
+        border-color: rgb(112, 112, 112);
+        background-color: grey;
+        text-align: center;
+        font-weight: normal;
+        display: block;
+        margin: auto;
+    }
 }
 
-
-
-button:active{
-    border-style: inset;
-    border-color: rgb(112, 112, 112);
-    background-color: grey;
-    text-align: center;
-    font-weight: normal;
-    display: block;
-    margin: auto;
-}
 
 /*Pie de pagina*/
 
@@ -136,13 +135,13 @@ a{
         background-color:lightgray;
     }       
 }
-#icon-search:hover{
-    cursor: pointer;
-    color: blue;
-}
 
 #icon-search{
     margin-top: 5%;
+    &:hover{
+        cursor: pointer;
+        color: blue;
+    }
 }
 
 .fixed

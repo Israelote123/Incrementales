@@ -64,6 +64,17 @@ main {
   object-fit: cover;
 }
 
+.perfilUser {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 50px;
+  height: 50px;
+  border: solid 5px turquoise;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 input::placeholder {
   font-family: "Patrick Hand", cursive;
 }
@@ -79,7 +90,6 @@ button {
   display: block;
   margin: auto;
 }
-
 button:active {
   border-style: inset;
   border-color: #707070;
@@ -122,13 +132,12 @@ a {
   background-color: lightgray;
 }
 
+.icon-nav {
+  margin-top: 4%;
+}
 .icon-nav:hover {
   cursor: pointer;
   color: white;
-}
-
-.icon-nav {
-  margin-top: 4%;
 }
 
 /*nuevos stilos*/
@@ -153,7 +162,6 @@ a {
   background: #060606;
   background: linear-gradient(72deg, #060606 43%, #40e0ff 98%, white 100%);
 }
-
 .blue-back:hover {
   background: white;
   background: linear-gradient(72deg, white 0%, #40e0ff 1%, #060606 56%);
@@ -245,7 +253,7 @@ a {
     width: 100%;
   }
 
-  #perfil {
+  .perfil {
     width: 50px;
     height: 50px;
   }

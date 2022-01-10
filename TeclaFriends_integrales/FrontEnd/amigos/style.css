@@ -86,7 +86,6 @@ button {
   display: block;
   margin: auto;
 }
-
 button:active {
   border-style: inset;
   border-color: #707070;
@@ -131,13 +130,12 @@ a {
   background-color: lightgray;
 }
 
+#icon-search {
+  margin-top: 5%;
+}
 #icon-search:hover {
   cursor: pointer;
   color: blue;
-}
-
-#icon-search {
-  margin-top: 5%;
 }
 
 .fixed {

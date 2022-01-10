@@ -63,7 +63,16 @@ main {
   border-radius: 50%;
   object-fit: cover;
 }
-
+.perfilUser {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 50px;
+  height: 50px;
+  border: solid 5px turquoise;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 
 input::placeholder {
@@ -80,18 +89,17 @@ button {
   font-weight: bold;
   display: block;
   margin: auto;
-
+  &:active {
+    border-style: inset;
+    border-color: #707070;
+    background-color: grey;
+    text-align: center;
+    font-weight: normal;
+    display: block;
+    margin: auto;
+  }
 }
 
-button:active {
-  border-style: inset;
-  border-color: #707070;
-  background-color: grey;
-  text-align: center;
-  font-weight: normal;
-  display: block;
-  margin: auto;
-}
 
 /*Pie de pagina*/
 .pie_de_pagina {
@@ -121,24 +129,19 @@ a {
   width: 22%;
   background-color: white;
   z-index: 8;
-
-
+ 
   ul li:hover {
     background-color: lightgray;
   }
 
 }
 
-
-
-
-.icon-nav:hover {
-  cursor: pointer;
-  color: white;
-}
-
 .icon-nav {
   margin-top: 4%;
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
 }
 /*nuevos stilos*/
 
@@ -162,11 +165,12 @@ a {
 .blue-back{
   background: rgb(6,6,6);
 background: linear-gradient(72deg, rgba(6,6,6,1) 43%, rgba(64,224,255,1) 98%, rgba(255,255,255,1) 100%);
- }
- .blue-back:hover{
+&:hover{
   background: rgb(255,255,255);
   background: linear-gradient(72deg, rgba(255,255,255,1) 0%, rgba(64,224,255,1) 1%, rgba(6,6,6,1) 56%); color: white;
- }
+ } 
+}
+
  .circle-icon{
   width:55px;
   height: 55px;
@@ -200,13 +204,13 @@ background: linear-gradient(72deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0
   }
   a{
     background-color: white;
-  
+    &:hover {
+      color:turquoise;
+      background-color: black;
+    }
   }
 
-  a:hover {
-    color:turquoise;
-    background-color: black;
-  }
+  
 }
 
 
@@ -258,7 +262,7 @@ background: linear-gradient(72deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0
     width: 100%;
   }
 
-  #perfil {
+  .perfil {
     width: 50px;
     height: 50px;
   }
