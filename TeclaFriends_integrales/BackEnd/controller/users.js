@@ -1,10 +1,14 @@
 const userModel = require('../models/users')
 
+module.exports.getInformation = async ()=>{
+    let result = await userModel.information()
+    return result
+}
+
 module.exports.accessLogin = async (login)=>{
     let result = await userModel.login(login)
     return result
 }
-
 
 
 module.exports.getDatos = async (data)=>{

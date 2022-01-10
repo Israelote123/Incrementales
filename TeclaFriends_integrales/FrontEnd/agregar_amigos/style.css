@@ -1,22 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap");
-h1 {
-  color: turquoise;
-}
-
-.meme {
-  height: 90%;
-  width: 90%;
-}
-
-.democlass {
-  width: 30%;
-  margin: auto;
-  align-items: center;
-  text-align: center;
-  margin-top: auto;
-}
-
 @font-face {
   font-family: "Grandista";
   src: url(../font/Grandista.woff2) format(woff2);
@@ -47,20 +30,16 @@ h1 {
 }
 
 #barraNav {
-  position: sticky;
-  top: 0;
   background-color: turquoise;
   padding: 10px;
   margin: 0;
   padding-left: 0;
   margin-left: 0;
   border: turquoise;
-  width: 100%;
 }
 
 /*Cuerpo*/
 body {
-  /*background-color: rgba(105, 66, 66, 0.712);*/
   margin: 0;
   font-family: "Patrick Hand", cursive;
   font-size: 18px;
@@ -70,13 +49,19 @@ body {
   background-size: cover;
 }
 
-.fuente {
-  font-family: "Patrick Hand", cursive;
-  font-size: 18px;
+main {
+  margin-top: 2%;
 }
 
-main {
-  text-align: center;
+.perfil {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 80px;
+  height: 80px;
+  border: solid 5px turquoise;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 input::placeholder {
@@ -95,16 +80,6 @@ button {
   margin: auto;
 }
 
-button:hover {
-  cursor: pointer;
-  border-style: outset;
-  background-color: #c0bbbb;
-  text-align: center;
-  font-weight: bold;
-  display: block;
-  margin: auto;
-}
-
 button:active {
   border-style: inset;
   border-color: #707070;
@@ -117,10 +92,7 @@ button:active {
 
 /*Pie de pagina*/
 .pie_de_pagina {
-  text-align: center;
-  color: turquoise;
-  position: fixed;
-  bottom: 0;
+  color: black;
 }
 
 /*busqueda*/
@@ -142,7 +114,6 @@ a {
   top: 10%;
   left: 70%;
   margin: 0%;
-  padding: 0ch;
   width: 22%;
   background-color: white;
   z-index: 8;
@@ -151,24 +122,108 @@ a {
   background-color: lightgray;
 }
 
-#icon-search:hover {
+.icon-nav:hover {
   cursor: pointer;
-  color: blue;
+  color: white;
 }
 
-#icon-search {
-  margin-top: 5%;
+.icon-nav {
+  margin-top: 4%;
 }
 
+/*nuevos stilos*/
 .fixed {
   position: fixed;
-  bottom: 5%;
+  bottom: 3%;
   right: 2%;
-  font-size: xx-large;
-  color: aqua;
+  z-index: 3;
 }
 
-/*responsive*/
+.circle-icons {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: turquoise;
+  font-size: 16px;
+  padding: 9px;
+  margin-right: 10px;
+}
+
+.blue-back {
+  background: #060606;
+  background: linear-gradient(72deg, #060606 43%, #40e0ff 98%, white 100%);
+}
+
+.blue-back:hover {
+  background: white;
+  background: linear-gradient(72deg, white 0%, #40e0ff 1%, #060606 56%);
+  color: white;
+}
+
+.circle-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: black;
+  padding: 9px;
+  margin-right: 10px;
+  margin: auto;
+  background: white;
+  background: linear-gradient(72deg, white 0%, white 0%, #40e0ff 45%);
+}
+
+.text_m {
+  position: fixed;
+  bottom: 15%;
+  right: 2%;
+  z-index: 3;
+}
+
+.card {
+  text-align: center;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+.card-body {
+  background-color: turquoise;
+  color: white;
+}
+.card-body ul li {
+  border: none;
+}
+.card-body a {
+  background-color: white;
+}
+.card-body a:hover {
+  color: turquoise;
+  background-color: black;
+}
+
+.nave {
+  background-color: black;
+  color: white;
+}
+
+#icon-message:hover {
+  cursor: pointer;
+  color: turquoise;
+}
+
+#message-container ul li a {
+  color: white;
+  background-color: black;
+  justify-content: flex-start;
+}
+#message-container ul li a:hover {
+  color: black;
+  background-color: turquoise;
+}
+
+.gustos a:hover {
+  color: white;
+}
+
 @media screen and (max-width: 1400px) {
   .register {
     width: 712px;
@@ -189,12 +244,11 @@ a {
   button {
     width: 100%;
   }
-}
-#chat {
-  height: 40px;
-  width: 56px;
-  position: absolute;
-  right: 5%;
+
+  #perfil {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

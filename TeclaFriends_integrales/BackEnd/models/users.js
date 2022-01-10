@@ -1,5 +1,8 @@
 const sequelize = require('../db/conexion')
-
+module.exports.information = async (busqueda) => {
+    let result = await sequelize.query(`SELECT * FROM register`)
+    return result
+}
 
 module.exports.login = async (login)=> {
     
