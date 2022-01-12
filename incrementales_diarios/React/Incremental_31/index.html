@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const divRoot=document.querySelector('#root')
+        
+        const objectName={
+            label:"Agregar cursos",
+            label1:"Nombre curso",
+            input1:<input type="text" name="nombre_curso"></input>,
+            label2:"fecha curso",
+            input2:<input type="date" name="" id=""></input>,
+            label3:"Lugar curso",
+            input3:<input type="text" name=""></input>,
+            espacio: <br></br>
+        
+        }
+         const name="antonio santos"
+        
+        const h1Tag=<div>{objectName.label}{objectName.espacio}{objectName.label1} {objectName.input1}  {objectName.espacio}
+             {objectName.label2} {objectName.input2}{objectName.espacio}{objectName.label3} {objectName.input3}</div>; 
+        ReactDOM.render(h1Tag,divRoot);
+    </script>
+</body>
+</html>
