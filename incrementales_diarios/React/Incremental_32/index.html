@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Publicar</title>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymus"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const divRoot=document.querySelector('#root')
+      
+       function App(){
+                return(
+                    <div>
+                        <h1>publicar</h1>
+                        <Nav /> 
+                    
+                    </div>
+                    
+                )
+       }
+       
+       
+       function Nav(){
+            return (
+                <div className="centrar">
+                   <button>Create Post</button> 
+                   <br/>
+                  <label for="contenido"></label>
+                  <input type="text" name="contenido" id="" placeholder="Que estas pensando"></input>   
+                  <Icons/>
+                  <button>Post</button>
+                  </div>
+            )
+       }
+
+       function Icons(){
+           return(   
+            <div>
+                <i class="fa-2x fas fa-images"></i>
+                <i class="fa-2x fas fa-video"></i>
+                <i class="fa-2x fas fa-camera"></i>
+            </div>
+           )
+               
+    
+       }
+       
+       
+        ReactDOM.render(<App/>,divRoot);
+    </script>
+</body>
+</html>
