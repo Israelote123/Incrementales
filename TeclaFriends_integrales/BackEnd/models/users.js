@@ -49,3 +49,10 @@ module.exports.add = async(register) => {
     }
    
 }
+
+//cursos
+module.exports.cours = async(course) => {
+    
+        await sequelize.query(`INSERT INTO cursos (nombre_curso, fecha_curso, lugar_curso, mail) VALUES ('${course.nombre_curso}', '${course.fecha_curso}', '${course.lugar_curso}','${course.mail}')`)
+         return "courseAdded";   
+}

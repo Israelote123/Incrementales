@@ -25,3 +25,9 @@ module.exports.addRegister = async (register) => {
     let result=await userModel.add(register)
     return result;
 }
+
+//cursos
+module.exports.addCourse = async (course) => {
+    let result=await userModel.cours(course)
+    return result;
+}

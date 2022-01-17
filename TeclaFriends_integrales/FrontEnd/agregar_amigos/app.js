@@ -9,7 +9,7 @@ var direccionURL1 = [];
 
 //Funcion para listar posibles amigos
 function getFriends() {
-    fetch('http://localhost:3000/information')
+    fetch('http://localhost:3001/information')
         .then(response => response.json())
         .then(json => {
             resultado = json;
@@ -67,7 +67,7 @@ function busqueda() {
 
     let mylista = "";
     let variable = document.getElementById("inputSearch").value;
-    fetch(`http://localhost:3000/busqueda/${variable}`)
+    fetch(`http://localhost:3001/busqueda/${variable}`)
         .then(response => response.json())
         .then(json => {
             console.log(json);
@@ -107,7 +107,7 @@ function busqueda2() {
 
     let mylista = "";
     let variable = document.getElementById("inputMessage").value;
-    fetch(`http://localhost:3000/busqueda/${variable}`)
+    fetch(`http://localhost:3001/busqueda/${variable}`)
         .then(response => response.json())
         .then(json => {
             console.log(json);

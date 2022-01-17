@@ -1,0 +1,13 @@
+#inputSearch{
+    width: 60%;
+}
+#barraNav{
+    background-color: aqua;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 20%;
+    margin: 0%;
+}
