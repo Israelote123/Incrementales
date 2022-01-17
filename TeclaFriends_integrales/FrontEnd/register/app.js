@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/register";
+var url = "http://localhost:3001/register";
 var urlPhoto = "https://api.imgbb.com/1/upload?key=8bf495d29a8eaf97bf28a9d4e52cea42";
 var data;
 var userPhotoLink;

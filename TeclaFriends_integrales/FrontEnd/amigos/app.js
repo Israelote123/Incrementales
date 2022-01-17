@@ -37,7 +37,7 @@ document.getElementById('caja').innerHTML="";
 function busqueda() {
     let mylista="";
     let variable = document.getElementById("inputSearch").value;
-    var url = `http://localhost:3000/busqueda/${variable}`;
+    var url = `http://localhost:3001/busqueda/${variable}`;
 
     fetch(url)
         .then(response => response.json())

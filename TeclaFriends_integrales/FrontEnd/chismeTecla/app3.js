@@ -9,7 +9,7 @@ bienvenida();
 function bienvenida() {
     let result;
     console.log(variable);
-    fetch(`http://localhost:3000/${variable}`)
+    fetch(`http://localhost:3001/${variable}`)
         .then(response => response.json())
         .then(json => {
             console.log(json);
@@ -72,7 +72,7 @@ function limpiar(){
 function busqueda() {
     let mylista="";
     let variable = document.getElementById("inputSearch").value;
-    let url = `http://localhost:3000/busqueda/${variable}`;
+    let url = `http://localhost:3001/busqueda/${variable}`;
 
     fetch(url)
         .then(response => response.json())

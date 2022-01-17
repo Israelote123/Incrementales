@@ -7,6 +7,9 @@ module.exports = (app) => {
         let result = await userController.getInformation()
         res.json(result)
     })
+
+   
+
     //iniciar sesion
     app.post('/login', async (req, res) => {
         let login = req.body
@@ -35,6 +38,13 @@ module.exports = (app) => {
         let register = req.body
         console.log(register)
         let result = await userController.addRegister(register)
+        res.json(result)
+    })
+
+     //insertar informacion en tabla cursos
+     app.post('/cursos', async (req, res) => {
+        let course = req.body
+        let result = await userController.addCourse(course)
         res.json(result)
     })
 }
