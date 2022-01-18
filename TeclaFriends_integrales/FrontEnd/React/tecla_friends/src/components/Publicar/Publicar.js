@@ -1,5 +1,6 @@
 import './Publicar.css';
 import { Cursos } from '../Cursos/Cursos';
+import { ShowCourses } from '../ShowCourses';
 
 function Publicar() {
     return (
@@ -13,8 +14,18 @@ function Publicar() {
                                 aria-expanded="false" aria-controls="collapseExample">
                                 <div className="circle-icon">
                                     <i className="fa-2x fas fa-graduation-cap"></i>
+                                    
                                 </div>
                             </a>
+                            <a className="enlace" data-bs-toggle="collapse" href="#collapseShowcourse" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <div className="circle-icon">
+                                <i className="fa-2x fas fa-eye"></i>
+                                    
+                                </div>
+                            </a>
+                            
+                            
                         </div>
                         <div className="icons-container d-flex justify-content-evenly align-content-center flex-wrap">
                         <i className="fa-2x fas fa-user-astronaut"></i>
@@ -31,6 +42,14 @@ function Publicar() {
                             </div>
                         </div>
                         </div>
+
+                        <div className="list-group-item"><div className="collapse" id="collapseShowcourse">
+                            <div className="gustos card card-body">
+                                <ShowCourses />
+                            </div>
+                        </div>
+                        </div>
+
                     </div>
                 </div>
                 <div className="nave card" >

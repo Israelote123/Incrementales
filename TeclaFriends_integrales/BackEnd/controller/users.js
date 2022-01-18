@@ -15,6 +15,12 @@ module.exports.getDatos = async (data)=>{
     let result = await userModel.datos(data)
     return result
 }
+//obtener todos los cursos
+module.exports.getCourse = async (data)=>{
+    let result = await userModel.courseDo(data)
+    return result
+}
+
 
 module.exports.getBusqueda = async (busqueda)=>{
     let result = await userModel.busqueda(busqueda)
