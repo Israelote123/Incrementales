@@ -1,7 +1,6 @@
-
 //import './Nav.css';
 import { useState } from 'react';
-import { getCuorse } from './Api/ApiMostrarCurso'
+import { getCuorse } from '../Api/ApiMostrarCurso'
 
 function ShowCourses() {
     
@@ -10,7 +9,7 @@ function ShowCourses() {
     
 
     const mostrarCourses = async () => {
-        event.preventDefault()
+        //event.preventDefault()
         let newPokemon = await getCuorse("bob68@gmail.com")
         let pokeJSON = await newPokemon.json()
 

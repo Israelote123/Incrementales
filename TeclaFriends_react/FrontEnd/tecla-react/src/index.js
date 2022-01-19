@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Nav} from './components/Nav/Nav';
+import {BarraLat} from './components/BarraLat/BarraLat';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <>
-    <Nav />
-  </>,
-  document.getElementById('root')
+  <><BarraLat/> </> ,
+document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
