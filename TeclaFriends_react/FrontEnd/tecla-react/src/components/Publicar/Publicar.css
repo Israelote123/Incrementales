@@ -1,0 +1,17 @@
+.nave{
+    width: 100%;
+}
+#publication{
+    width: 80%;
+}
+.perfil{
+    margin-right: 10px;
+}
+.icons-container{
+    margin-bottom: 20px;
+}
+.agregarCurso{
+    background-color:turquoise;
+    border-radius: 50%;
+
+}

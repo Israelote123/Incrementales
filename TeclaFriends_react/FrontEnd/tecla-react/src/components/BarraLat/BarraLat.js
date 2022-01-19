@@ -3,7 +3,7 @@ import './BarraLat.css';
 import {Publicar} from '../Publicar/Publicar';
 import {BarraLatRight} from '../BarraLatRight/BarraLatRight'
 import {Spiderman} from '../Spiderman/Spiderman'
-import {Nav} from './components/Nav/Nav';
+import {Nav} from '../Nav/Nav';
 function BarraLat() {
     return (
 
