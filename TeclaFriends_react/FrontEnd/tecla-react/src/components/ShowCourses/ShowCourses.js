@@ -1,21 +1,16 @@
-//import './Nav.css';
+//import './ShowCourses.css';
 import { useState } from 'react';
-import { getCuorse } from '../Api/ApiMostrarCurso'
+import { getCuorse } from '../Api/Api'
 
 function ShowCourses() {
-    
     const [save, setSave] = useState([]);
-    const [state, setState] = useState(false);
+    const [state, setState] = useState(false);    
     
-
     const mostrarCourses = async () => {
         //event.preventDefault()
         let newPokemon = await getCuorse("bob68@gmail.com")
         let pokeJSON = await newPokemon.json()
-
-        setSave(save[0] = pokeJSON)
-        console.log(pokeJSON)
-        console.log(save)
+        setSave(save[0]=pokeJSON)      
         setState(true)
     }
 
@@ -31,8 +26,8 @@ function ShowCourses() {
             {state &&
                 <>
                     <div className="row">
-                        { save.map(t =>                            
-                             t.map(r =>                                                                                                    
+                        { save.map(r =>                            
+                                                                                                                            
                                         <div className="col-lg-6">
                                             <div className="card">
                                                 <div className="card-body">
@@ -42,7 +37,7 @@ function ShowCourses() {
                                                 </div>
                                             </div>
                                         </div>                                    
-                             )
+                             
                             )
                         }
 

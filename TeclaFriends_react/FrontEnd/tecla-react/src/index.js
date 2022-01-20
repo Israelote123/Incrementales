@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BarraLat} from './components/BarraLat/BarraLat';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Nav} from './components/Nav/Nav';
 import {login, register} from './pages/logRes'
-
+import { PublicarPage } from "./pages/PublicarPage";
+import { AgregarAmigos } from "./pages/AgregarAmigos";
+import { Chismetecla } from "./pages/Chismetecla";
+import { Amigos } from "./pages/Amigos";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -13,8 +15,12 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={login} />
         <Route path="/new-user" element={register} />
-      </Routes>
-  </BrowserRouter> ,
+        <Route path="/publicar" element={<PublicarPage/> }/>
+        <Route path="/agregarAmigos" element={<AgregarAmigos/> }/>
+        <Route path="/chismetecla" element={<Chismetecla/> }/>
+        <Route path="/amigos" element={<Amigos/> }/>
+        </Routes>
+  </BrowserRouter>,
 document.getElementById('root')
 );
 
