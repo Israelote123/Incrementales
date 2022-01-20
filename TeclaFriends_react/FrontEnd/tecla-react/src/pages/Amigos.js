@@ -1,4 +1,4 @@
-import { Nav } from "../components/Nav/Nav";
+
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {ShowFriends} from '../components/ShowFriends/ShowFriends';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
@@ -8,7 +8,6 @@ import {Spiderman} from '../components/Spiderman/Spiderman'
 function Amigos() {
     return (
         <div>
-            <Nav />
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-3">

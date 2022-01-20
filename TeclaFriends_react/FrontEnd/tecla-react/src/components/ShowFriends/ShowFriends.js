@@ -1,6 +1,6 @@
 import './ShowFriends.css';
 import { useState } from 'react';
-import { getFriends } from '../Api/Api'
+import { getFriends } from '../../api/api'
 
 function ShowFriends() {
     const [save, setSave] = useState([]);

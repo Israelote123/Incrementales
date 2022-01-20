@@ -1,6 +1,6 @@
 import './Momos.css';
 import { useState } from 'react';
-import { getMomos } from '../Api/Api'
+import { getMomos } from '../../api/api'
 
 
 function Momos() {

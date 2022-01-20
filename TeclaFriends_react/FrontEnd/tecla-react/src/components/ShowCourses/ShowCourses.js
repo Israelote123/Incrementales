@@ -1,6 +1,6 @@
 //import './ShowCourses.css';
 import { useState } from 'react';
-import { getCuorse } from '../Api/Api'
+import { getCuorse } from '../../api/api'
 
 function ShowCourses() {
     const [save, setSave] = useState([]);

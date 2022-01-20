@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap");
 @font-face {
   font-family: "Grandista";
-  src: url(font/Grandista.woff2) format(woff2);
+  src: url(../font/Grandista.woff2) format(woff2);
 }
 @font-face {
   font-family: "Patrick Hand";
-  src: url(font/PatrickHand-Regular.ttf) format(ttf);
+  src: url(../font/PatrickHand-Regular.ttf) format(ttf);
 }
 @keyframes clickOn {
   from {

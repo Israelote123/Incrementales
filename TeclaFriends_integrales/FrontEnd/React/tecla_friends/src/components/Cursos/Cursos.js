@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Cursos.css';
-import { pushCourse } from '../Api/Api';
+import { pushCourse } from '../../api/api';
 
 
 

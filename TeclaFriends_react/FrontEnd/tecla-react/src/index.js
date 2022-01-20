@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Nav} from './components/Nav/Nav';
-import {login, register} from './pages/logRes'
+import { Register } from './pages/Register'
+import { Login } from './pages/Login'
 import { PublicarPage } from "./pages/PublicarPage";
 import { AgregarAmigos } from "./pages/AgregarAmigos";
 import { Chismetecla } from "./pages/Chismetecla";
@@ -13,8 +14,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Nav />
       <Routes>
-        <Route path="/" element={login} />
-        <Route path="/new-user" element={register} />
+        <Route path="/" element={<Login/>} />
+        <Route path="/new-user" element={<Register/>} />
         <Route path="/publicar" element={<PublicarPage/> }/>
         <Route path="/agregarAmigos" element={<AgregarAmigos/> }/>
         <Route path="/chismetecla" element={<Chismetecla/> }/>

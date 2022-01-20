@@ -1,6 +1,6 @@
 import './AmigosAgregar.css';
 import { useState } from 'react';
-import { getFriends } from '../Api/Api'
+import { getFriends } from '../../api/api'
 
 function AmigosAgregar() {
     const [save, setSave] = useState([]);

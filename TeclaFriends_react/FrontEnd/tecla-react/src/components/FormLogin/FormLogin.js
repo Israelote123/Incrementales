@@ -22,10 +22,7 @@ function FormLogin(){
                             <button class="btn btn-primary mb-3"
                                 id="style-button" onclick="inicioSesion()">Iniciar
                                 sesión</button>
-                            <a class="btn btn-primary mb-3" id="style-button2">¿Olvidaste
-                                tu contraseña?</a>
-                            <a href="./register/index.html" class="btn
-                                btn-primary" id="style-button3">¿No tienes
+                            <a class="btn btn-primary" id="style-button3" href="/new-user">¿No tienes
                                 cuenta? Registrate</a>
                         </form>
                     </div>

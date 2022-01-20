@@ -1,15 +1,32 @@
 import './FormRegister.css'
+import userPreview from '../img/default.png'
+import {register} from '../../api/api'
+import {useState} from 'react'
 
 function FormRegister(){
+
+    const [preview, setPreview] = useState(userPreview)
+
+    const onChange = () => {
+        var photo = document.querySelector("#profilePhoto");
+        const objectURL = URL.createObjectURL(photo.files[0]);
+        setPreview(objectURL);
+    }
+
+    const newRegister = async (event) => {
+        event.preventDefault();
+        await register(event.target)
+    }
+
     return  (
         <main>
             <div className="container register">
                 <form className="row g-3" id="registerForm"
-                onsubmit="event.preventDefault();">
+                onSubmit={newRegister}>
                     <div className="col-12">
-                        <img src="../img/default.png" id="userPhoto" alt="foto_default" /> <br />
+                        <img src={preview} id="userPhoto" alt="foto_default" /> <br />
                         <input type="file" id="profilePhoto" name="userPhoto"
-                        className="form-control" accept="image/*" />
+                        className="form-control" accept="image/*" onChange={onChange}/>
                         <label for="profilePhoto" className="textProfilePhoto">Foto de perfil</label>
                     </div>
                     <div className="col-md-6">

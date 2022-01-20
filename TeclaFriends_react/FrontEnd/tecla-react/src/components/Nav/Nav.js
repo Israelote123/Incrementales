@@ -1,11 +1,12 @@
 import './Nav.css';
 import logo from '../img/logo tecla.jpg'
+import { NavLink } from 'react-router-dom'
 
 function Nav() {
   return (
     <nav id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
         <div className="container-fluid">
-            <a className="navbar-brand" id="titulo" href=".../public/index.html"><img className="logo d-inline-block align-text-center" src={logo} alt="Logo"/>TeclaFriends</a>
+            <NavLink className="navbar-brand" id="titulo" to="/chismetecla"><img className="logo d-inline-block align-text-center" src={logo} alt="Logo"/>TeclaFriends</NavLink>
             <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasMd"
                 aria-controls="navbarOffcanvasMd" id="hamburguesa">
                 <span className="navbar-toggler-icon"></span>
@@ -20,16 +21,16 @@ function Nav() {
                 <div id="cuerpo_barra" className="   offcanvas-body">
                     <ul className="d-inline-flex p-2 bd-highlight navbar-nav me-auto mb-2 mb-lg-0">
                         <li  className="nav-item">
-                            <a  className="nav-link" href="../chismeTecla/index.html">ChismeTecla</a>
+                            <NavLink  className="nav-link" to="/chismetecla">ChismeTecla</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a  className="nav-link" href="../amigos/index.html">Amigos</a>
+                            <NavLink  className="nav-link" to="/amigos">Amigos</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a  className="nav-link" href="../userPage/index.html">Perfil</a>
+                            <NavLink  className="nav-link" to="/publicar">Perfil</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a  className="nav-link active" aria-current="page" href="./index.html">Agregar amigos</a>
+                            <NavLink  className="nav-link" to="/agregarAmigos">Agregar amigos</NavLink>
                         </li>
                     </ul>
                     <div id="sesion">
