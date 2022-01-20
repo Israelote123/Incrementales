@@ -1,18 +1,9 @@
 
 import './BarraLat.css';
-import {Publicar} from '../Publicar/Publicar';
-import {BarraLatRight} from '../BarraLatRight/BarraLatRight'
-import {Spiderman} from '../Spiderman/Spiderman'
-import {Nav} from '../Nav/Nav';
 function BarraLat() {
     return (
-
         <div className="BarraLat">
-           <Nav/>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-3">
-
+            
                       <div className=" nave card" >
                           <div className="card-body">
                               <h5 className="card-title">New feeds</h5>
@@ -184,24 +175,7 @@ function BarraLat() {
                                 </ul>
                            </div>
 
-                        </div>
-
-
-                    </div>
-
-                    <div className="col-lg-6">
-                        <Publicar/>
-
-                    </div>   
-
-                     <div className="col-lg-3">
-                       <BarraLatRight/>
-                       <Spiderman/>
-                     </div>  
-
-                        
-                </div>
-            </div>
+                        </div>                            
         </div>
     );
 }

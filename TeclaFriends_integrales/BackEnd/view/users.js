@@ -5,7 +5,7 @@ module.exports = (app) => {
     app.get('/information', async (req, res) => {
         //let data=req.params.mail;
         let result = await userController.getInformation()
-        res.json(result)
+        res.json(result[0])
     })
 
    
@@ -29,7 +29,7 @@ module.exports = (app) => {
     app.get('/cursos/:mail', async (req, res) => {
         let data = req.params.mail;
         let result = await userController.getCourse(data)
-        res.json(result)
+        res.json(result[0])
     })
     //funcion busqueda
     app.get('/busqueda/:entrada', async (req, res) => {

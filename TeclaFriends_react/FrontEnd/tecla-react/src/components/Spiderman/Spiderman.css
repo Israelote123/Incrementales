@@ -2,9 +2,9 @@
 .Spiderman{
     
     height: 300px;
-    background: white;
     margin: 40px auto;
     overflow:hidden;
+    background-color: white;
 }
 
 .tobey{

@@ -1,8 +1,21 @@
 import './Publicar.css';
+import { useState } from 'react';
 import { Cursos } from '../Cursos/Cursos';
 import { ShowCourses } from '../ShowCourses/ShowCourses';
 
 function Publicar() {
+    const [save, setSave] = useState(false);
+    const [state, setState] = useState(false);
+
+    const changeSave=()=>{
+             setSave(!save)
+             console.log(save)
+    }
+    const changeState=()=>{
+        setState(!state)
+        console.log(state)
+}
+
     return (
         <div className="Nav">
             <div id="container-friends" className="d-flex justify-content-between flex-wrap">
@@ -10,23 +23,19 @@ function Publicar() {
                     <div className="card-body">
                         <div className="d-flex bd-highlight mb-3">
                             <div className="me-auto p-2 bd-highlight"> <i className=" fa-2x fas fa-paint-brush">Crear Post</i></div>
-                            <a className="enlace" data-bs-toggle="collapse" href="#collapseCourse" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
+                            <a onClick={changeSave} className="enlace" >
                                 <div className="circle-icon">
-                                    <i className="fa-2x fas fa-graduation-cap"></i>
-                                    
+                                    <i className="fa-2x fas fa-graduation-cap"></i>                                    
                                 </div>
                             </a>
-                            <a className="enlace" data-bs-toggle="collapse" href="#collapseShowcourse" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
+
+                            <a  onClick={changeState}  className="enlace" >
                                 <div className="circle-icon">
-                                <i className="fa-2x fas fa-eye"></i>
-                                    
+                                  <i className="fa-2x fas fa-eye"></i>                                    
                                 </div>
-                            </a>
-                            
-                            
+                            </a>                            
                         </div>
+
                         <div className="icons-container d-flex justify-content-evenly align-content-center flex-wrap">
                         <i className="fa-2x fas fa-user-astronaut"></i>
                             <input type="text" className="form-control" id="publication" placeholder=" ¿Que estas pensando?" />
@@ -36,22 +45,37 @@ function Publicar() {
                             <i className="fa-2x fas fa-video"></i>
                             <i className="fa-2x fas fa-image"></i>
                         </div>
-                        <div className="list-group-item"><div className="collapse" id="collapseCourse">
-                            <div className="gustos card card-body">
-                                <Cursos />
-                            </div>
                         </div>
                         </div>
 
-                        <div className="list-group-item"><div className="collapse" id="collapseShowcourse">
+
+                     {save&&
+                       <div className="nave card" >
+                       <div className="card-body">
+                    
+                            <div className="" id="collapseCourse">
+                              <div className="gustos card card-body">
+                                  <Cursos />
+                              </div>
+                           </div>
+                        </div>
+                        </div> 
+                      } 
+
+                      {state&&
+                       <div className="nave card" >
+                       <div className="card-body">
+                    
+                       <div className="" id="collapseShowcourse">
                             <div className="gustos card card-body">
                                 <ShowCourses />
                             </div>
                         </div>
                         </div>
-
-                    </div>
-                </div>
+                        </div> 
+                      } 
+                       
+              {(!save && !state)  && 
                 <div className="nave card" >
                     <div className="card-body">
                         <div className="d-flex justify-content-start align-content-center flex-wrap">
@@ -70,7 +94,7 @@ function Publicar() {
                         </div>
                     </div>
                 </div>
-               
+              }
             </div>
         </div>
     );
