@@ -1,3 +1,5 @@
+import './FormLogin.css'
+
 function FormLogin(){
     return  (<main>
             <div class="container login">
@@ -31,3 +33,5 @@ function FormLogin(){
             </div>
         </main>)
 }
+
+export {FormLogin}

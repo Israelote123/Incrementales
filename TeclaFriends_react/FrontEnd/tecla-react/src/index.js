@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BarraLat} from './components/BarraLat/BarraLat';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Nav} from './components/Nav/Nav';
+import {login, register} from './pages/logRes'
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <><BarraLat/> </> ,
+  <BrowserRouter>
+    <Nav />
+      <Routes>
+        <Route path="/" element={login} />
+        <Route path="/new-user" element={register} />
+      </Routes>
+  </BrowserRouter> ,
 document.getElementById('root')
 );
 
