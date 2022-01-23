@@ -6,7 +6,7 @@ function FormLogin(){
             <div className="container login">
                 <div className="row">
                     <div className="col-lg">
-                        <form className="col" onsubmit="event.preventDefault();">
+                        <form className="col" onSubmit="event.preventDefault();">
                             <div className="form-floating">
                                 <input type="email" className="form-control text"
                                     name="user_mail"
