@@ -1,3 +1,4 @@
+
 //obtener busqueda de ususarios
 const getSearch = async (text) =>{
     let search = await fetch(`http://localhost:3001/busqueda/${text}`);
@@ -94,7 +95,7 @@ const getMomos=async ()=>{
     return resultado
  }
 
-
+//registar nuevo ususario
 const register = async (newUser) => {
         var url = "http://localhost:3001/register";
     var urlPhoto = "https://api.imgbb.com/1/upload?key=8bf495d29a8eaf97bf28a9d4e52cea42";
@@ -166,4 +167,37 @@ const register = async (newUser) => {
 
 }
 
-export { pushCourse, getCuorse, getFriends, getMomos, register,pushAbiliti,getAbility,pushHelp,getSearch };
+const inicioSesion = (obtainData) => {
+    let resultado;
+      
+    fetch("http://localhost:3001/login", {
+      method: "POST", // or 'PUT'
+      body: JSON.stringify(obtainData), // data can be `string` or {object}!
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((res) => res.json())
+    .then(json => {
+       resultado = json;
+      })
+
+      .then(() => {
+        if (resultado=="Contraseña erronea"||resultado=="Usuario no encontrado") {
+          alert(resultado);
+        }
+       else {
+          console.log("Success:", resultado);
+          console.log(`inicio de sesión exitoso, bienvenido ${resultado[0][0].name}`)
+          return resultado
+          
+        }
+        
+      })
+      .catch(error => console.error("Error:", error))
+  };
+
+
+export { pushCourse, getCuorse, getFriends, getMomos,pushAbiliti,getAbility,pushHelp,getSearch };
+
+export{register,inicioSesion};
