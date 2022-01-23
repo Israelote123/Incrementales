@@ -9,6 +9,7 @@ import { Chismetecla } from "./pages/Chismetecla";
 import { Amigos } from "./pages/Amigos";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import { SearchPerfil } from './pages/SearchPerfil';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -19,7 +20,8 @@ ReactDOM.render(
         <Route path="/publicar" element={<PublicarPage/> }/>
         <Route path="/agregarAmigos" element={<AgregarAmigos/> }/>
         <Route path="/chismetecla" element={<Chismetecla/> }/>
-        <Route path="/amigos" element={<Amigos/> }/>
+        <Route path="/amigos" element={<Amigos/>}/>
+        <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
         </Routes>
   </BrowserRouter>,
 document.getElementById('root')

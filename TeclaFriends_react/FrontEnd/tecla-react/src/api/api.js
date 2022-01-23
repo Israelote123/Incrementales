@@ -1,3 +1,9 @@
+//obtener busqueda de ususarios
+const getSearch = async (text) =>{
+    let search = await fetch(`http://localhost:3001/busqueda/${text}`);
+    return search
+}
+
 //insertar nuevos cursos
 const pushCourse = (obtainData) => {
     let resultado;
@@ -20,9 +26,59 @@ const pushCourse = (obtainData) => {
         .catch(error => console.error("Error:", error))
 };
 
+//insertat habilidades
+const pushAbiliti = (obtainData) => {
+    let resultado;
+    fetch(`http://localhost:3001/habilidades/`, {
+        method: "POST", // or 'PUT'
+        body: JSON.stringify(obtainData()), // data can be `string` or {object}!
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then(json => {
+            resultado = json;
+        })
+        .then(() => {
+         alert(resultado)   
+         console.log(resultado);
+
+        })
+        .catch(error => console.error("Error:", error))
+};
+
+//enviar consulta de problemas
+const pushHelp = (obtainData) => {
+    let resultado;
+    fetch(`http://localhost:3001/help/`, {
+        method: "POST", // or 'PUT'
+        body: JSON.stringify(obtainData()), // data can be `string` or {object}!
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then(json => {
+            resultado = json;
+        })
+        .then(() => {
+         alert(resultado)   
+         console.log(resultado);
+
+        })
+        .catch(error => console.error("Error:", error))
+};
+
 //obterner todos los cursos para mostrar
 const getCuorse = async (mail) =>{
-    let pokemon = await fetch(`http://localhost:3001/cursos/${mail}`);
+    let course = await fetch(`http://localhost:3001/cursos/${mail}`);
+    return course
+}
+
+//obterner todos los cursos para mostrar
+const getAbility = async (mail) =>{
+    let pokemon = await fetch(`http://localhost:3001/habilidades/${mail}`);
     return pokemon
 }
 
@@ -38,39 +94,6 @@ const getMomos=async ()=>{
     return resultado
  }
 
-/*const getFriends = ()=> {
-    fetch('http://localhost:3001/information')
-        .then(response => response.json())
-        .then(json => {
-            resultado = json;
-            console.log(resultado)
-            return resultado
-        })
-        /*.then(() => {
-
-            for (let i = 0; i < resultado[0].length; i++) {
-                if (variable != resultado[0][i].mail) {
-                    agregar += ` <div class="card "  style="width:40%">
-                          <img src='${resultado[0][i].profile_photo}' class="perfil card-img-top " alt="...">
-                          <div class="card-body">
-                          <h5 class="card-title">${resultado[0][i].name}</h5>
-                          <h5 class="card-title">${resultado[0][i].middle_name}</h5>
-                          <p class="card-text">${resultado[0][i].country}</p>
-                          <a href="#" class="btn btn-info" >add user</a>
-                         </div>
-                         </div>`
-                }
-                else{
-                    document.getElementById('sesion').innerHTML =`<img src='${resultado[0][i].profile_photo}'  class="perfilUser" alt="..."></img>`;
-                }
-            }
-            document.getElementById('container-friends').innerHTML = agregar;
-        })
-        .catch(error => {
-            console.error("Error al solicitar los datos")
-
-        })
-}*/
 
 const register = async (newUser) => {
         var url = "http://localhost:3001/register";
@@ -143,4 +166,4 @@ const register = async (newUser) => {
 
 }
 
-export { pushCourse, getCuorse, getFriends, getMomos, register };
+export { pushCourse, getCuorse, getFriends, getMomos, register,pushAbiliti,getAbility,pushHelp,getSearch };

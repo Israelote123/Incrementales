@@ -1,13 +1,11 @@
 
 import { BarraLat } from "../components/BarraLat/BarraLat";
-import {Publicar} from '../components/Publicar/Publicar';
+import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import {Spiderman} from '../components/Spiderman/Spiderman'
 
 
-function PublicarPage() {
-    
-    
+function SearchPerfil() {
     return (
         <div>
             <div className="container-fluid">
@@ -16,7 +14,7 @@ function PublicarPage() {
                         <BarraLat />
                     </div>
                     <div className="col-lg-6">
-                        <Publicar />
+                        <AmigosAgregar/>
                     </div>
                     <div className="col-lg-3">
                         <BarraLatRight />
@@ -28,4 +26,4 @@ function PublicarPage() {
     );
 }
 
-export { PublicarPage };
+export {SearchPerfil};
