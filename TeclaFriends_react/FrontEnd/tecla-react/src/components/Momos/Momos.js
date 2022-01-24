@@ -13,7 +13,7 @@ function Momos() {
 
         setSave(save[0] = pokeJSON)
         setState(false)
-        console.log("memes")
+       
     }
 
 

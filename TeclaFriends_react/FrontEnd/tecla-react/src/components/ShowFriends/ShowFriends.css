@@ -1,0 +1,22 @@
+.perfil {
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    width: 80px;
+    height: 80px;
+    border: solid 5px turquoise;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .perfil_container {
+    text-align: center;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    width:40%;
+    
+  }
+
+  #container-friends{
+     margin-top: 3%;
+  }

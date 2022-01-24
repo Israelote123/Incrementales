@@ -23,8 +23,9 @@ module.exports = (app) => {
     app.get('/:mail', async (req, res) => {
         let data = req.params.mail;
         let result = await userController.getDatos(data)
-        res.json(result)
+        res.json(result[0])
     })
+    
     //obtenr cursos con mail
     app.get('/cursos/:mail', async (req, res) => {
         let data = req.params.mail;

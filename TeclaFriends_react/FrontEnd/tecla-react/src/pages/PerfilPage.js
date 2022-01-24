@@ -1,11 +1,11 @@
 import {Nav} from '../components/Nav/Nav'
 import { BarraLat } from "../components/BarraLat/BarraLat";
-import {ShowFriends} from '../components/ShowFriends/ShowFriends';
+import {Perfil} from '../components/Perfil/Perfil';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import {Spiderman} from '../components/Spiderman/Spiderman'
 
 
-function Amigos() {
+function PerfilPage() {
     return (
         <div>
             <Nav/>
@@ -15,7 +15,7 @@ function Amigos() {
                         <BarraLat />
                     </div>
                     <div className="col-lg-6">
-                        <ShowFriends/>
+                        <Perfil/>
                     </div>
                     <div className="col-lg-3">
                         <BarraLatRight />
@@ -27,4 +27,4 @@ function Amigos() {
     );
 }
 
-export {Amigos};
+export {PerfilPage};

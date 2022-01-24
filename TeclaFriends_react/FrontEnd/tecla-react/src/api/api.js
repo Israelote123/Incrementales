@@ -77,7 +77,7 @@ const getCuorse = async (mail) =>{
     return course
 }
 
-//obterner todos los cursos para mostrar
+//obterner todos las habilidades
 const getAbility = async (mail) =>{
     let pokemon = await fetch(`http://localhost:3001/habilidades/${mail}`);
     return pokemon
@@ -167,6 +167,9 @@ const register = async (newUser) => {
 
 }
 
+
+
+//iniciar sesion
 const inicioSesion = (obtainData) => {
     let resultado;
       
@@ -197,7 +200,20 @@ const inicioSesion = (obtainData) => {
       .catch(error => console.error("Error:", error))
   };
 
+//poner imagen de ususario logeado
+const bienvenida=async (variable)=>{
+    let resultado =await fetch(`http://localhost:3001/${variable}`);
+    return resultado
+ }
+
+ //obtener datos para el perfil
+const getPerfil=async (variable)=>{
+    let resultado =await fetch(`http://localhost:3001/${variable}`);
+    return resultado
+ }
+
+
 
 export { pushCourse, getCuorse, getFriends, getMomos,pushAbiliti,getAbility,pushHelp,getSearch };
 
-export{register,inicioSesion};
+export{register,inicioSesion,bienvenida,getPerfil};

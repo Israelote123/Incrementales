@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Nav} from './components/Nav/Nav';
+
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import { PublicarPage } from "./pages/PublicarPage";
@@ -10,10 +10,9 @@ import { Amigos } from "./pages/Amigos";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
-
+import { PerfilPage } from "./pages/PerfilPage";
 ReactDOM.render(
   <BrowserRouter>
-    <Nav />
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="/new-user" element={<Register/>} />
@@ -22,6 +21,7 @@ ReactDOM.render(
         <Route path="/chismetecla" element={<Chismetecla/> }/>
         <Route path="/amigos" element={<Amigos/>}/>
         <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
+        <Route path="/perfil" element={<PerfilPage/>}/>
         </Routes>
   </BrowserRouter>,
 document.getElementById('root')

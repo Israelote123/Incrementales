@@ -21,12 +21,11 @@ function ShowFriends() {
         traerAmigos()
     }   
     return (
-        <div>
+        <div id="container-friends" class="d-flex justify-content-between flex-wrap">
          {
            save.map(r =>                                                                                                                                             
-                  <div className="card">
+                  <div className="card perfil_container">
                         <div className="card-body">
-
                           <img src={r.profile_photo} className="perfil card-img-top " alt="..."/>
                             <div className="card-body">
                              <h5 className="card-title">{r.name}</h5>

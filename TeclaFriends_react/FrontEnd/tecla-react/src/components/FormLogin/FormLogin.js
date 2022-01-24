@@ -14,8 +14,7 @@ function FormLogin(){
           password: event.target[1].value,
         };
         let variable=event.target[0].value;
-        localStorage.setItem("variable",variable);
-        let imprimir=inicioSesion(data)
+        localStorage.setItem("variable",variable);     
         navigate("/chismetecla")
       };
 
