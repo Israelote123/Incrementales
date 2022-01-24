@@ -30,22 +30,22 @@ const ayuda=()=>{
         <div className="Nav">
             <div id="container-friends" className="d-flex justify-content-between flex-wrap">
                 <div className="nave card" >
-                    <div className="card-body">
+                    <div className="card-body gustos">
                         <div className="  d-flex bd-highlight mb-3">
                             <div className="me-auto p-2 bd-highlight"> <i className=" fa-2x fas fa-paint-brush">Crear Post</i></div>
-                            <a  onClick={changeSave} className="enlace" >
-                                <div className="circle-icon">
+                            <a  onClick={changeSave} className="enlaces_nuevos" >
+                                <div className="iconos_post">
                                     <i className="fa-2x fas fa-graduation-cap"></i>                                    
                                 </div>
                             </a>
 
-                            <a  onClick={changeState}  className="enlace" >
-                                <div className="circle-icon">
+                            <a  onClick={changeState}  className="enlaces_nuevos" >
+                                <div className="iconos_post">
                                   <i className="fa-2x fas fa-eye"></i>                                    
                                 </div>
                             </a>   
-                            <a  onClick={changeAbil}  className="enlace" >
-                                <div className="circle-icon">
+                            <a  onClick={changeAbil}  className="enlace_nuevos" >
+                                <div className="iconos_post">
                                 <i className="fa-2x fas fa-table-tennis"></i>                                  
                                 </div>
                             </a>                          
@@ -56,10 +56,10 @@ const ayuda=()=>{
                             <input type="text" className="form-control" id="publication" placeholder=" ¿Que estas pensando?" />
                         </div>
                         <div className=" d-flex justify-content-around align-content-center flex-wrap">
-                            <i className=" fa-2x fas fa-camera"></i>
-                            <i className="fa-2x fas fa-video"></i>
-                            <i className="fa-2x fas fa-image"></i>
-                            <i onClick={ayuda} className=" fa-2x fas fa-question-circle"></i>
+                            <i className="icon_help fa-2x fas fa-camera"></i>
+                            <i className="icon_help fa-2x fas fa-video"></i>
+                            <i className="icon_help fa-2x fas fa-image"></i>
+                            <i onClick={ayuda}  className="icon_help fa-2x fas fa-question-circle"></i>
                         </div>
                         </div>
                         </div>
@@ -105,10 +105,10 @@ const ayuda=()=>{
                                 Las tres películas de la seria han sido meticulosamente restauradas bajo la dirección de Coppola con gran cantidad de material adicional en plataformas seleccionadas. #ElPadrino50</p>
                         </div>
                         <div className=" d-flex justify-content-start align-content-center flex-wrap">
-                            <i className="perfiles fa-2x fas fa-thumbs-up"></i>
-                            <i className="perfiles fa-2x far fa-comment"></i>
-                            <i className="perfiles fa-2x fab fa-gratipay"></i>
-                            <i className="perfiles fa-2x fas fa-heart-broken"></i>
+                            <i className="icon_help perfiles fa-2x fas fa-thumbs-up"></i>
+                            <i className="icon_help perfiles fa-2x far fa-comment"></i>
+                            <i className="icon_help perfiles fa-2x fab fa-gratipay"></i>
+                            <i className="icon_help perfiles fa-2x fas fa-heart-broken"></i>
                             
                         </div>
                     </div>

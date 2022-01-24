@@ -5,10 +5,12 @@ import { pushAbiliti } from '../../api/api';
 
 
 function AgregarHabilidad() {
+    let variable = localStorage.getItem("variable");
+    
     var data;
     let obtainData = () => {
         data = {
-            mail: "bob68@gmail.com",
+            mail: variable,
             skill: state.nombreH           
         };
         return data;

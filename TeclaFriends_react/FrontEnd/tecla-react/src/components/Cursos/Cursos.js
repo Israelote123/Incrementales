@@ -6,9 +6,11 @@ import { pushCourse } from '../../api/api';
 
 function Cursos() {
     var data;
+    let variable = localStorage.getItem("variable");
+    
     let obtainData = () => {
         data = {
-            mail: "bob68@gmail.com",
+            mail: variable,
             nombre_curso: state.nombreC,
             fecha_curso: state.fechaC,
             lugar_curso: state.lugarC

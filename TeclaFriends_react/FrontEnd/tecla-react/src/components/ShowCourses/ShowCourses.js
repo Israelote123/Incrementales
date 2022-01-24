@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { getCuorse } from '../../api/api'
 import { getAbility} from '../../api/api'
 function ShowCourses() {
+    let variable = localStorage.getItem("variable");
+    
+
     const [save, setSave] = useState([]);
     const [state, setState] = useState(false);    
     const [abili, setAbili] = useState([]);  
@@ -12,7 +15,7 @@ function ShowCourses() {
     const mostrarCourses = async () => {
         //event.preventDefault()
         setStateto(false)    
-        let newPokemon = await getCuorse("bob68@gmail.com")
+        let newPokemon = await getCuorse(variable)
         let pokeJSON = await newPokemon.json()
         setSave(save[0]=pokeJSON)      
         setState(true)            
@@ -26,7 +29,7 @@ function ShowCourses() {
    
     const mostrarAbilitis = async () => {
         //event.preventDefault()
-        let newPokemon = await getAbility("bob68@gmail.com")
+        let newPokemon = await getAbility(variable)
         let pokeJSON = await newPokemon.json()
         setAbili(abili[0]=pokeJSON)      
         //setState(true)

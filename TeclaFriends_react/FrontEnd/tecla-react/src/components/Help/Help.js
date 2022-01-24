@@ -6,9 +6,11 @@ import { pushHelp } from '../../api/api';
 
 function Help() {
     var data;
+    let variable = localStorage.getItem("variable");
+    
     let obtainData = () => {
         data = {
-            mail: "bob68@gmail.com",
+            mail: variable,
             titulo: state.titulo,
             consulta:state.consulta,
             problemas:state.problemas       
