@@ -18,7 +18,7 @@ function PerfilSearch() {
     useEffect(()=>{
       console.log("efect")
       perfilFeatures()
-    })
+    },[variable])
     console.log("render")
     
 
