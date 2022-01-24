@@ -39,15 +39,7 @@
 }
 
 /*Cuerpo*/
-body {
-  margin: 0;
-  font-family: "Patrick Hand", cursive;
-  font-size: 18px;
-  background-image: url(../img/R.jpg);
-  height: 100%;
-  background-attachment: fixed;
-  background-size: cover;
-}
+
 
 main {
   margin-top: 2%;
@@ -61,17 +53,7 @@ input::placeholder {
   font-family: "Patrick Hand", cursive;
 }
 
-button {
-  height: 2em;
-  border-radius: 1.3333333333em;
-  border-style: outset;
-  border-color: lightgrey;
-  background-color: white;
-  text-align: center;
-  font-weight: bold;
-  display: block;
-  margin: auto;
-}
+
 button:active {
   border-style: inset;
   border-color: #707070;

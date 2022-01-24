@@ -43,8 +43,7 @@ function AgregarHabilidad() {
     }
 
     return (
-        <div className="Habilidades">
-            <form  onSubmit={saveInfo}>
+         <form  onSubmit={saveInfo}>
                 <div id="blue">
                     <h1>Nueva Habilidad</h1>
                 </div>
@@ -67,10 +66,8 @@ function AgregarHabilidad() {
                 )}
 
             </form>
-            <div>
-            </div>
             
-        </div>
+    
     );
 }
 

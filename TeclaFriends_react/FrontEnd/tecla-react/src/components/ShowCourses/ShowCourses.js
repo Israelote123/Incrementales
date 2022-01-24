@@ -6,16 +6,24 @@ function ShowCourses() {
     const [save, setSave] = useState([]);
     const [state, setState] = useState(false);    
     const [abili, setAbili] = useState([]);  
+    
+    const [stateto, setStateto] = useState(true);  
+    
     const mostrarCourses = async () => {
         //event.preventDefault()
+        setStateto(false)    
         let newPokemon = await getCuorse("bob68@gmail.com")
         let pokeJSON = await newPokemon.json()
         setSave(save[0]=pokeJSON)      
-        setState(true)
-            
-        mostrarAbilitis()
-       
+        setState(true)            
+        mostrarAbilitis()         
     }
+
+    {stateto&&
+          mostrarCourses()
+          
+    }
+   
     const mostrarAbilitis = async () => {
         //event.preventDefault()
         let newPokemon = await getAbility("bob68@gmail.com")
@@ -23,11 +31,11 @@ function ShowCourses() {
         setAbili(abili[0]=pokeJSON)      
         //setState(true)
     }
+
+    //<button className="btn btn-primary" onClick={mostrarCourses}>Mostrar</button>
+
     return (
         <div className="ShowCourses">
-            <button className="btn btn-primary" onClick={mostrarCourses}>Mostrar</button>
-            <br/>
-            <br/>
             {state &&
                 <>
                     <div className="row">

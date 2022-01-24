@@ -33,8 +33,8 @@ const ayuda=()=>{
                     <div className="card-body">
                         <div className="  d-flex bd-highlight mb-3">
                             <div className="me-auto p-2 bd-highlight"> <i className=" fa-2x fas fa-paint-brush">Crear Post</i></div>
-                            <a  onClick={changeSave} className="enlaces_nuevos" >
-                                <div className="contenedor-iconos">
+                            <a  onClick={changeSave} className="enlace" >
+                                <div className="circle-icon">
                                     <i className="fa-2x fas fa-graduation-cap"></i>                                    
                                 </div>
                             </a>
@@ -66,28 +66,20 @@ const ayuda=()=>{
 
                      {save&&
                        <div className="nave card" >
-                       <div className="card-body">
-                            <div className="" >
-                              <div className="gustos card card-body">
-                                  <Cursos />
-                              </div>
-                           </div>
-                        </div>
+                          <Cursos />
                         </div> 
                       } 
 
 
                       {abil&&
                        <div className="nave card" >
-                       <div className="card-body">
-                    
-                            <div className="" >
-                              <div className="gustos card card-body">
+                       
+                             <div className="gustos card card-body">
                                   <AgregarHabilidad />
                               </div>
                            </div>
-                        </div>
-                        </div> 
+                       
+                     
                       } 
 
                       {state&&
@@ -95,7 +87,7 @@ const ayuda=()=>{
                        <div className="card-body">
                     
                        <div className="" >
-                            <div className="gustos card card-body">
+                            <div className="">
                                 <ShowCourses />
                             </div>
                         </div>
@@ -127,10 +119,10 @@ const ayuda=()=>{
                                 Las tres películas de la seria han sido meticulosamente restauradas bajo la dirección de Coppola con gran cantidad de material adicional en plataformas seleccionadas. #ElPadrino50</p>
                         </div>
                         <div className=" d-flex justify-content-start align-content-center flex-wrap">
-                            <i className="perfil fa-2x fas fa-thumbs-up"></i>
-                            <i className="perfil fa-2x far fa-comment"></i>
-                            <i className="perfil fa-2x fab fa-gratipay"></i>
-                            <i className="perfil fa-2x fas fa-heart-broken"></i>
+                            <i className="perfiles fa-2x fas fa-thumbs-up"></i>
+                            <i className="perfiles fa-2x far fa-comment"></i>
+                            <i className="perfiles fa-2x fab fa-gratipay"></i>
+                            <i className="perfiles fa-2x fas fa-heart-broken"></i>
                             
                         </div>
                     </div>

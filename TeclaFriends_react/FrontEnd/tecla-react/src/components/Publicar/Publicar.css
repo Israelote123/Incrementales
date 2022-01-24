@@ -4,8 +4,10 @@
 #publication{
     width: 80%;
 }
-.perfil{
+.perfiles{
     margin-right: 10px;
+    margin: auto;
+    object-fit: cover;
 }
 .icons-container{
     margin-bottom: 20px;

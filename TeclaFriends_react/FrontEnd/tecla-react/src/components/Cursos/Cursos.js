@@ -66,8 +66,7 @@ function Cursos() {
 
 
     return (
-        <div className="Cursos">
-            <form  onSubmit={saveInfo}>
+          <form  onSubmit={saveInfo}>
                 <div id="blue">
                     <h1>Nuevo curso</h1>
                 </div>
@@ -99,43 +98,7 @@ function Cursos() {
 
             </form>
 
-
-            <div>
-
-            </div>
-
-            {save &&
-                <>
-                    <div className='container'>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <div className="card" >
-                            <ul className="list-group list-group-flush">
-                                <li className="list-group-item">
-                                    <h2>Nombre curso</h2>
-                                    <br />
-                                    <h3>{state.nombreC}</h3>
-
-
-                                </li>
-                                <li className="list-group-item">
-                                    <h2>Lugar curso</h2>
-                                    <br />
-                                    <h3>{state.lugarC}</h3></li>
-                                <li className="list-group-item">
-                                    <h2>Fecha curso</h2>
-                                    <br />
-                                    <h3>{state.fechaC}</h3></li>
-                            </ul>
-                        </div>
-                    </div>
-                </>
-
-            }
-
-
-        </div>
+        
     );
 }
 
