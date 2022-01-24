@@ -1,4 +1,4 @@
-
+import { useState,useEffect } from 'react';
 import {Nav} from '../components/Nav/Nav'
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
@@ -7,9 +7,14 @@ import {Spiderman} from '../components/Spiderman/Spiderman'
 
 
 function AgregarAmigos() {
+    const limpiar=()=>{
+        boxState(false)
+    }
+
+    const[box,boxState]=useState(false)
     return (
-        <div>
-            <Nav/>
+        <div onClick={limpiar}>
+            <Nav box={box} boxState={boxState}/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-3">

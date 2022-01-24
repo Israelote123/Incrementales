@@ -1,0 +1,35 @@
+main {
+    margin-top: 100px;
+  }
+#userPhoto {
+    display: block;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+
+  #contenedor{
+    margin: auto;
+    padding: 2em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: white;
+  }
+  
+  .userName {
+    text-align: center;
+    font-size: 35px;
+  }
+  
+  .infoUser {
+    text-align: center;
+    font-size: 20px;
+    margin: auto;
+    padding: 2em;
+  }
+  
+  .infoUser:last-child {
+    font-style: italic;
+  }

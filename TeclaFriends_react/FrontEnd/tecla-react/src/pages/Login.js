@@ -1,7 +1,7 @@
 import { FormLogin } from "../components/FormLogin/FormLogin";
 
 function Login() {
-    return (
+  return (
         <FormLogin />
       );
 }

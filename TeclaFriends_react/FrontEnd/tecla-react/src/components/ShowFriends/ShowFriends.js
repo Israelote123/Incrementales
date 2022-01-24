@@ -21,7 +21,7 @@ function ShowFriends() {
         traerAmigos()
     }   
     return (
-        <div id="container-friends" class="d-flex justify-content-between flex-wrap">
+        <div id="container-friends" className="d-flex justify-content-between flex-wrap">
          {
            save.map(r =>                                                                                                                                             
                   <div className="card perfil_container">

@@ -54,15 +54,7 @@ input::placeholder {
 }
 
 
-button:active {
-  border-style: inset;
-  border-color: #707070;
-  background-color: grey;
-  text-align: center;
-  font-weight: normal;
-  display: block;
-  margin: auto;
-}
+
 
 #inputSearch{
   width: 60%;
@@ -124,6 +116,16 @@ a {
   border: solid 5px turquoise;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.active{
+  font-weight: bold;
+}
+
+
+#cambio:hover{
+  color: white;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1400px) {

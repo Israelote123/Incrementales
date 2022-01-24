@@ -68,7 +68,7 @@ module.exports.cours = async(course) => {
 }
 
 //insertar nuevas habilidades
-module.exports.cours = async(habilidades) => {
+module.exports.Abilities = async(habilidades) => {
     
     await sequelize.query(`INSERT INTO abilities (mail,skill) VALUES ('${habilidades.mail}', '${habilidades.skill}')`)
      return "abiltityAdded";   

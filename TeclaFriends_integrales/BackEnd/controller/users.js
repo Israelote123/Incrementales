@@ -45,11 +45,11 @@ module.exports.addCourse = async (course) => {
 
 //insertar nuevas habilidades
 module.exports.addAbility = async (habilidad) => {
-    let result=await userModel.cours(habilidad)
+    let result=await userModel.Abilities(habilidad)
     return result;
 }
 
-//insertar nuevas habilidades
+//insertar nuevas petciciones de ayuda
 module.exports.addHelp = async (help) => {
     let result=await userModel.help(help)
     return result;

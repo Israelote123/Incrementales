@@ -1,5 +1,5 @@
 import './AmigosAgregar.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { getFriends } from '../../api/api'
 
 function AmigosAgregar() {
@@ -17,9 +17,12 @@ function AmigosAgregar() {
         setState(false)
     }
 
-    {state&&
-        traerAmigos()
-    }   
+   useEffect(()=>{
+    traerAmigos()
+   },[])
+    //{state&&
+      //  traerAmigos()
+    //}   
     return (
         <div id="container-friends" class="d-flex justify-content-between flex-wrap">
          {

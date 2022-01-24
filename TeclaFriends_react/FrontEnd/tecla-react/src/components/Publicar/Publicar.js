@@ -72,39 +72,25 @@ const ayuda=()=>{
 
 
                       {abil&&
-                       <div className="nave card" >
-                       
-                             <div className="gustos card card-body">
+                          <div className="nave card">
                                   <AgregarHabilidad />
-                              </div>
-                           </div>
-                       
-                     
+                          </div>
+                           
+                        
                       } 
 
                       {state&&
-                       <div className="nave card" >
-                       <div className="card-body">
-                    
-                       <div className="" >
-                            <div className="">
+                         <div className='card'>
+                         <div className="card-body">
                                 <ShowCourses />
                             </div>
-                        </div>
-                        </div>
-                        </div> 
+                            </div>
                       }
 
                       {help&&
-                       <div className="nave card" >
-                       <div className="card-body">
-                            <div className="" >
-                              <div className="gustos card card-body">
+                            <div className="card-body">
                                   <Help />
                               </div>
-                           </div>
-                        </div>
-                        </div> 
                       }  
                        
               {(!save && !state&&!abil&&!help)  && 
