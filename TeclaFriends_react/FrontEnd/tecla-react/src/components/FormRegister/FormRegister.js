@@ -2,9 +2,11 @@ import './FormRegister.css'
 import userPreview from '../img/default.png'
 import {register} from '../../api/api'
 import {useState} from 'react'
+import { useNavigate } from "react-router-dom";
 
 function FormRegister(){
 
+    const registerSucceed = useNavigate()
     const [preview, setPreview] = useState(userPreview)
 
     const onChange = () => {
@@ -16,6 +18,7 @@ function FormRegister(){
     const newRegister = async (event) => {
         event.preventDefault();
         await register(event.target)
+        registerSucceed('/')
     }
 
     return  (
