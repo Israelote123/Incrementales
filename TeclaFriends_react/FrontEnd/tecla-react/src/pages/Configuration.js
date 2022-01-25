@@ -1,16 +1,16 @@
 import { useState,useEffect } from 'react';
 import {Nav} from '../components/Nav/Nav'
+import { Config } from "../components/Config/Config";
 import { BarraLat } from "../components/BarraLat/BarraLat";
-import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
+import {ShowFriends} from '../components/ShowFriends/ShowFriends';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import {Spiderman} from '../components/Spiderman/Spiderman'
 
 
-function AgregarAmigos() {
+function Configuration() {
     const limpiar=()=>{
         boxState(false)
     }
-
     const[box,boxState]=useState(false)
     
     return (
@@ -19,19 +19,12 @@ function AgregarAmigos() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-3">
-                        <BarraLat />
-                    </div>
-                    <div className="col-lg-6">
-                      <AmigosAgregar/>                       
-                    </div>
-                    <div className="col-lg-3">
-                        <BarraLatRight />
-                        <Spiderman />
-                    </div>
+                        <Config/>
+                    </div>                   
                 </div>
             </div>
         </div>
     );
 }
 
-export {AgregarAmigos};
+export {Configuration};

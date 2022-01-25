@@ -15,7 +15,7 @@ function FormLogin(){
         };
         let variable=event.target[0].value;
         localStorage.setItem("variable",variable);     
-        navigate("/chismetecla")
+        navigate("/publicar")
       };
 
     return  (<main>

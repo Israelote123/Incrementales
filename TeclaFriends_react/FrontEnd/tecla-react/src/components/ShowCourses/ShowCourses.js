@@ -61,7 +61,7 @@ function ShowCourses() {
                             <div className="card">
                                <div className="card-body">
                                      <h5 className="card-title">{t.skill}</h5>
-                                     <p className="card-text quote-text"><i>"{t.date}"</i></p>
+                                     <p className="card-text quote-text"><i>"{t.fecha}"</i></p>
                                 </div>
                             </div>
                           </div>                                    

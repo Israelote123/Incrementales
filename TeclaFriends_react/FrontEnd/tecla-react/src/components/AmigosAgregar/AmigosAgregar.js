@@ -9,17 +9,16 @@ function AmigosAgregar() {
     const traerAmigos =async () => {
         let newPokemon = await getFriends()
         let pokeJSON = await newPokemon.json()
-        
-        
         setSave(save[0] = pokeJSON)
         console.log(pokeJSON)
         console.log(save)
         setState(false)
     }
 
-   useEffect(()=>{
+    useEffect(()=>{
     traerAmigos()
    },[])
+
     //{state&&
       //  traerAmigos()
     //}   

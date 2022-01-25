@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import { PublicarPage } from "./pages/PublicarPage";
@@ -11,21 +10,35 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
-ReactDOM.render(
-  <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/new-user" element={<Register/>} />
-        <Route path="/publicar" element={<PublicarPage/> }/>
-        <Route path="/agregarAmigos" element={<AgregarAmigos/> }/>
-        <Route path="/chismetecla" element={<Chismetecla/> }/>
-        <Route path="/amigos" element={<Amigos/>}/>
-        <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
-        <Route path="/perfil" element={<PerfilPage/>}/>
-        </Routes>
-  </BrowserRouter>,
-document.getElementById('root')
-);
+import {ThemeContext,themes} from './Context/AppContext' 
+import { Configuration } from './pages/Configuration';
+import { useState } from 'react';
+
+  
+  
+  ReactDOM.render(
+   
+    <ThemeContext.Provider value={themes}>
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login  />} />
+          <Route path="/new-user" element={<Register/>} />
+          <Route path="/publicar" element={<PublicarPage/> }/>
+          <Route path="/agregarAmigos" element={<AgregarAmigos  /> }/>
+          <Route path="/chismetecla" element={<Chismetecla/> }/>
+          <Route path="/amigos" element={<Amigos/>}/>
+          <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
+          <Route path="/perfil" element={<PerfilPage/>}/>
+          <Route path="/configuracion" element={<Configuration/>}/>
+          
+          </Routes>
+    </BrowserRouter>
+    </ThemeContext.Provider>,
+  document.getElementById('root')
+  );
+
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
