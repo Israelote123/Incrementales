@@ -5,7 +5,7 @@ function BarraLatRight() {
     return (
         <div className="BarraLatRight">
             <div className="nave card" >
-                <div className="card-body">
+                <div className="card-body gustos">
                 <h5 className="card-title">Geek activity</h5>
                             <ul className="list-group">
                                 <a data-bs-toggle="collapse" href="#collapseMovie" role="button" aria-expanded="false"
@@ -13,7 +13,7 @@ function BarraLatRight() {
                                     <i className="fa-2x fas fa-ticket-alt"></i>
                                 </a>
                                 <li className="list-group-item">Movie premiere<div className="collapse" id="collapseMovie">
-                                        <div className="card card-body">
+                                        <div className="card card-body gustos">
                                             Uncharted <br/>
                                             Sonic 2 <br/>
                                             The Northman <br/>
@@ -33,7 +33,7 @@ function BarraLatRight() {
                                 </a>
 
                                 <li className="list-group-item">New Series<div className="collapse" id="collapseSerie">
-                                        <div className="card card-body">
+                                        <div className="card card-body gustos">
                                             The lord of the rings <br/>
                                             Halo <br/>
                                             The last of Us <br/>
@@ -49,7 +49,7 @@ function BarraLatRight() {
                                 </a>
 
                                 <li className="list-group-item">Videogames<div className="collapse" id="collapseGame">
-                                        <div className="card card-body">
+                                        <div className="card card-body gustos">
                                             God of War <br/>
                                             Leyendas Pokémon Arceus <br/>
                                             Uncharted: Legacy of Thieves Collection <br/>
@@ -63,7 +63,7 @@ function BarraLatRight() {
                                 </a>
 
                                 <li className="list-group-item">Tecnology<div className="collapse" id="collapseTec">
-                                        <div className="card card-body">
+                                        <div className="card card-body gustos">
                                             Facebook compra youtube <br/>
                                             WhatsApp prohibe enviar nudes
                                         </div>
@@ -76,7 +76,7 @@ function BarraLatRight() {
                                 </a>
 
                                 <li className="list-group-item">News Job<div className="collapse" id="collapseJob">
-                                        <div className="card card-body">
+                                        <div className="card card-body gustos">
                                             LinkeInd
                                             Computrabajo
                                             Indeed

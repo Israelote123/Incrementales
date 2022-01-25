@@ -4,8 +4,10 @@
 #publication{
     width: 80%;
 }
-.perfil{
+.perfiles{
     margin-right: 10px;
+    margin: auto;
+    object-fit: cover;
 }
 .icons-container{
     margin-bottom: 20px;
@@ -15,3 +17,71 @@
     border-radius: 50%;
 
 }
+
+.enlaces_nuevos{
+  padding: 5px;
+  color: black;
+  background: turquoise;
+}
+.contenedor-iconos{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: black;
+  padding: 9px;
+  margin-right: 10px;
+  margin: auto;
+  background: white;
+  background: linear-gradient(72deg, white 0%, white 0%, #40e0ff 45%);
+}
+
+.circle-icons {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: turquoise;
+    font-size: 16px;
+    padding: 9px;
+    margin-right: 10px;
+  }
+  
+ 
+  
+  .iconos_post{
+      width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    color: black;
+    padding: 9px;
+    margin-right: 10px;
+    margin: auto;
+    background: turquoise;
+    
+  }
+  .iconos_post:hover{
+      cursor: pointer;
+      color: white;
+  }
+  
+  .icon_help:hover{
+     color: black;
+     cursor: pointer;
+  }
+  .card {
+    text-align: center;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+  
+  .gustos {
+    background-color: turquoise;
+    color: black;
+  }
+  .card-body ul li {
+    border: none;
+  }
+  
+  
+  
+
+

@@ -39,66 +39,22 @@
 }
 
 /*Cuerpo*/
-body {
-  margin: 0;
-  font-family: "Patrick Hand", cursive;
-  font-size: 18px;
-  background-image: url(../img/R.jpg);
-  height: 100%;
-  background-attachment: fixed;
-  background-size: cover;
-}
+
 
 main {
   margin-top: 2%;
 }
 
-.perfil {
-  margin: auto;
-  margin-top: 5%;
-  margin-bottom: 2%;
-  width: 80px;
-  height: 80px;
-  border: solid 5px turquoise;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
-.perfilUser {
-  margin: auto;
-  margin-top: 5%;
-  margin-bottom: 2%;
-  width: 50px;
-  height: 50px;
-  border: solid 5px turquoise;
-  border-radius: 50%;
-  object-fit: cover;
-}
+
+
 
 input::placeholder {
   font-family: "Patrick Hand", cursive;
 }
 
-button {
-  height: 2em;
-  border-radius: 1.3333333333em;
-  border-style: outset;
-  border-color: lightgrey;
-  background-color: white;
-  text-align: center;
-  font-weight: bold;
-  display: block;
-  margin: auto;
-}
-button:active {
-  border-style: inset;
-  border-color: #707070;
-  background-color: grey;
-  text-align: center;
-  font-weight: normal;
-  display: block;
-  margin: auto;
-}
+
+
 
 #inputSearch{
   width: 60%;
@@ -151,88 +107,25 @@ a {
   z-index: 3;
 }
 
-.circle-icons {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  color: turquoise;
-  font-size: 16px;
-  padding: 9px;
-  margin-right: 10px;
-}
-
-.blue-back {
-  background: #060606;
-  background: linear-gradient(72deg, #060606 43%, #40e0ff 98%, white 100%);
-}
-.blue-back:hover {
-  background: white;
-  background: linear-gradient(72deg, white 0%, #40e0ff 1%, #060606 56%);
-  color: white;
-}
-
-.circle-icon {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  color: black;
-  padding: 9px;
-  margin-right: 10px;
+.perfilUser {
   margin: auto;
-  background: white;
-  background: linear-gradient(72deg, white 0%, white 0%, #40e0ff 45%);
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 50px;
+  height: 50px;
+  border: solid 5px turquoise;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.text_m {
-  position: fixed;
-  bottom: 15%;
-  right: 2%;
-  z-index: 3;
+.active{
+  font-weight: bold;
 }
 
-.card {
-  text-align: center;
-  margin-left: 1%;
-  margin-bottom: 1%;
-}
 
-.card-body {
-  background-color: turquoise;
+#cambio:hover{
   color: white;
-}
-.card-body ul li {
-  border: none;
-}
-.card-body a {
-  background-color: white;
-}
-.card-body a:hover {
-  color: turquoise;
-  background-color: black;
-}
-
-.nave {
-  background-color: black;
-  color: white;
-}
-
-#icon-message:hover {
-  cursor: pointer;
-  color: turquoise;
-}
-
-#message-container ul li a {
-  color: white;
-  background-color: black;
-  justify-content: flex-start;
-}
-#message-container ul li a:hover {
-  color: black;
-  background-color: turquoise;
-}
-
-.gustos a:hover {
-  color: white;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1400px) {

@@ -8,3 +8,68 @@
 .playList{
     background: transparent;
 }
+
+.BarraLat{
+    margin-top: 5%;
+}
+
+.circle-icons {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: turquoise;
+    font-size: 16px;
+    padding: 9px;
+    margin-right: 10px;
+  }
+  
+  .blue-back {
+    background: #060606;
+    background: linear-gradient(72deg, #060606 43%, #40e0ff 98%, white 100%);
+  }
+  .blue-back:hover {
+    background: white;
+    background: linear-gradient(72deg, white 0%, #40e0ff 1%, #060606 56%);
+    color: white;
+  }
+  
+  .circle-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    color: black;
+    padding: 9px;
+    margin-right: 10px;
+    margin: auto;
+    background: white;
+    background: linear-gradient(72deg, white 0%, white 0%, #40e0ff 45%);
+  }
+  
+  .text_m {
+    position: fixed;
+    bottom: 15%;
+    right: 2%;
+    z-index: 3;
+  }
+  
+  .card {
+    text-align: center;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+  
+  .gustos {
+    background-color: turquoise;
+    color: white;
+  }
+  .card-body ul li {
+    border: none;
+  }
+  
+  .enlace:hover {
+    color: turquoise;
+    background-color: black;
+  }
+  
+  
+  

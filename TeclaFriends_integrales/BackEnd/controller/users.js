@@ -20,6 +20,11 @@ module.exports.getCourse = async (data)=>{
     let result = await userModel.courseDo(data)
     return result
 }
+//obtener todos los cursos
+module.exports.getAbility = async (data)=>{
+    let result = await userModel.Ability(data)
+    return result
+}
 
 
 module.exports.getBusqueda = async (busqueda)=>{
@@ -32,8 +37,20 @@ module.exports.addRegister = async (register) => {
     return result;
 }
 
-//cursos
+//insertar nuevos cursos
 module.exports.addCourse = async (course) => {
     let result=await userModel.cours(course)
+    return result;
+}
+
+//insertar nuevas habilidades
+module.exports.addAbility = async (habilidad) => {
+    let result=await userModel.Abilities(habilidad)
+    return result;
+}
+
+//insertar nuevas petciciones de ayuda
+module.exports.addHelp = async (help) => {
+    let result=await userModel.help(help)
     return result;
 }

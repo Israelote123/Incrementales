@@ -8,7 +8,7 @@ function Spiderman() {
         <div className="container">
             
             <div className="Spiderman">
-              <img src={spider} className="tobey"></img>
+              <img src={spider} className="tobey" alt='spiderman'></img>
             </div>
             
         </div>

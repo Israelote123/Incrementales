@@ -3,9 +3,8 @@ import './BarraLat.css';
 function BarraLat() {
     return (
         <div className="BarraLat">
-            
                       <div className=" nave card" >
-                          <div className="card-body">
+                          <div className=" gustos card-body">
                               <h5 className="card-title">New feeds</h5>
                               <ul className="list-group">
                                   <a className="enlace" data-bs-toggle="collapse" href="#collapsePlay" role="button"
@@ -16,10 +15,10 @@ function BarraLat() {
                                   </a>
                                   <li className="list-group-item">Playlist to program<div className="collapse" id="collapsePlay">
                                           <div className="gustos card card-body">
-                                              <a className='playList' href="https://www.youtube.com/watch?v=GyGqV_PkfGo&list=PL7oskRpwwi_rG6BqlqkU8QKXO5gbhSFv2&index=1">One Hour of Chill Out Halo Music</a><br/>
-                                              <a className='playList' href="https://www.youtube.com/watch?v=Tf1DEI2lEe0&list=PL7oskRpwwi_rG6BqlqkU8QKXO5gbhSFv2&index=2">DOOM Eternal OST Remastered Version Full Official Soundtrack by Mick Gordon</a> <br/>
-                                              <a className='playList' href="https://www.youtube.com/watch?v=PAe0gyrDSyg">El muchacho de los ojos tristes</a><br/>
-                                              <a className='playList' href="https://www.youtube.com/watch?v=E20G25SCAEg">El triste</a><br/>
+                                              <a className='enlace playList' href="https://www.youtube.com/watch?v=GyGqV_PkfGo&list=PL7oskRpwwi_rG6BqlqkU8QKXO5gbhSFv2&index=1">One Hour of Chill Out Halo Music</a><br/>
+                                              <a className='enlace playList' href="https://www.youtube.com/watch?v=Tf1DEI2lEe0&list=PL7oskRpwwi_rG6BqlqkU8QKXO5gbhSFv2&index=2">DOOM Eternal OST Remastered Version Full Official Soundtrack by Mick Gordon</a> <br/>
+                                              <a className='enlace playList' href="https://www.youtube.com/watch?v=PAe0gyrDSyg">El muchacho de los ojos tristes</a><br/>
+                                              <a className='enlace playList' href="https://www.youtube.com/watch?v=E20G25SCAEg">El triste</a><br/>
                                           </div>
                                       </div>
                                   </li>
@@ -31,7 +30,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">I want to learn<div className="collapse" id="collapseLearn">
-                                      <div className="card card-body">
+                                      <div className="card card-body gustos">
                                           Dance salsa <br/>
                                           Python <br/>
                                           Java <br/>
@@ -47,7 +46,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">Places to visit<div className="collapse" id="collapsePlaces">
-                                      <div className="card card-body">
+                                      <div className="card card-body gustos ">
                                           Costa Amalfitana <br/>
                                           Machu Picchu <br/>
                                           Castillo de Neuschwanstein <br/> 
@@ -63,7 +62,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">companies to work for<div className="collapse" id="collapseCompany">
-                                      <div className="card card-body">
+                                      <div className="card card-body gustos">
                                           Sony <br/>
                                           Amazon <br/>
                                           Meta <br/>
@@ -82,7 +81,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">Groups<div className="collapse" id="collapseGroups">
-                                      <div className="card card-body">
+                                      <div className="card card-body gustos">
                                          Spidy fans <br/>
                                          Junors developers <br/>
                                          Marvel vs Dc <br/>                                       
@@ -94,7 +93,7 @@ function BarraLat() {
 
 
                      <div className=" nave card" >
-                          <div className="card-body">
+                          <div className="card-body gustos">
                               <h5 className="card-title">Reviews(spoilers alert)</h5>
                               <ul className="list-group">
                                   <a className="enlace" data-bs-toggle="collapse" href="#collapseBooks" role="button"
@@ -105,7 +104,7 @@ function BarraLat() {
                                   </a>
                                   <li className="list-group-item">Books
                                       <div className="collapse" id="collapseBooks">
-                                         <div className="gustos card card-body">
+                                         <div className="gustos card card-body gustos">
                                            <a href="#" className='playList'>1984 </a><br/> 
                                            <a href="#" className='playList'>Un mundo feliz  </a><br/>
                                            <a href="#" className='playList'>La telaraña de charlotte </a><br/>
@@ -124,7 +123,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">Movies<div className="collapse" id="collapseMov">
-                                      <div className="gustos card card-body">
+                                      <div className="gustos card card-body gustos">
                                          <a href="#" className='playList'>Spider-Man:no way home</a><br/> 
                                          <a href="#" className='playList'>Matrix 4</a><br/>
                                          <a href="#" className='playList'>Isla de perros</a><br/>
@@ -142,7 +141,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">Videogames<div className="collapse" id="collapseVi">
-                                      <div className="gustos card card-body">
+                                      <div className="gustos card card-body gustos">
                                          <a href="#" className='playList'>World of Warcraft</a><br/> 
                                          <a href="#" className='playList'>Super Mario Bros</a><br/>
                                          <a href="#" className='playList'>The Legend of Zelda</a><br/>
@@ -161,7 +160,7 @@ function BarraLat() {
                                       </div>
                                   </a>
                                   <li className="list-group-item">Series<div className="collapse" id="collapseSe">
-                                      <div className="gustos card card-body">
+                                      <div className="gustos card card-body gustos">
                                          <a href="#" className='playList'>Smallville</a><br/> 
                                          <a href="#" className='playList'>Justice league Unlimited</a><br/>
                                          <a href="#" className='playList'>The big bang theory</a><br/>

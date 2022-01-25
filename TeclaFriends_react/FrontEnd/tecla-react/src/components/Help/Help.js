@@ -1,94 +1,83 @@
 import { useState } from 'react';
-import './Cursos.css';
-import { pushCourse } from '../../api/api';
+import './Help.css';
+import { pushHelp } from '../../api/api';
 
 
 
-function Cursos() {
+function Help() {
     var data;
     let variable = localStorage.getItem("variable");
     
     let obtainData = () => {
         data = {
             mail: variable,
-            nombre_curso: state.nombreC,
-            fecha_curso: state.fechaC,
-            lugar_curso: state.lugarC
+            titulo: state.titulo,
+            consulta:state.consulta,
+            problemas:state.problemas       
         };
         return data;
     };
 
-
-
-    const [state, setState] = useState({ nombreC: "", lugarC: "", fechaC: "" })
-
+    const [state, setState] = useState({ titulo: "",consulta: "",problemas: ""})
     const [save, setSave] = useState(false);
     const [loading, setLoading] = useState(false)
 
-    const nombreCurso = (e) => {
-
+   const nuevoTitulo = (e) => {
         let newState = {
             ...state,
-            nombreC: e.target.value,
-        }
-        setState(newState)
-
-
-    }
-    const lugarCurso = (e) => {
-        let newState = {
-            ...state,
-            lugarC: e.target.value,
+            titulo: e.target.value,
         }
         setState(newState)
     }
-    const fechaCurso = (e) => {
+    const nuevaConsulta = (e) => {
         let newState = {
             ...state,
-            fechaC: e.target.value,
+            consulta: e.target.value,
         }
         setState(newState)
     }
-   
+    const nuevosProblemas = (e) => {
+        let newState = {
+            ...state,
+            problemas: e.target.value,
+        }
+        setState(newState)
+    }
+
     const saveInfo = (event) => {
-
         event.preventDefault()
         setLoading(true)
         setTimeout(() => {
             setSave(true)
-            pushCourse(obtainData)
+            pushHelp(obtainData)
             setLoading(false)
             event.target.reset()
         }, 2000)
-             
-       console.log(loading);
     }
 
-
-
-
     return (
-          <form  onSubmit={saveInfo}>
+        <div className="Habilidades">
+            <form  onSubmit={saveInfo}>
                 <div id="blue">
-                    <h1>Nuevo curso</h1>
+                    <h1>¿Necesitas ayuda?</h1>
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Nombre curso</label>
-                    <input required name='nombreC' type="text" className="form-control" onChange={nombreCurso} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <label className="form-label">Titulo</label>
+                    <input required name='nombreC' type="text" className="form-control" onChange={nuevoTitulo} id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Lugar curso</label>
-                    <input required name='lugarC' type="text" className="form-control" onChange={lugarCurso} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <label className="form-label">Consulta</label>
+                    <input required name='nombreC' type="text" className="form-control" onChange={nuevaConsulta} id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Fecha curso</label>
-                    <input required name='lugarC' type="date" className="form-control" onChange={fechaCurso} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <label className="form-label">Problemas comunes</label>
+                    <input required name='nombreC' type="text" className="form-control" onChange={nuevosProblemas} id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
+        
                 {!loading && (
                     <button  className="btn btn-primary" >Save</button>
 
                 )}
-
 
                 {loading && (
                     <div className="text-center">
@@ -99,9 +88,11 @@ function Cursos() {
                 )}
 
             </form>
-
-        
+            <div>
+            </div>
+            
+        </div>
     );
 }
 
-export { Cursos };
+export { Help };

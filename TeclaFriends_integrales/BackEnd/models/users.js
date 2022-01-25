@@ -35,6 +35,10 @@ module.exports.courseDo = async (data) => {
     let result = await sequelize.query(`SELECT * FROM cursos where mail='${data}'`)
     return result
 }
+module.exports.Ability = async (data) => {
+    let result = await sequelize.query(`SELECT * FROM abilities where mail='${data}'`)
+    return result
+}
 
 
 
@@ -56,9 +60,23 @@ module.exports.add = async(register) => {
    
 }
 
-//cursos
+//insertar nuevos cursos
 module.exports.cours = async(course) => {
     
         await sequelize.query(`INSERT INTO cursos (nombre_curso, fecha_curso, lugar_curso, mail) VALUES ('${course.nombre_curso}', '${course.fecha_curso}', '${course.lugar_curso}','${course.mail}')`)
          return "courseAdded";   
+}
+
+//insertar nuevas habilidades
+module.exports.Abilities = async(habilidades) => {
+    
+    await sequelize.query(`INSERT INTO abilities (mail,skill) VALUES ('${habilidades.mail}', '${habilidades.skill}')`)
+     return "abiltityAdded";   
+}
+
+
+//insertar nuevas habilidades
+module.exports.help = async(help) => {
+    await sequelize.query(`INSERT INTO ayuda (mail,titulo,consulta,problemas) VALUES ('${help.mail}', '${help.titulo}','${help.consulta}','${help.problemas}')`)
+     return "Query sent";   
 }
