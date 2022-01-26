@@ -1,9 +1,10 @@
-import { useState,useEffect } from 'react';
+import { useState,useContext } from 'react';
 import {Nav} from '../components/Nav/Nav'
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import {Spiderman} from '../components/Spiderman/Spiderman'
+import { ThemeContext } from '../Context/AppContext'
 
 
 function AgregarAmigos() {
@@ -12,9 +13,11 @@ function AgregarAmigos() {
     }
 
     const[box,boxState]=useState(false)
+    const {modo, modoState} = useContext(ThemeContext);
+   
     
     return (
-        <div onClick={limpiar}>
+        <div style={modo}  onClick={limpiar}>
             <Nav box={box} boxState={boxState}/>
             <div className="container-fluid">
                 <div className="row">

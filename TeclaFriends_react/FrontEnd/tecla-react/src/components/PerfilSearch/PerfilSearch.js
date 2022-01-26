@@ -34,6 +34,8 @@ function PerfilSearch() {
                            <div className="col-12 infoUser"> LinkedIn: <a href={r.linkedIn}  id="linkedIn">{r.linkedIn}</a></div>
                            <div className="col-6 infoUser"> Direccion: {r.country}, {r.city}</div>
                            <div className="col-6 infoUser"> Hobbies: {r.hobbies}</div>
+                           <div className="col-6 infoUser"><a href="#" className="btn btn-info" >add user</a></div>
+
                    </div>
                 </div>
               )

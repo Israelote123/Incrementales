@@ -10,17 +10,16 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
-import {ThemeContext,themes} from './Context/AppContext' 
 import { Configuration } from './pages/Configuration';
-import { useState } from 'react';
 
-  
-  
-  ReactDOM.render(
-   
-    <ThemeContext.Provider value={themes}>
+
+
+import {ThemeProvider} from './Context/AppContext' 
+
+ReactDOM.render(
+  <ThemeProvider >
     <BrowserRouter>
-        <Routes>
+        <Routes>      
           <Route path="/" element={<Login  />} />
           <Route path="/new-user" element={<Register/>} />
           <Route path="/publicar" element={<PublicarPage/> }/>
@@ -30,12 +29,31 @@ import { useState } from 'react';
           <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
           <Route path="/perfil" element={<PerfilPage/>}/>
           <Route path="/configuracion" element={<Configuration/>}/>
-          
-          </Routes>
+        </Routes>
     </BrowserRouter>
-    </ThemeContext.Provider>,
-  document.getElementById('root')
+  </ThemeProvider>,
+   document.getElementById('root')
   );
+
+  /*ReactDOM.render(
+    <ThemeContext.Provider value={themes.light}>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login  />} />
+            <Route path="/new-user" element={<Register/>} />
+            <Route path="/publicar" element={<PublicarPage/> }/>
+            <Route path="/agregarAmigos" element={<AgregarAmigos  /> }/>
+            <Route path="/chismetecla" element={<Chismetecla/> }/>
+            <Route path="/amigos" element={<Amigos/>}/>
+            <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
+            <Route path="/perfil" element={<PerfilPage/>}/>
+            <Route path="/configuracion" element={<Configuration/>}/>
+            
+            </Routes>
+      </BrowserRouter>
+      </ThemeContext.Provider>,
+    document.getElementById('root')
+    );*/
 
 
 
