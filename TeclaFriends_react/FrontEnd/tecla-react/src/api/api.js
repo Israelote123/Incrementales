@@ -1,8 +1,8 @@
 
 //obtener busqueda de ususarios
 const getSearch = async (text) =>{
-    let search = await fetch(`http://localhost:3001/busqueda/${text}`);
-    return search
+    return await fetch(`http://localhost:3001/busqueda/${text}`)
+    .then(res => res.json())
 }
 
 //insertar nuevos cursos
@@ -89,12 +89,6 @@ const getFriends=async ()=>{
    return resultado
 }
 
-//Funcion para traer memes
-const getMomos=async ()=>{
-    let resultado =await fetch('https://meme-api.herokuapp.com/gimme');
-    return resultado
- }
-
 //registar nuevo ususario
 const register = async (newUser) => {
         var url = "http://localhost:3001/register";
@@ -167,53 +161,19 @@ const register = async (newUser) => {
 
 }
 
-
-
 //iniciar sesion
-const inicioSesion = (obtainData) => {
-    let resultado;
-      
-    fetch("http://localhost:3001/login", {
+const inicioSesion = async (obtainData) => {
+    return await fetch("http://localhost:3001/login", {
       method: "POST", // or 'PUT'
       body: JSON.stringify(obtainData), // data can be `string` or {object}!
       headers: {
         "Content-Type": "application/json",
       },
     })
-    .then((res) => res.json())
-    .then(json => {
-       resultado = json;
-      })
-
-      .then(() => {
-        if (resultado=="Contraseña erronea"||resultado=="Usuario no encontrado") {
-          alert(resultado);
-        }
-       else {
-          console.log("Success:", resultado);
-          console.log(`inicio de sesión exitoso, bienvenido ${resultado[0][0].name}`)
-          return resultado
-          
-        }
-        
-      })
-      .catch(error => console.error("Error:", error))
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error))
   };
 
-//poner imagen de ususario logeado
-const bienvenida=async (variable)=>{
-    let resultado =await fetch(`http://localhost:3001/${variable}`);
-    return resultado
- }
+export { pushCourse, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch };
 
- //obtener datos para el perfil
-const getPerfil=async (variable)=>{
-    let resultado =await fetch(`http://localhost:3001/${variable}`);
-    return resultado
- }
-
-
-
-export { pushCourse, getCuorse, getFriends, getMomos,pushAbiliti,getAbility,pushHelp,getSearch };
-
-export{register,inicioSesion,bienvenida,getPerfil};
+export{register,inicioSesion};

@@ -8,22 +8,11 @@ module.exports = (app) => {
         res.json(result[0])
     })
 
-   
-
     //iniciar sesion
     app.post('/login', async (req, res) => {
-        let login = req.body
-        let result = await userController.accessLogin(login);
+        let result = await userController.accessLogin(req.body);
         //res.json("Bienvenido "+result[0][0].name)
         res.status(200).send(JSON.stringify(result))
-    })
-
-
-    //obtener datos con mail
-    app.get('/:mail', async (req, res) => {
-        let data = req.params.mail;
-        let result = await userController.getDatos(data)
-        res.json(result[0])
     })
     
     //obtenr cursos con mail
@@ -35,17 +24,15 @@ module.exports = (app) => {
 
     //obtenr habilidades con mail
     app.get('/habilidades/:mail', async (req, res) => {
-        let data = req.params.mail;
-        let result = await userController.getAbility(data)
+        let result = await userController.getAbility(req.params.mail)
         res.json(result[0])
     })
 
     
     //funcion busqueda
     app.get('/busqueda/:entrada', async (req, res) => {
-        let consulta = req.params.entrada;
-        let result = await userController.getBusqueda(consulta)
-        res.json(result[0])
+        let result = await userController.getBusqueda(req.params.entrada)
+        res.json(result)
     })
 
     //registra nuevo ususario

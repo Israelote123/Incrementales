@@ -1,61 +1,54 @@
 import './Nav.css';
-import {getSearch} from '../../api/api'
-import {bienvenida} from '../../api/api'
 import { useState,useEffect } from 'react';
 import logo from '../img/logo tecla.jpg'
 import { NavLink } from 'react-router-dom'
+import {useLocalStorage} from "../../hooks/useLocalStorage"
+import {getSearch} from '../../api/api'
 
-function Nav({box,boxState}) {
-    let variable=localStorage.getItem("variable");
+function Nav() {
+
     const [search,searchState] = useState(false);
     const[result,resultState]=useState([]);
-    
-    const[photo,photoState]=useState([]);
-   
-    const enviar_variable=(mail) =>{        
-        localStorage.setItem("variable2",mail);
-        console.log(mail)
-    }
-   
- 
-   const welcome=async ()=>{         
-        let newJson=await bienvenida(variable)
-        let  wel = await newJson.json()
-         photoState(photo[0]=wel)
-       
-   } 
+    const [login, loginState] = useState(false);
+    const [user]= useLocalStorage("USER",{})
+    const [token, saveToken, Shutdown] = useLocalStorage("TOKEN", {})
+    const [searchUser, saveSearch] = useLocalStorage("BUSQUEDA", {})
+    const [box,boxState] = useState(false)
 
-   useEffect(()=>{
-    welcome();
-   },[])
-   
-   
-   const busqueda = async (e)=>{
-        //e.preventDefault()
-        searchState(e.target.value)   
-        let newResult = await getSearch(search)
-        let resultJSON = await newResult.json()
-        resultState(result[0]=resultJSON)     
-        
-        if(e.target.value=="")
-        {
-            boxState(false)
+    const busqueda = async (e)=>{
+            //e.preventDefault()
+            searchState(e.target.value)   
+            let newResult = await getSearch(search)
+            resultState([newResult])
+            
+            if(e.target.value=="")
+            {
+                boxState(false)
+                resultState([])
+            }
+            else{
+                boxState(true)
+            }      
         }
-        else{
-            boxState(true)
-        }      
-    }
 
     const limpiar=()=>{
         boxState(false)
     }
-    
-    
 
+    const shutdown = () => {
+        Shutdown();
+    }
+        
+    useEffect(()=>{
+        loginState(token.token ? token.token : false);
+    },[])
+    
    return (
     <nav onClick={limpiar} id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
         <div className="container-fluid">
             <NavLink className="navbar-brand" id="titulo" to="/chismetecla"><img className="logo d-inline-block align-text-center" src={logo} alt="Logo"/>TeclaFriends</NavLink>
+            {login && 
+            <>
             <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasMd"
                 aria-controls="navbarOffcanvasMd" id="hamburguesa">
                 <span className="navbar-toggler-icon"></span>
@@ -87,11 +80,8 @@ function Nav({box,boxState}) {
                         </li>
                     </ul>
 
-                    <div id="sesionImage">            
-                              { photo.map(r =>    
-                                  <img src={r.profile_photo}  className="perfilUser" alt="..."></img> 
-                                )
-                             }
+                    <div id="sesionImage">               
+                        <img src={user.profile_photo}  className="perfilUser" alt="..."></img>   
                     </div>
 
                     <div className="d-flex justify-content-between align-content-center flex-wrap">
@@ -99,7 +89,7 @@ function Nav({box,boxState}) {
                             aria-label="Search" />
                         <i className="icon-nav fas fa-search fa-lg" id="icon-search"></i>
                         <i className="icon-nav fas fa-bell fa-lg"></i>
-                        <NavLink  className="nav-link" to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
+                        <NavLink  className="nav-link" onClick={shutdown} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
                                               
                     </div>
                     {box&& 
@@ -108,7 +98,7 @@ function Nav({box,boxState}) {
                            <ul>
                              {
                                 result.map(r=>
-                                  <li> <NavLink  onClick={(mail)=> enviar_variable(r.mail)} className="nav-link" to="/busquedaPerfil">{r.name} {r.middle_name}</NavLink></li>
+                                  <li> <NavLink  onClick={()=> saveSearch(r)} className="nav-link" to="/busquedaPerfil">{r.name} {r.middle_name}</NavLink></li>
                                    )                            
                              }                               
                            </ul>      
@@ -118,6 +108,8 @@ function Nav({box,boxState}) {
 
                 </div>
             </div>
+            </>
+            }
         </div>
     </nav>
   );

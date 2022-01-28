@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import { PublicarPage } from "./pages/PublicarPage";
@@ -11,8 +10,11 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
+import {Nav} from './components/Nav/Nav'
+
 ReactDOM.render(
   <BrowserRouter>
+    <Nav />
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="/new-user" element={<Register/>} />

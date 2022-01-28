@@ -1,4 +1,5 @@
 const userModel = require('../models/users')
+const jwt = require('jsonwebtoken')
 
 module.exports.getInformation = async ()=>{
     let result = await userModel.information()
@@ -7,6 +8,9 @@ module.exports.getInformation = async ()=>{
 
 module.exports.accessLogin = async (login)=>{
     let result = await userModel.login(login)
+    if(result.login){
+        return {token: await jwt.sign(result.data, "sePasaEnEts")}
+    }
     return result
 }
 
@@ -27,9 +31,12 @@ module.exports.getAbility = async (data)=>{
 }
 
 
-module.exports.getBusqueda = async (busqueda)=>{
-    let result = await userModel.busqueda(busqueda)
-    return result
+module.exports.getBusqueda = async (searchUser)=>{
+    let result = await userModel.busqueda(searchUser)
+    if(result.search){
+        return result.data
+    }
+    return {error : "Usuario no encontrado"}
 }
 
 module.exports.addRegister = async (register) => {
