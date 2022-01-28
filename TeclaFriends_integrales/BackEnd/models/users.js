@@ -5,26 +5,13 @@ module.exports.information = async (busqueda) => {
 }
 
 module.exports.login = async (login)=> {
-    
-    const result1= await sequelize.query(`SELECT mail FROM register WHERE mail='${login.mail}'`);
-    if(result1[0]!=false)
-     {
-        const result2=await sequelize.query(`SELECT password FROM register WHERE password=MD5('${login.password}')`);
-        if(result2[0]!=false)
-        {
-            
-            return sequelize.query(`SELECT name FROM register WHERE mail='${login.mail}' AND password=MD5('${login.password}') `); 
-        }
-        else{
-           
-           return "Contraseña erronea";
-        }       
-     }
-     else{
-      
-         return "Usuario no encontrado";
-
-     }
+    let response = await sequelize.query(`SELECT ${process.env.ROWS} FROM register WHERE mail LIKE '${login.mail}' AND password = MD5('${login.password}')`);
+    let loginResult = await response[0][0] ? true : false;
+    let loginRes = {
+        login: loginResult,
+        data: response[0][0] ? response[0][0] : false
+    }
+    return loginRes
 };
 
 module.exports.datos = async (data) => {
@@ -42,9 +29,14 @@ module.exports.Ability = async (data) => {
 
 
 
-module.exports.busqueda = async (busqueda) => {
-    let result = await sequelize.query(`SELECT * FROM register where name LIKE '%${busqueda}%'`)
-    return result
+module.exports.busqueda = async (searchUser) => {
+    let result = await sequelize.query(`SELECT ${process.env.ROWS} FROM register where name LIKE '%${searchUser}%'`)
+    let searchResult = await result[0][0] ? true : false;
+    let searchRes = {
+        search: searchResult,
+        data: result[0][0] ? result[0][0] : false
+    }
+    return searchRes
 }
 
 module.exports.add = async(register) => {

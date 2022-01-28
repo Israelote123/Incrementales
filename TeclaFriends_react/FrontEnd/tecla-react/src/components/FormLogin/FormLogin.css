@@ -17,154 +17,130 @@
   }
 }
 
+body {
+  background-color: rgba(230, 230, 230, 0.712); 
+}
+
 .login {
-    margin-top: 75px;
-    width: 380px;
+  margin-top: 75px;
+  width: 380px;
+}
+
+form {
+  margin: auto;
+  padding: 2em;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: white;
+  font-family: "Patrick Hand", cursive;
+  font-size: 18px;
+}
+
+label {
+  text-align: right;
+}
+
+.text {
+  font: 1em sans-serif;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  vertical-align: top;
+  border-radius: 20px;
+  font-family: "Balsamiq Sans", cursive;
+}
+.text:focus {
+  animation-name: clickOn;
+  animation-duration: 1s;
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+
+input::placeholder {
+  font-family: "Patrick Hand", cursive;
+}
+
+#style-button {
+  height: 2em;
+  width: 102.44px;
+  border-radius: 20px;
+  border-style: outset;
+  border-color: lightgrey;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  display: block;
+  margin: auto;
+}
+#style-button:hover {
+  cursor: pointer;
+  border-style: outset;
+  background-color: #c0bbbb;
+  text-align: center;
+  font-weight: bold;
+  margin: auto;
+}
+#style-button:active {
+  border-style: inset;
+  border-color: #707070;
+  background-color: grey;
+  text-align: center;
+  font-weight: normal;
+  margin: auto;
+}
+
+#style-button3 {
+  height: 2em;
+  border-radius: 20px;
+  width: 200px;
+  border-style: outset;
+  border-color: lightgrey;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  display: block;
+  margin: auto;
+}
+#style-button3:hover {
+  cursor: pointer;
+  border-style: outset;
+  background-color: #c0bbbb;
+  text-align: center;
+  font-weight: bold;
+  margin: auto;
+}
+#style-button3:active {
+  border-style: inset;
+  border-color: #707070;
+  background-color: grey;
+  text-align: center;
+  font-weight: normal;
+  margin: auto;
+}
+
+@media only screen and (max-width: 380px) {
+  .login {
+    width: 100%;
   }
-  
-  form {
-    margin: auto;
-    padding: 2em;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: white;
-  }
-  
-  label {
-    text-align: right;
-  }
-  
-  .text {
-    font: 1em sans-serif;
-    box-sizing: border-box;
-    border: 1px solid #999;
-    vertical-align: top;
-    border-radius: 20px;
-    font-family: "Balsamiq Sans", cursive;
-  }
-  .text:focus {
-    animation-name: clickOn;
-    animation-duration: 1s;
-    background-color: lightgrey;
-    border: 1px solid black;
-  }
-  
-  input::placeholder {
-    font-family: "Patrick Hand", cursive;
-  }
-  
+}
+@media only screen and (max-width: 380px) {
   #style-button {
-    height: 2em;
-    width: 102.44px;
-    border-radius: 20px;
-    border-style: outset;
-    border-color: lightgrey;
-    background-color: white;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    display: block;
-    margin: auto;
+    font-size: 11.5px;
   }
-  #style-button:hover {
-    cursor: pointer;
-    border-style: outset;
-    background-color: #c0bbbb;
-    text-align: center;
-    font-weight: bold;
-    margin: auto;
-  }
-  #style-button:active {
-    border-style: inset;
-    border-color: #707070;
-    background-color: grey;
-    text-align: center;
-    font-weight: normal;
-    margin: auto;
-  }
-  
-  #style-button3 {
-    height: 2em;
-    border-radius: 20px;
-    width: 200px;
-    border-style: outset;
-    border-color: lightgrey;
-    background-color: white;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    display: block;
-    margin: auto;
-  }
-  #style-button3:hover {
-    cursor: pointer;
-    border-style: outset;
-    background-color: #c0bbbb;
-    text-align: center;
-    font-weight: bold;
-    margin: auto;
-  }
-  #style-button3:active {
-    border-style: inset;
-    border-color: #707070;
-    background-color: grey;
-    text-align: center;
-    font-weight: normal;
-    margin: auto;
-  }
-  
+
   #style-button2 {
-    height: 2em;
-    width: 174.7px;
-    border-radius: 20px;
-    border-style: outset;
-    border-color: lightgrey;
-    background-color: white;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    display: block;
-    margin: auto;
+    font-size: 11.5px;
   }
-  #style-button2:hover {
-    cursor: pointer;
-    border-style: outset;
-    background-color: #c0bbbb;
-    text-align: center;
-    font-weight: bold;
-    margin: auto;
+
+  #style-button3 {
+    width: 156px;
+    font-size: 11.5px;
   }
-  #style-button2:active {
-    border-style: inset;
-    border-color: #707070;
-    background-color: grey;
-    text-align: center;
-    font-weight: normal;
-    margin: auto;
+}
+@media only screen and (max-width: 258px) {
+  #style-button3 {
+    width: 100%;
   }
-  
-  @media only screen and (max-width: 380px) {
-    .login {
-      width: 100%;
-    }
-  }
-  @media only screen and (max-width: 380px) {
-    #style-button {
-      font-size: 11.5px;
-    }
-  
-    #style-button2 {
-      font-size: 11.5px;
-    }
-  
-    #style-button3 {
-      width: 156px;
-      font-size: 11.5px;
-    }
-  }
-  @media only screen and (max-width: 258px) {
-    #style-button3 {
-      width: 100%;
-    }
-  }
+}
   

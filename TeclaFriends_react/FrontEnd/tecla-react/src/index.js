@@ -11,9 +11,6 @@ import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
 import { Configuration } from './pages/Configuration';
-
-
-
 import {ThemeProvider} from './Context/AppContext' 
 
 ReactDOM.render(

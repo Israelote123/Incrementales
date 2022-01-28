@@ -1,27 +1,10 @@
 import './Momos.css';
 import { useState } from 'react';
-import { getMomos } from '../../api/api'
 
 
 function Momos() {
     const [save, setSave] = useState([0]);
     const [state, setState] = useState(true);
-
-    const traerMemes = async () => {
-        let newPokemon = await getMomos()
-        let pokeJSON = await newPokemon.json()
-
-        setSave(save[0] = pokeJSON)
-        setState(false)
-       
-    }
-
-
-   
-    setInterval(()=>{
-        traerMemes()
-        
-    },5000)
 
     return (
         <div>

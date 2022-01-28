@@ -1,5 +1,4 @@
-import { useState,useContext } from 'react';
-import {Nav} from '../components/Nav/Nav'
+import { useState,useEffect } from 'react';
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {ShowFriends} from '../components/ShowFriends/ShowFriends';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
@@ -8,15 +7,9 @@ import { ThemeContext } from '../Context/AppContext'
 
 
 function Amigos() {
-    const limpiar=()=>{
-        boxState(false)
-    }
-    const[box,boxState]=useState(false)
-    const {modo, modoState} = useContext(ThemeContext);
-   
+
     return (
-        <div style={modo}  onClick={limpiar}>
-            <Nav box={box} boxState={boxState}/>
+        <div>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-3">

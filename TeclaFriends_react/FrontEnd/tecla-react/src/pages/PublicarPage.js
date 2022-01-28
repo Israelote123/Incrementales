@@ -1,5 +1,3 @@
-import { useState,useContext} from 'react';
-import {Nav} from '../components/Nav/Nav'
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {Publicar} from '../components/Publicar/Publicar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
@@ -10,17 +8,9 @@ import { ThemeContext } from '../Context/AppContext'
 
 
 function PublicarPage() {
-    const limpiar=()=>{
-        boxState(false)
-    }
-    const[box,boxState]=useState(false)
-    const {modo, modoState} = useContext(ThemeContext);
-   
-    
-    
+
     return (
-        <div style={modo}  onClick={limpiar}>
-            <Nav box={box} boxState={boxState}/>
+        <div>
             <div className="container-fluid">
                 <div className="row">
                     <div  className="col-lg-3">
