@@ -1,0 +1,16 @@
+.clase1
+{
+    color: white;
+}
+
+.clase2
+{
+    background-color:white;
+}
+
+.down {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+    z-index: 3;
+  }

@@ -7,6 +7,7 @@ function PerfilSearch() {
     let variable = localStorage.getItem("variable2");
     
     const [perfils, setPerfils] = useState([]);  
+    const [profile,setProfile]=useState(variable)
     
     const perfilFeatures = async () => {
         //event.preventDefault()
@@ -18,7 +19,7 @@ function PerfilSearch() {
     useEffect(()=>{
       console.log("efect")
       perfilFeatures()
-    },[variable])
+    },)
     console.log("render")
     
 

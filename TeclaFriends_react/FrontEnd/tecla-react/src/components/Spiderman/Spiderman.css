@@ -14,7 +14,8 @@
    animation:spiderman 5s infinite;
 }
 .andrew{
-    width: 150px;
+    width: 200px;
+    object-fit: cover;
     margin: 0 auto;
     display: block;
     animation:spiderman2 5s infinite;
@@ -41,7 +42,7 @@
 
 @keyframes spiderman2{
     0%{
-        transform:translateY(300px);
+        transform:translateY(400px);
 
     }
     30%{
@@ -54,7 +55,7 @@
         transform: rotate(10deg);
     }
     100%{
-        transform: translateY(300px);
+        transform: translateY(400px);
     }
 } 
 

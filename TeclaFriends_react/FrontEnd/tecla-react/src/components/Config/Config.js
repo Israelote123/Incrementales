@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect, useContext } from 'react';
+
+import React,{ useEffect, useContext } from 'react';
 import { ThemeContext } from '../../Context/AppContext'
 
 function Config() {
@@ -15,14 +15,14 @@ function Config() {
     };
 
     const { modo, modoState } = useContext(ThemeContext)
-    let comparacion=modo
+    
     const changeTheme = () => {
-        if(comparacion==themes.light){
-            document.querySelector('#flexRadioDefault2').checked = true;
-        } 
-        else if(comparacion==themes.light)
-        {
+        if(modo.background=="black"){
             document.querySelector('#flexRadioDefault1').checked = true;
+        } 
+        else if(modo.background=="white")
+        {
+            document.querySelector('#flexRadioDefault2').checked = true;
         }      
         console.log("entra")
     }
@@ -38,8 +38,6 @@ function Config() {
     console.log(modo);
    }
 
-
-
     // modo== themes.dark
     //?modoState(themes.light)
     //:modoState(themes.dark);
@@ -49,79 +47,25 @@ function Config() {
     }, [])
 
     return (
-        <div className='container'>
-            <div   className="form-check">
-                <input  onChange={modoFunction} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+        <div className='container '>
+            <h4>Theme</h4>
+            <div   className="form-check d-flex justify-content-evenly flex-wrap ">
+                <input  onChange={modoFunction} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>                
                 <label   className="form-check-label" htmlFor="flexRadioDefault1">
+                <i className="fas fa-cloud-moon"></i>
                         Dark
-                </label>
+                </label>              
             </div>
-            <div   className="form-check">
-                
-                <input onChange={modoFunction2}  className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                <label   className="form-check-label" htmlFor="flexRadioDefault2">
+            <div   className="form-check d-flex justify-content-evenly  flex-wrap">                
+               <input onChange={modoFunction2}  className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />               
+                <label className="form-check-label" htmlFor="flexRadioDefault2">
+                <i className="fas fa-star"></i>
                     Light
                 </label>
             </div>
-
-            
-
-        </div>
-
-
-        /*{  <div>
-
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="radio" role="switch" name="modo" id="flexSwitchCheckDefault" onChange={modoFunction} />
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark</label>
-            </div>
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="radio" role="switch" name="modo" id="flexSwitchCheckChecked" onChange={modoFunction2} />
-                <label className="form-check-label" htmlFor="flexSwitchCheckChecked">light</label>
-            </div>
-        </div>
-       */
+        </div>       
     );
 }
 
 export { Config };
 
-/*import { useState,useEffect, useContext } from 'react';
-import { ThemeContext } from '../../Context/AppContext'
-
-function Config() {
-    
-    const [modo, modoState] = useState(useContext(ThemeContext));
-    console.log(modo)
-    const modoFunction = (e) => {
-        modoState(themes.light)
-        console.log("dark")
-        console.log(modo)
-    }
-    
-    useEffect(()=>{
-
-    },[])
-    const modoFunction2 = (e) => {
-        modoState(themes.dark)
-        console.log("light")
-        console.log(modo)
-        //console.log(e.target.value)
-    }
-    return (
-        <div>
-
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="radio" role="switch" name="modo" id="flexSwitchCheckDefault" onChange={modoFunction} />
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark</label>
-            </div>
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="radio" role="switch" name="modo" id="flexSwitchCheckChecked" onChange={modoFunction2} />
-                <label className="form-check-label" htmlFor="flexSwitchCheckChecked">light</label>
-            </div>
-        </div>
-
-    );
-}
-
-export { Config }; */

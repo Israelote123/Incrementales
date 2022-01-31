@@ -5,6 +5,7 @@ import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import {Spiderman} from '../components/Spiderman/Spiderman'
 import { ThemeContext } from '../Context/AppContext'
+import { MessageComponent } from '../components/MessageComponent/MessageComponent';
 
 
 function AgregarAmigos() {
@@ -19,6 +20,7 @@ function AgregarAmigos() {
     return (
         <div style={modo}  onClick={limpiar}>
             <Nav box={box} boxState={boxState}/>
+            <MessageComponent/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-3">

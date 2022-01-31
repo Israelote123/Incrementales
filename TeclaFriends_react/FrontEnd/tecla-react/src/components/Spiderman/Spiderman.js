@@ -1,5 +1,6 @@
 import spider from './spider2.jpg'
 import spiderBlack from './spiderman_negro.jpg'
+import spiderbebe from './bebespi.jpg'
 import './Spiderman.css';
 
 import { ThemeContext } from '../../Context/AppContext'
