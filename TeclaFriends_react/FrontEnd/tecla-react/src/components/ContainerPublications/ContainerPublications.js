@@ -26,20 +26,19 @@ function ContainerPublications() {
             }
         ]
     ]
-    console.log(informacion[0][0].name)
-
+    
     return (
         <div className="card" style={{ width: "100%",background:"turquoise" }}>
 
             <div className="card-body">
 
-                <div class="d-flex bd-highlight mb-3">
+                <div className="d-flex bd-highlight mb-3">
                     <div className="p-2 bd-highlight"> <img src={informacion[0][0].foto} className="perfiPublication" alt="..." id=""></img>
                     </div>
                     <div className="p-2 bd-highlight"> <h4>{informacion[0][0].name}</h4></div>
-                    <div class="dropdown ms-auto p-2 bd-highlight">
+                    <div className="dropdown ms-auto p-2 bd-highlight">
                         <a  className="btn btn-light " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-angle-double-down"></i>
+                        <i className="fas fa-angle-double-down"></i>
                         </a>
                         
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -82,7 +81,7 @@ function ContainerPublications() {
 
                     <div className="col-3">
                         <div className="position-relative">
-                        <i class="icon_publication perfiles fa-2x fas fa-comments"></i>
+                        <i className="icon_publication perfiles fa-2x fas fa-comments"></i>
                             <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                 {mensages}
                                 <span className="visually-hidden">unread messages</span>

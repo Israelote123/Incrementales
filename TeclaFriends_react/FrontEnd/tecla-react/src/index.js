@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
-import { PublicarPage } from "./pages/PublicarPage";
-import { AgregarAmigos } from "./pages/AgregarAmigos";
+import PublicarPage  from "./pages/PublicarPage";
+import  AgregarAmigos  from "./pages/AgregarAmigos";
 import { Chismetecla } from "./pages/Chismetecla";
 import { Amigos } from "./pages/Amigos";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
@@ -12,11 +12,17 @@ import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
 import { Configuration } from './pages/Configuration';
 
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+
+
 
 
 import {ThemeProvider} from './Context/AppContext' 
 
 ReactDOM.render(
+  <Provider store = {store}>
+   
   <ThemeProvider >
     <BrowserRouter>
         <Routes>      
@@ -31,7 +37,8 @@ ReactDOM.render(
           <Route path="/configuracion" element={<Configuration/>}/>
         </Routes>
     </BrowserRouter>
-  </ThemeProvider>,
+  </ThemeProvider>
+  </Provider>,
    document.getElementById('root')
   );
 
