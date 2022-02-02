@@ -5,14 +5,16 @@ const DARK_THEME="DARK_THEME"
 
 const darkChange=()=>{  
     return{
-        type: DARK_THEME
+        type: DARK_THEME,
+        payload: "black"
         
     }
 }
 const lightChange=()=>{
     
     return{
-        type: LIGHT_THEME
+        type: LIGHT_THEME,
+        payload: "white"
         
     }
 }

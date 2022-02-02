@@ -7,6 +7,7 @@ import { ThemeContext } from '../../Context/AppContext'
 import {useState,useContext} from 'react';
 
 import { connect } from "react-redux";
+
 const mapStateToProps = (state)=>{
     return{
       tema: state.themeReducer

@@ -4,7 +4,7 @@ import { BarraLat } from "../components/BarraLat/BarraLat";
 import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
-import { ThemeContext } from '../Context/AppContext'
+//import { ThemeContext } from '../Context/AppContext'
 import { MessageComponent } from '../components/MessageComponent/MessageComponent';
 
 import { connect } from "react-redux";
@@ -21,7 +21,7 @@ function AgregarAmigos({tema}) {
     }
 
     const[box,boxState]=useState(false)
-    const {modo, modoState} = useContext(ThemeContext);
+    //const {modo, modoState} = useContext(ThemeContext);
    
     
     return (
