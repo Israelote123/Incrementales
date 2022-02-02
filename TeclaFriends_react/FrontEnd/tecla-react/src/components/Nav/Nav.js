@@ -2,12 +2,9 @@ import './Nav.css';
 import { useState,useEffect } from 'react';
 import logo from '../img/logo tecla.jpg'
 import { NavLink } from 'react-router-dom'
-<<<<<<< HEAD
+import Config  from '../Config/Config';
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import {getSearch} from '../../api/api'
-=======
-import Config  from '../Config/Config';
->>>>>>> nocturno
 
 function Nav() {
 
