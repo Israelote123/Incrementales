@@ -1,7 +1,7 @@
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {Momos} from '../components/Momos/Momos';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
-import {Spiderman} from '../components/Spiderman/Spiderman'
+import Spiderman from '../components/Spiderman/Spiderman'
 import { ThemeContext } from '../Context/AppContext'
 
 

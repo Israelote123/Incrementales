@@ -1,16 +1,30 @@
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {Publicar} from '../components/Publicar/Publicar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
-import {Spiderman} from '../components/Spiderman/Spiderman'
+import Spiderman from '../components/Spiderman/Spiderman'
 
 import { ThemeContext } from '../Context/AppContext'
 
+import { connect } from "react-redux";
 
+const mapStateToProps = (state)=>{
+    return{
+      tema: state.themeReducer
+    }
+  }
 
-function PublicarPage() {
-
+function PublicarPage({tema}) {
+    const limpiar=()=>{
+        boxState(false)
+    }
+    const[box,boxState]=useState(false)
+    const {modo, modoState} = useContext(ThemeContext);
+   
+    
+    
     return (
-        <div>
+        <div style={tema}  onClick={limpiar}>
+            <Nav box={box} boxState={boxState}/>
             <div className="container-fluid">
                 <div className="row">
                     <div  className="col-lg-3">
@@ -29,4 +43,5 @@ function PublicarPage() {
     );
 }
 
-export { PublicarPage };
+//export { PublicarPage };
+export default connect(mapStateToProps)(PublicarPage);

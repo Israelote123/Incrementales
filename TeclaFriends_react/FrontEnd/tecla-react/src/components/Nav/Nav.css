@@ -65,18 +65,6 @@ input::placeholder {
 }
 
 /*busqueda*/
-ul {
-  list-style: none;
-}
-
-li {
-  align-content: flex-start;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
 
 #caja {
   position: fixed;
@@ -100,12 +88,7 @@ a {
 }
 
 /*nuevos stilos*/
-.fixed {
-  position: fixed;
-  bottom: 3%;
-  right: 2%;
-  z-index: 3;
-}
+
 
 .perfilUser {
   margin: auto;
