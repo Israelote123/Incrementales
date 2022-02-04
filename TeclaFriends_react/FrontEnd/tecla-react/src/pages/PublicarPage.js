@@ -2,7 +2,7 @@ import { BarraLat } from "../components/BarraLat/BarraLat";
 import {Publicar} from '../components/Publicar/Publicar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
-
+import { useState,useContext } from 'react';
 import { ThemeContext } from '../Context/AppContext'
 
 import { connect } from "react-redux";
@@ -24,7 +24,6 @@ function PublicarPage({tema}) {
     
     return (
         <div style={tema}  onClick={limpiar}>
-            <Nav box={box} boxState={boxState}/>
             <div className="container-fluid">
                 <div className="row">
                     <div  className="col-lg-3">

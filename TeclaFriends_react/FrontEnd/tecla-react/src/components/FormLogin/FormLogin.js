@@ -1,51 +1,47 @@
 import './FormLogin.css'
-import { inicioSesion } from '../../api/api';
 import { useNavigate } from "react-router-dom";
 import {NavLink} from 'react-router-dom'
+import { userLogin } from "../../redux/actions/login";
+import { connect } from "react-redux";
 import {useLocalStorage} from "../../hooks/useLocalStorage"
-import {useState} from 'react'
+import {decode} from "../../hooks/decode"
+import { useEffect } from 'react';
 
-function FormLogin(){
+const mapStateToProps = (state) => {
+    return {
+      token: state.loginReducer.token,
+      loading: state.loginReducer.loading,
+      error: state.loginReducer.error,
+      loginBool: state.loginReducer.login
+    };
+  };
+
+function FormLogin({token, loading, loginBool, error, userLogin}){
     const navigate = useNavigate() 
-    
-    const [loading,setLoading] = useState(false)
-    const [token, saveToken] = useLocalStorage("TOKEN", {})
-    const [user, saveUser]= useLocalStorage("USER",{}) 
-    
-    const decode = str => {
-        // Going backwards: from bytestream, to percent-encoding, to original string.
-        return decodeURIComponent(window.atob(str).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-    }
+    const [user, saveUser] = useLocalStorage("USER",{})
+    const [tokens, saveToken] = useLocalStorage("TOKEN", {})
 
-    const obtainData = async (event) => {
+    const login = async (event) => {
         event.preventDefault();
-        let data = {
+        let dataUser = {
           mail: event.target[0].value,
           password: event.target[1].value,
         };
-        setLoading(true)
-        let login = await inicioSesion(data)
-        console.log(login)
-        if (login){
-            setLoading(false)
-
-            if(login.token){
-                saveToken(login)
-                let userData = decode(login.token.split(".")[1])
-                console.log(userData)
-                saveUser(userData)
-                navigate("/chismetecla")
-            }
-        }
-      };
+        const waiting = await userLogin(dataUser);
+    };
+    useEffect(()=>{
+        try{
+            saveToken(token)
+            saveUser(decode(JSON.stringify(token).split(".")[1]))
+            navigate("/chismetecla")}
+            catch (error){};
+    }, [loginBool])
 
     return  (<main>
             <div className="container login">
                 <div className="row">
                     <div className="col-lg">
-                        <form className="col" onSubmit={obtainData}>
+                        <form className="col" onSubmit={login}>
                             <div className="form-floating">
                                 <input type="email" className="form-control text"
                                     name="user_mail"
@@ -79,4 +75,5 @@ function FormLogin(){
         </main>)
 }
 
-export {FormLogin}
+
+export default connect(mapStateToProps, { userLogin })(FormLogin);

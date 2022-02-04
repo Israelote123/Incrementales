@@ -1,7 +1,8 @@
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
-import Spiderman from '../components/Spiderman/Spiderman'
+import Spiderman from '../components/Spiderman/Spiderman';
+import {useState} from 'react';
 //import { ThemeContext } from '../Context/AppContext'
 import { MessageComponent } from '../components/MessageComponent/MessageComponent';
 
@@ -24,7 +25,6 @@ function AgregarAmigos({tema}) {
     
     return (
         <div style={tema}  onClick={limpiar}>
-            <Nav box={box} boxState={boxState}/>
             {/*<MessageComponent/>*/}
             <div className="container-fluid">
                 <div className="row">
@@ -44,6 +44,6 @@ function AgregarAmigos({tema}) {
     );
 }
 
-export default connect(mapStateToProps)(AgregarAmigos);
+connect(mapStateToProps)(AgregarAmigos);
 
-//export {AgregarAmigos};
+export {AgregarAmigos};

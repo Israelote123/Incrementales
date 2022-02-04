@@ -2,29 +2,8 @@ import './PerfilSearch.css'
 import {useLocalStorage} from '../../hooks/useLocalStorage'
 
 function PerfilSearch() {
-<<<<<<< HEAD
 
   const [searchUser] = useLocalStorage("BUSQUEDA", {}) 
-=======
-    let variable = localStorage.getItem("variable2");
-    
-    const [perfils, setPerfils] = useState([]);  
-    const [profile,setProfile]=useState(variable)
-    
-    const perfilFeatures = async () => {
-        //event.preventDefault()
-        let newFeatures = await getPerfil(variable)
-        let featuresJSON = await newFeatures.json()
-        setPerfils(perfils[0]=featuresJSON)         
-    }
-
-    useEffect(()=>{
-      console.log("efect")
-      perfilFeatures()
-    },)
-    console.log("render")
-    
->>>>>>> nocturno
 
   return (
       <div id="contenedor" >

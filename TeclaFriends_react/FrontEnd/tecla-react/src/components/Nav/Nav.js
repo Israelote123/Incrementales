@@ -1,20 +1,27 @@
 import './Nav.css';
-import { useState,useEffect } from 'react';
+import { useState} from 'react';
 import logo from '../img/logo tecla.jpg'
 import { NavLink } from 'react-router-dom'
 import Config  from '../Config/Config';
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import {getSearch} from '../../api/api'
+import { userUnlogin } from "../../redux/actions/login";
+import { connect } from "react-redux";
 
-function Nav() {
+const mapStateToProps = (state) => {
+    return {
+      token: state.loginReducer.token,
+      login: state.loginReducer.login
+    };
+  };
+
+function Nav({login, token, userUnlogin}) {
 
     const [search,searchState] = useState(false);
     const[result,resultState]=useState([]);
-    const [login, loginState] = useState(false);
-    const [user]= useLocalStorage("USER",{})
-    const [token, saveToken, Shutdown] = useLocalStorage("TOKEN", {})
-    const [searchUser, saveSearch] = useLocalStorage("BUSQUEDA", {})
-    const [box,boxState] = useState(false)
+    const [user] = useLocalStorage("USER", {});
+    const [box,boxState] = useState(false);
+    const [searchUser, saveSearch] = useLocalStorage("BUSQUEDA", {});
 
     const busqueda = async (e)=>{
             //e.preventDefault()
@@ -22,7 +29,7 @@ function Nav() {
             let newResult = await getSearch(search)
             resultState([newResult])
             
-            if(e.target.value=="")
+            if(e.target.value==="")
             {
                 boxState(false)
                 resultState([])
@@ -36,13 +43,9 @@ function Nav() {
         boxState(false)
     }
 
-    const shutdown = () => {
-        Shutdown();
+    const unlogin = () =>{
+        userUnlogin()
     }
-        
-    useEffect(()=>{
-        loginState(token.token ? token.token : false);
-    },[])
     
    return (
     <nav onClick={limpiar} id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
@@ -90,7 +93,15 @@ function Nav() {
                             aria-label="Search" />
                         <i className="icon-nav fas fa-search fa-lg" id="icon-search"></i>
                         <i className="icon-nav fas fa-bell fa-lg"></i>
-                        <NavLink  className="nav-link" onClick={shutdown} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
+                        <div className="dropdown">
+                                <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className=" fas fa-cog fa-lg"></i> 
+                                </button>
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <Config/>
+                                </ul>
+                                </div>
+                        <NavLink  className="nav-link" onClick={unlogin} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
                                               
                     </div>
                     {box&& 
@@ -116,4 +127,5 @@ function Nav() {
   );
 }
 
-export {Nav};
+
+export default connect(mapStateToProps, { userUnlogin })(Nav);

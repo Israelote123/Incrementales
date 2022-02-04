@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import PublicarPage  from "./pages/PublicarPage";
-import  AgregarAmigos  from "./pages/AgregarAmigos";
+import  {AgregarAmigos}  from "./pages/AgregarAmigos";
 import { Chismetecla } from "./pages/Chismetecla";
 import { Amigos } from "./pages/Amigos";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
@@ -12,15 +12,14 @@ import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
 import { Configuration } from './pages/Configuration';
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import {ThemeProvider} from './Context/AppContext' 
+import { store } from "./redux/store"; 
+import Nav from './components/Nav/Nav'
 
 ReactDOM.render(
   <Provider store = {store}>
-   
-  <ThemeProvider >
     <BrowserRouter>
-        <Routes>      
+      <Nav />  
+        <Routes>
           <Route path="/" element={<Login  />} />
           <Route path="/new-user" element={<Register/>} />
           <Route path="/publicar" element={<PublicarPage/> }/>
@@ -32,7 +31,6 @@ ReactDOM.render(
           <Route path="/configuracion" element={<Configuration/>}/>
         </Routes>
     </BrowserRouter>
-  </ThemeProvider>
   </Provider>,
    document.getElementById('root')
   );

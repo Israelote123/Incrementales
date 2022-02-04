@@ -2,10 +2,6 @@ import spider from './spider2.jpg'
 import spiderBlack from './spiderman_negro.jpg'
 //import spiderbebe from './bebespi.jpg'
 import './Spiderman.css';
-
-import { ThemeContext } from '../../Context/AppContext'
-import {useState,useContext} from 'react';
-
 import { connect } from "react-redux";
 
 const mapStateToProps = (state)=>{
@@ -15,8 +11,7 @@ const mapStateToProps = (state)=>{
   }
 
 function Spiderman({tema}) {
-    const { modo, modoState } = useContext(ThemeContext)
-    
+
     return (
         <div className="container">
             {tema.background=="white"&& 
