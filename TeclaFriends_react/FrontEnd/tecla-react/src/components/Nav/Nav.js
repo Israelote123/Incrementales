@@ -1,5 +1,5 @@
 import './Nav.css';
-import { useState} from 'react';
+import { useState } from 'react';
 import logo from '../img/logo tecla.jpg'
 import { NavLink } from 'react-router-dom'
 import Config  from '../Config/Config';
@@ -19,7 +19,7 @@ function Nav({login, token, userUnlogin}) {
 
     const [search,searchState] = useState(false);
     const[result,resultState]=useState([]);
-    const [user] = useLocalStorage("USER", {});
+    const [user, saveUser, deleteAllData] = useLocalStorage("USER", {});
     const [box,boxState] = useState(false);
     const [searchUser, saveSearch] = useLocalStorage("BUSQUEDA", {});
 
@@ -45,6 +45,7 @@ function Nav({login, token, userUnlogin}) {
 
     const unlogin = () =>{
         userUnlogin()
+        deleteAllData()
     }
     
    return (

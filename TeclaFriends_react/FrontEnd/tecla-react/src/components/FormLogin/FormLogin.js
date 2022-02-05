@@ -1,7 +1,7 @@
 import './FormLogin.css'
 import { useNavigate } from "react-router-dom";
 import {NavLink} from 'react-router-dom'
-import { userLogin } from "../../redux/actions/login";
+import { userLogin, saveData } from "../../redux/actions/login";
 import { connect } from "react-redux";
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import {decode} from "../../hooks/decode"
@@ -32,7 +32,9 @@ function FormLogin({token, loading, loginBool, error, userLogin}){
     useEffect(()=>{
         try{
             saveToken(token)
-            saveUser(decode(JSON.stringify(token).split(".")[1]))
+            let data = decode(JSON.stringify(token).split(".")[1])
+            saveUser(data)
+            saveData(data)
             navigate("/chismetecla")}
             catch (error){};
     }, [loginBool])
