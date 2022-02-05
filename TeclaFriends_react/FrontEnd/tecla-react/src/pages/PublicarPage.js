@@ -7,6 +7,7 @@ import { ThemeContext } from '../Context/AppContext'
 
 import { connect } from "react-redux";
 
+
 const mapStateToProps = (state)=>{
     return{
       tema: state.themeReducer
@@ -18,7 +19,7 @@ function PublicarPage({tema}) {
         boxState(false)
     }
     const[box,boxState]=useState(false)
-    const {modo, modoState} = useContext(ThemeContext);
+    //const {modo, modoState} = useContext(ThemeContext);
    
     
     

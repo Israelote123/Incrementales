@@ -6,38 +6,21 @@ import { pushAbiliti } from '../../api/api';
 
 function AgregarHabilidad() {
     let variable = localStorage.getItem("variable");
-    
-    var data;
-    let obtainData = () => {
-        data = {
-            mail: variable,
-            skill: state.nombreH           
-        };
-        return data;
-    };
 
-
-
-    const [state, setState] = useState({ nombreH: ""})
-
-    const [save, setSave] = useState(false);
     const [loading, setLoading] = useState(false)
 
-    const nuevaHabilidad = (e) => {
 
-        let newState = {
-            ...state,
-            nombreH: e.target.value,
-        }
-        setState(newState)
-    }
-
-    const saveInfo = (event) => {
+  const onSubmit = (event) => {
         event.preventDefault()
-        setLoading(true)
+        let data = {
+            mail: variable,
+            skill: event.target[0].value         
+        };
+
+       setLoading(true)
         setTimeout(() => {
-            setSave(true)
-            pushAbiliti(obtainData)
+           
+            pushAbiliti(data)
             setLoading(false)
             event.target.reset()
         }, 2000)             
@@ -45,13 +28,13 @@ function AgregarHabilidad() {
     }
 
     return (
-         <form  onSubmit={saveInfo}>
+         <form  onSubmit={onSubmit}>
                 <div id="blue">
                     <h1>Nueva Habilidad</h1>
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Habilidad</label>
-                    <input required name='nombreC' type="text" className="form-control" onChange={nuevaHabilidad} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input required name='nombreC' type="text" className="form-control" /*onChange={nuevaHabilidad}*/ id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
         
                 {!loading && (
