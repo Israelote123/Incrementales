@@ -1,4 +1,4 @@
-import {USER_LOGIN, USER_UNLOGIN} from './const'
+import {USER_LOGIN, USER_UNLOGIN, USER_SAVE_DATA} from './const'
 
 const userLogin = (data) => {
     return {
@@ -20,4 +20,14 @@ const userUnlogin = () => {
     }
 }
 
-export {userLogin, userUnlogin}
+const userSaveData = (data) => {
+    return {
+        type: USER_SAVE_DATA,
+        payload: data,
+        loading: false,
+        token: {},
+        login:false
+    }
+}
+
+export {userLogin, userUnlogin, userSaveData}

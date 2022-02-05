@@ -11,11 +11,12 @@ import { connect } from "react-redux";
 const mapStateToProps = (state) => {
     return {
       token: state.loginReducer.token,
-      login: state.loginReducer.login
+      login: state.loginReducer.login,
+      data: state.loginReducer.data
     };
   };
 
-function Nav({login, token, userUnlogin}) {
+function Nav({login, token, userUnlogin, data}) {
     let noti=4;
 
     const [search,searchState] = useState(false);
@@ -23,7 +24,6 @@ function Nav({login, token, userUnlogin}) {
     const [user, saveUser, deleteAllData] = useLocalStorage("USER", {});
     const [box,boxState] = useState(false);
     const [searchUser, saveSearch] = useLocalStorage("BUSQUEDA", {});
-
     const busqueda = async (e)=>{
             //e.preventDefault()
             searchState(e.target.value)   
@@ -87,7 +87,7 @@ function Nav({login, token, userUnlogin}) {
                     </ul>
 
                     <div id="sesionImage">               
-                        <img src={user.profile_photo}  className="perfilUser" alt="..."></img>   
+                        <img src={data.profile_photo}  className="perfilUser" alt="..."></img>   
                     </div>
 
   

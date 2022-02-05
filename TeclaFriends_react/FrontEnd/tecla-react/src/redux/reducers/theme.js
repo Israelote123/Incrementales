@@ -1,7 +1,7 @@
 import {LIGHT_THEME, DARK_THEME} from '../actions/const'
 
 const themes = {
-        background: "white"
+        background: "rgba(230, 230, 230, 0.712)"
 };
 
 
