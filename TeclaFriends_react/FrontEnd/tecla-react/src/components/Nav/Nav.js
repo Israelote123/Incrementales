@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
   };
 
 function Nav({login, token, userUnlogin}) {
+    let noti=4;
 
     const [search,searchState] = useState(false);
     const[result,resultState]=useState([]);
