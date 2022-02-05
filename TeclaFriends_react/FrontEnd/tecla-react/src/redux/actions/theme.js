@@ -1,7 +1,4 @@
-
-const LIGHT_THEME="LIGHT_THEME"
-
-const DARK_THEME="DARK_THEME"
+import{ DARK_THEME,LIGHT_THEME} from './const'
 
 const darkChange=()=>{  
     return{

@@ -2,10 +2,11 @@ import { BarraLat } from "../components/BarraLat/BarraLat";
 import {Publicar} from '../components/Publicar/Publicar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
-
+import { useState,Use } from "react";
 import { ThemeContext } from '../Context/AppContext'
 
 import { connect } from "react-redux";
+
 
 const mapStateToProps = (state)=>{
     return{
@@ -18,13 +19,12 @@ function PublicarPage({tema}) {
         boxState(false)
     }
     const[box,boxState]=useState(false)
-    const {modo, modoState} = useContext(ThemeContext);
+    //const {modo, modoState} = useContext(ThemeContext);
    
     
     
     return (
         <div style={tema}  onClick={limpiar}>
-            <Nav box={box} boxState={boxState}/>
             <div className="container-fluid">
                 <div className="row">
                     <div  className="col-lg-3">

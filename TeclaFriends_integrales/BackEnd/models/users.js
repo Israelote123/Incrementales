@@ -67,8 +67,34 @@ module.exports.Abilities = async(habilidades) => {
 }
 
 
-//insertar nuevas habilidades
+//formulario de ayuda
 module.exports.help = async(help) => {
     await sequelize.query(`INSERT INTO ayuda (mail,titulo,consulta,problemas) VALUES ('${help.mail}', '${help.titulo}','${help.consulta}','${help.problemas}')`)
      return "Query sent";   
 }
+
+//manda solicitudes de amistad
+module.exports.requestt = async(friend) => {
+    await sequelize.query(`INSERT INTO friends (receptor,emisor,status) VALUES ('${friend.receptor}', '${friend.emisor}','${friend.status}')`)
+     return "friend request sent";   
+}
+//obtener solicitudes de amistad
+module.exports.solicitudAmistad = async (data) => {
+    let result = await sequelize.query(`SELECT receptor FROM friends where status='pendiente'`)
+    return result
+}
+
+
+//actualizar solicitud de amistad
+module.exports.updatee= async(actualizar) => {
+    if(actualizar.status==rechazado)
+    {
+        await sequelize.query(`UPDATE friends SET status='${actualizar.status}' WHERE receptor='${actualizar.receptor}' & emisor='${actualizar.emisor}'`)
+    }
+    else{
+        await sequelize.query(`UPDATE friends SET status='${actualizar.status}' WHERE receptor='${actualizar.receptor}' & emisor='${actualizar.emisor}'`)
+       
+    }
+     return "friend request update";   
+}
+

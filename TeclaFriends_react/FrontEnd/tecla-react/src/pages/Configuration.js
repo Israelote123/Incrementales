@@ -18,8 +18,7 @@ function Configuration() {
     
     return (
         <div style={modo}  onClick={limpiar}>
-           <Nav box={box} boxState={boxState}/>
-            <div className="container-fluid">
+           <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-3">
                         <Config/>

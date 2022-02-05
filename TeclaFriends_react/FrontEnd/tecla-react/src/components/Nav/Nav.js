@@ -7,7 +7,7 @@ import {useLocalStorage} from "../../hooks/useLocalStorage"
 import {getSearch} from '../../api/api'
 
 function Nav() {
-
+    let noti=1;
     const [search,searchState] = useState(false);
     const[result,resultState]=useState([]);
     const [login, loginState] = useState(false);
@@ -85,11 +85,38 @@ function Nav() {
                         <img src={user.profile_photo}  className="perfilUser" alt="..."></img>   
                     </div>
 
+  
                     <div className="d-flex justify-content-between align-content-center flex-wrap">
                         <input onChange={busqueda} className="form-control me-2" id="inputSearch" type="search" placeholder="Buscar"
                             aria-label="Search" />
-                        <i className="icon-nav fas fa-search fa-lg" id="icon-search"></i>
-                        <i className="icon-nav fas fa-bell fa-lg"></i>
+
+                           <div className="btn-group" role="group" aria-label="Basic example">
+                                {/*<button type="button" class="btn "><i className="icon-nav fas fa-search fa-lg" id="icon-search"></i></button>*/}
+                                <button type="" className=" btn"><div className="position-relative">
+                                <i className="icon-nav fas fa-users fa-2x"></i>
+                             {noti>0&&  <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+                                  {noti}
+                                 <span className="visually-hidden">unread messages</span>
+                              </span>  
+                              }   
+                             
+                            </div></button>
+                           </div>
+                      
+                        
+                       
+
+
+
+
+                        <div className="dropdown">
+                                <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className=" fas fa-cog fa-lg"></i> 
+                                </button>
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <Config/>
+                                </ul>
+                            </div>
                         <NavLink  className="nav-link" onClick={shutdown} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
                                               
                     </div>

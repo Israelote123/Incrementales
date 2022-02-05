@@ -14,12 +14,15 @@ import { Configuration } from './pages/Configuration';
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import {ThemeProvider} from './Context/AppContext' 
+import {Nav} from './components/Nav/Nav';
 
 ReactDOM.render(
   <Provider store = {store}>
    
   <ThemeProvider >
+    
     <BrowserRouter>
+    <Nav/>
         <Routes>      
           <Route path="/" element={<Login  />} />
           <Route path="/new-user" element={<Register/>} />

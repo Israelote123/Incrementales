@@ -36,7 +36,7 @@ function FormLogin(){
                 let userData = decode(login.token.split(".")[1])
                 console.log(userData)
                 saveUser(userData)
-                navigate("/chismetecla")
+                navigate("/publicar")
             }
         }
       };
