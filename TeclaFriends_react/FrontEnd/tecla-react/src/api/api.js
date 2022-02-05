@@ -6,11 +6,11 @@ const getSearch = async (text) =>{
 }
 
 //insertar nuevos cursos
-const pushCourse = (obtainData) => {
+/*const pushCourse = (obtainData) => {
     let resultado;
     fetch(`http://localhost:3001/cursos/`, {
         method: "POST", // or 'PUT'
-        body: JSON.stringify(obtainData()), // data can be `string` or {object}!
+        body: JSON.stringify(obtainData), // data can be `string` or {object}!
         headers: {
             "Content-Type": "application/json",
         },
@@ -25,14 +25,14 @@ const pushCourse = (obtainData) => {
 
         })
         .catch(error => console.error("Error:", error))
-};
+};*/
 
 //insertat habilidades
-const pushAbiliti = (obtainData) => {
+const pushAbiliti = (data) => {
     let resultado;
     fetch(`http://localhost:3001/habilidades/`, {
         method: "POST", // or 'PUT'
-        body: JSON.stringify(obtainData()), // data can be `string` or {object}!
+        body: JSON.stringify(data), // data can be `string` or {object}!
         headers: {
             "Content-Type": "application/json",
         },
@@ -174,6 +174,6 @@ const inicioSesion = async (obtainData) => {
     .catch(error => console.error("Error:", error))
   };
 
-export { pushCourse, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch };
+export { getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch };
 
 export{register,inicioSesion};

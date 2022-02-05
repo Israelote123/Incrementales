@@ -2,6 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import {themeReducer} from "../reducers/theme";
 import {loginReducer} from "../reducers/login";
+import { courseReducer } from "../reducers/curso";
+import {requestReducer} from "../reducers/request";
 import { rootSaga } from "../sagas/";
 
 
@@ -9,7 +11,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
   themeReducer, 
-  loginReducer
+  loginReducer,
+  courseReducer,
+  requestReducer,
+
+
 });
 
 const logger = (store) => (next) => (action) => {
@@ -32,7 +38,6 @@ const store = createStore(
     reduxDevTools
   )
 );
-
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 export { store };

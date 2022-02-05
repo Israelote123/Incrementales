@@ -1,6 +1,6 @@
 import './Publicar.css';
 import { useState } from 'react';
-import { Cursos } from '../Cursos/Cursos';
+import  Cursos  from '../Cursos/Cursos';
 import { ShowCourses } from '../ShowCourses/ShowCourses';
 import { AgregarHabilidad } from "../AgregarHabilidad/AgregarHabilidad";
 import { Help } from "../Help/Help"

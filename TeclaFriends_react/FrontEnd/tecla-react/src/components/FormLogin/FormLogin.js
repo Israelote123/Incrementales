@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
     };
   };
 
-function FormLogin({token, loading, loginBool, error, userLogin}){
+function FormLogin({token, loading, loginBool, error, userLogin,saveData}){
     const navigate = useNavigate() 
     const [user, saveUser] = useLocalStorage("USER",{})
     const [tokens, saveToken] = useLocalStorage("TOKEN", {})

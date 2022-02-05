@@ -19,11 +19,15 @@ module.exports.getDatos = async (data)=>{
     let result = await userModel.datos(data)
     return result
 }
+
+
 //obtener todos los cursos
 module.exports.getCourse = async (data)=>{
     let result = await userModel.courseDo(data)
     return result
 }
+
+
 //obtener todos los cursos
 module.exports.getAbility = async (data)=>{
     let result = await userModel.Ability(data)
@@ -61,3 +65,23 @@ module.exports.addHelp = async (help) => {
     let result=await userModel.help(help)
     return result;
 }
+
+//envia solicitudes de amistad
+module.exports.sendRequest= async (friend) => {
+    let result=await userModel.requestt(friend)
+    return result;
+}
+
+//obtener solicitudes de amistad
+module.exports.getRequest = async (data)=>{
+    let result = await userModel.solicitudAmistad(data)
+    return result
+}
+//Acrualizar status solicitud de amistad
+module.exports.updateRequest= async (actualizar) => {
+    let result=await userModel.updatee(actualizar)
+    return result;
+}
+
+
+

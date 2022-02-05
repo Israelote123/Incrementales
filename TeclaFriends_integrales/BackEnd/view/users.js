@@ -57,11 +57,36 @@ module.exports = (app) => {
         res.json(result)
     })
 
-    //insertar nueva habilidad
+    //formulario de ayuda
     app.post('/help', async (req, res) => {
         let help = req.body
         let result = await userController.addHelp(help)
         res.json(result)
     })
+
+    //mandar solicitud de amistad
+    
+    app.post('/request', async (req, res) => {
+        let friend = req.body
+        let result = await userController.sendRequest(friend)
+        res.json(result)
+    })
+
+    
+    //obtener todas las solicitudes de amistad
+    
+    app.get('/request/:receptor', async (req, res) => {
+        let data = req.params.receptor;
+        let result = await userController.getRequest(data)
+        res.json(result[0])
+    })
+    //Actualizar stattus 
+    app.post('/request/update', async (req, res) => {
+        let actualizar = req.body
+        let result = await userController.updateRequest(actualizar)
+        res.json(result)
+    })
+
+   
 
 }
