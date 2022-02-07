@@ -97,4 +97,18 @@ module.exports.updatee= async(actualizar) => {
     }
      return "friend request update";   
 }
+//obtener solicitudes de amistad
+module.exports.solicitudFriend = async (data) => {
+    let result = await sequelize.query(`SELECT * FROM register LEFT JOIN friends ON mail=emisor  WHERE receptor='${data}' AND status='pendiente' `)
+    return result
+}
+
+//obtener amigos
+module.exports.friends= async (data) => {
+    let result = await sequelize.query(`SELECT * FROM register LEFT JOIN friends ON mail=emisor  WHERE receptor='${data}' AND status='amigo' `)
+    return result
+}
+
+
+
 

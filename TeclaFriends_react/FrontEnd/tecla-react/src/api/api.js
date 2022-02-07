@@ -108,10 +108,16 @@ const getAbility = async (data) => {
 
 
 //Funcion para listar posibles amigos
-const getFriends=async ()=>{
-   let resultado =await fetch('http://localhost:3001/information');
-   return resultado
-}
+const getFriends=async (data)=>{
+   return await fetch(`http://localhost:3001/amigos/${data}`,{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  })  
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+};
 
 //registar nuevo ususario
 const register = async (newUser) => {
@@ -199,7 +205,7 @@ const inicioSesion = async (obtainData) => {
   };
 
 
-  //obtener notificaciones
+  //obtener notificaciones para mostrarlas en la nav
   const getNotifications = async (data) => {
    return await fetch(`http://localhost:3001/request/${data}`, {
       method: "GET",
@@ -212,6 +218,18 @@ const inicioSesion = async (obtainData) => {
     .catch((err) => console.log(err));
   };
 
-export { getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
+  //obtener personas que te han manadado solicitudes
+  const getPossibleFriend = async (data) => {
+    return await fetch(`http://localhost:3001/amistad/${data}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json"
+       },
+     })  
+      .then((res) => res.json())  
+      .catch((err) => console.log(err));
+   };
+
+export { getPossibleFriend, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
 
 export{register,inicioSesion};

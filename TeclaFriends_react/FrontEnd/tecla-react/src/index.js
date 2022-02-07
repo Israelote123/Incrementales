@@ -11,6 +11,7 @@ import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
 import { Configuration } from './pages/Configuration';
+import {MostrarSolicitudes} from './pages/MostrarSolicitudes'
 import { Provider } from "react-redux";
 import { store } from "./redux/store"; 
 import Nav from './components/Nav/Nav'
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
           <Route path="/perfil" element={<PerfilPage/>}/>
           <Route path="/configuracion" element={<Configuration/>}/>
+          <Route path="/notificaciones" element={<MostrarSolicitudes/>}/>
         </Routes>
     </BrowserRouter>
   </Provider>,

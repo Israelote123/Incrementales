@@ -1,6 +1,3 @@
-
-
-
 import { GET_NOTIFICATIONS,GOT_NOTIFICATIONS, GOT_NOTIFICATIONS_ERROR}from '../actions/const'
 
 const initialState={

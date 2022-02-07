@@ -122,7 +122,7 @@ function Nav({login, token, userUnlogin,data,notifications,finish,showNotificati
                            <div className="btn-group" role="group" aria-label="Basic example">
                                 {/*<button type="button" class="btn "><i className="icon-nav fas fa-search fa-lg" id="icon-search"></i></button>*/}
                                 <button type="" className=" btn"><div className="position-relative">
-                                <i className="icon-nav fas fa-users fa-2x"></i>
+                                <NavLink id='cambio' className="nav-link" to="/notificaciones"><i className="icon-nav fas fa-users fa-2x"></i></NavLink>  
                              {finish&& <><span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                   {notifications.length}
                                  <span className="visually-hidden">unread messages</span>
