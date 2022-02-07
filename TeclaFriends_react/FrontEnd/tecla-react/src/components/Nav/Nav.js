@@ -5,24 +5,35 @@ import { NavLink } from 'react-router-dom'
 import Config  from '../Config/Config';
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import {getSearch} from '../../api/api'
+
 import { userUnlogin } from "../../redux/actions/login";
+import {showNotifications} from "../../redux/actions/notifications"
 import { connect } from "react-redux";
+
+import { useEffect } from 'react';
 
 const mapStateToProps = (state) => {
     return {
       token: state.loginReducer.token,
-      login: state.loginReducer.login
+      login: state.loginReducer.login,
+      data: state.loginReducer.data,
+      notifications:state.showNotificationsReducer.notifications,
+      finish:state.showNotificationsReducer.finish,
     };
   };
 
-function Nav({login, token, userUnlogin}) {
-    let noti=4;
+function Nav({login, token, userUnlogin,data,notifications,finish,showNotifications}) {
+    
 
     const [search,searchState] = useState(false);
     const[result,resultState]=useState([]);
     const [user, saveUser, deleteAllData] = useLocalStorage("USER", {});
     const [box,boxState] = useState(false);
     const [searchUser, saveSearch] = useLocalStorage("BUSQUEDA", {});
+
+    let noti=4;
+
+    
 
     const busqueda = async (e)=>{
             //e.preventDefault()
@@ -49,8 +60,21 @@ function Nav({login, token, userUnlogin}) {
         deleteAllData()
     }
     
+    const traerNotificaciones = () =>{
+        showNotifications(user.mail)
+    }
+
+    useEffect(()=>{
+        traerNotificaciones()
+    },[user])
+ 
+
+  
+    
    return (
     <nav onClick={limpiar} id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
+    
+           
         <div className="container-fluid">
             <NavLink className="navbar-brand" id="titulo" to="/chismetecla"><img className="logo d-inline-block align-text-center" src={logo} alt="Logo"/>TeclaFriends</NavLink>
             {login && 
@@ -87,7 +111,7 @@ function Nav({login, token, userUnlogin}) {
                     </ul>
 
                     <div id="sesionImage">               
-                        <img src={user.profile_photo}  className="perfilUser" alt="..."></img>   
+                        <img src={data.profile_photo}  className="perfilUser" alt="..."></img>   
                     </div>
 
   
@@ -99,21 +123,16 @@ function Nav({login, token, userUnlogin}) {
                                 {/*<button type="button" class="btn "><i className="icon-nav fas fa-search fa-lg" id="icon-search"></i></button>*/}
                                 <button type="" className=" btn"><div className="position-relative">
                                 <i className="icon-nav fas fa-users fa-2x"></i>
-                             {noti>0&&  <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-                                  {noti}
+                             {finish&& <><span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+                                  {notifications.length}
                                  <span className="visually-hidden">unread messages</span>
-                              </span>  
-                              }   
+                              </span>                                  
+                                </> 
+                              } 
                              
                             </div></button>
                            </div>
                       
-                        
-                       
-
-
-
-
                         <div className="dropdown">
                                 <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i className=" fas fa-cog fa-lg"></i> 
@@ -122,8 +141,7 @@ function Nav({login, token, userUnlogin}) {
                                     <Config/>
                                 </ul>
                                 </div>
-                        <NavLink  className="nav-link" onClick={unlogin} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
-                                              
+                        <NavLink  className="nav-link" onClick={unlogin} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>                                            
                     </div>
                     {box&& 
                        <>
@@ -138,7 +156,6 @@ function Nav({login, token, userUnlogin}) {
                         </div>
                       </>
                     }
-
                 </div>
             </div>
             </>
@@ -149,4 +166,4 @@ function Nav({login, token, userUnlogin}) {
 }
 
 
-export default connect(mapStateToProps, { userUnlogin })(Nav);
+export default connect(mapStateToProps, { userUnlogin,showNotifications })(Nav);

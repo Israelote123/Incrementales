@@ -4,6 +4,11 @@ import {themeReducer} from "../reducers/theme";
 import {loginReducer} from "../reducers/login";
 import { courseReducer } from "../reducers/curso";
 import {requestReducer} from "../reducers/request";
+import{abilitiReducer} from '../reducers/abiliti'
+import { helpReducer } from "../reducers/help";
+import {showCourseReducer} from '../reducers/showCourses'
+import {showAbilitieReducer} from '../reducers/showAbilities'
+import {showNotificationsReducer} from '../reducers/notifications'
 import { rootSaga } from "../sagas/";
 
 
@@ -14,6 +19,11 @@ const reducers = combineReducers({
   loginReducer,
   courseReducer,
   requestReducer,
+  abilitiReducer,
+  helpReducer,
+  showCourseReducer,
+  showAbilitieReducer,
+  showNotificationsReducer,
 
 
 });
@@ -27,15 +37,15 @@ const logger = (store) => (next) => (action) => {
   return result;
 };
 
-const reduxDevTools =
+/*const reduxDevTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-
+*/
 const store = createStore(
   reducers,
   compose(
     applyMiddleware(sagaMiddleware),
     applyMiddleware(logger),
-    reduxDevTools
+    //reduxDevTools
   )
 );
 sagaMiddleware.run(rootSaga);

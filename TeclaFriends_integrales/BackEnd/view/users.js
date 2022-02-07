@@ -86,6 +86,9 @@ module.exports = (app) => {
         let result = await userController.updateRequest(actualizar)
         res.json(result)
     })
+    
+   
+    
 
    
 

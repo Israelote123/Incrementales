@@ -11,7 +11,7 @@ const lightChange=()=>{
     
     return{
         type: LIGHT_THEME,
-        payload: "white"
+        payload: "rgba(230, 230, 230, 0.712)"
         
     }
 }

@@ -1,8 +1,8 @@
-//import { useState } from 'react';
+
 import './Cursos.css';
-import { pushCourse } from '../../api/api';
 import { connect } from "react-redux";
-import { saveCourse } from "../../redux/actions/curso";
+import { saveCourse,setLoading } from "../../redux/actions/curso";
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 const mapStateToProps = (state)=>{
     return{
@@ -11,27 +11,23 @@ const mapStateToProps = (state)=>{
     }
   }
 
-function Cursos({saveCourse,loading,error}) {
+function Cursos({saveCourse,setLoading,loading,error}) {
     
-    const variable = localStorage.getItem("variable");
-   // const [loading, setLoading] = useState(false)
-   
+    const [user]= useLocalStorage("USER",{})
+
     const onSubmit= (event) => {
         event.preventDefault() 
         let data = {
-            mail: variable,
+            mail: user.mail,
             nombre_curso: event.target[0].value,
             lugar_curso: event.target[1].value,
             fecha_curso: event.target[2].value,
         };
 
-        //setLoading(true)
-        setTimeout(() => {
+       
             saveCourse(data)
-            //pushCourse(data)
-            //setLoading(false)
             event.target.reset()
-        }, 2000)
+        
 
     }
 
@@ -52,19 +48,13 @@ function Cursos({saveCourse,loading,error}) {
                     <label className="form-label">Fecha curso</label>
                     <input required name='lugarC' type="date" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
-                {!loading && (
+             
                     <button  className="btn btn-primary" >Save</button>
 
-                )}
+           
 
 
-                {loading && (
-                    <div className="text-center">
-                        <div className="spinner-grow text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                )}
+               
                 {error && (
                   <div className="alert alert-danger" role="alert">
                      No es posible conectar con la base de datos
@@ -77,6 +67,5 @@ function Cursos({saveCourse,loading,error}) {
     );
 }
 
-export default connect(mapStateToProps, {saveCourse} )(Cursos);
+export default connect(mapStateToProps, {saveCourse,setLoading} )(Cursos);
 
-//export { Cursos };

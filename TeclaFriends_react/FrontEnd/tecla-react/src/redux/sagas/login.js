@@ -11,6 +11,7 @@ function* loginWorker(action) {
   }
 }
 
+
 function* loginWatcher() {
   yield takeLatest(USER_LOGIN, loginWorker);
 }

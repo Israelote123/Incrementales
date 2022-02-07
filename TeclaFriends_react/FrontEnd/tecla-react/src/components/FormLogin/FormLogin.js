@@ -1,7 +1,7 @@
 import './FormLogin.css'
 import { useNavigate } from "react-router-dom";
 import {NavLink} from 'react-router-dom'
-import { userLogin, saveData } from "../../redux/actions/login";
+import { userLogin, userSaveData } from "../../redux/actions/login";
 import { connect } from "react-redux";
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import {decode} from "../../hooks/decode"
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
     };
   };
 
-function FormLogin({token, loading, loginBool, error, userLogin,saveData}){
+function FormLogin({token, loading, loginBool, error, userLogin,userSaveData}){
     const navigate = useNavigate() 
     const [user, saveUser] = useLocalStorage("USER",{})
     const [tokens, saveToken] = useLocalStorage("TOKEN", {})
@@ -34,7 +34,7 @@ function FormLogin({token, loading, loginBool, error, userLogin,saveData}){
             saveToken(token)
             let data = decode(JSON.stringify(token).split(".")[1])
             saveUser(data)
-            saveData(data)
+            userSaveData(JSON.parse(data))
             navigate("/chismetecla")}
             catch (error){};
     }, [loginBool])
@@ -78,4 +78,4 @@ function FormLogin({token, loading, loginBool, error, userLogin,saveData}){
 }
 
 
-export default connect(mapStateToProps, { userLogin })(FormLogin);
+export default connect(mapStateToProps, { userLogin, userSaveData })(FormLogin);

@@ -15,6 +15,8 @@ module.exports.accessLogin = async (login)=>{
 }
 
 
+
+
 module.exports.getDatos = async (data)=>{
     let result = await userModel.datos(data)
     return result
@@ -82,6 +84,9 @@ module.exports.updateRequest= async (actualizar) => {
     let result=await userModel.updatee(actualizar)
     return result;
 }
+
+
+
 
 
 

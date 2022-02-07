@@ -6,7 +6,8 @@ const getSearch = async (text) =>{
 }
 
 //insertar nuevos cursos
-/*const pushCourse = (obtainData) => {
+const pushCourse = (obtainData) => {
+    console.log(obtainData)
     let resultado;
     fetch(`http://localhost:3001/cursos/`, {
         method: "POST", // or 'PUT'
@@ -25,7 +26,7 @@ const getSearch = async (text) =>{
 
         })
         .catch(error => console.error("Error:", error))
-};*/
+};
 
 //insertat habilidades
 const pushAbiliti = (data) => {
@@ -54,7 +55,7 @@ const pushHelp = (obtainData) => {
     let resultado;
     fetch(`http://localhost:3001/help/`, {
         method: "POST", // or 'PUT'
-        body: JSON.stringify(obtainData()), // data can be `string` or {object}!
+        body: JSON.stringify(obtainData), // data can be `string` or {object}!
         headers: {
             "Content-Type": "application/json",
         },
@@ -72,16 +73,39 @@ const pushHelp = (obtainData) => {
 };
 
 //obterner todos los cursos para mostrar
-const getCuorse = async (mail) =>{
+/*const getCuorse = async (mail) =>{
     let course = await fetch(`http://localhost:3001/cursos/${mail}`);
     return course
-}
+}*/
+
+const getCuorse = async (data) => {
+    return await fetch(`http://localhost:3001/cursos/${data}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json"
+       },
+     })  
+       .then((res) => res.json())
+     .catch((err) => console.log(err));
+   };
 
 //obterner todos las habilidades
-const getAbility = async (mail) =>{
+/*const getAbility = async (mail) =>{
     let pokemon = await fetch(`http://localhost:3001/habilidades/${mail}`);
     return pokemon
-}
+}*/
+
+const getAbility = async (data) => {
+    return await fetch(`http://localhost:3001/habilidades/${data}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json"
+       },
+     })  
+       .then((res) => res.json())
+     .catch((err) => console.log(err));
+   };
+
 
 //Funcion para listar posibles amigos
 const getFriends=async ()=>{
@@ -174,6 +198,20 @@ const inicioSesion = async (obtainData) => {
     .catch(error => console.error("Error:", error))
   };
 
-export { getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch };
+
+  //obtener notificaciones
+  const getNotifications = async (data) => {
+   return await fetch(`http://localhost:3001/request/${data}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })  
+      .then((res) => res.json())
+     
+    .catch((err) => console.log(err));
+  };
+
+export { getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
 
 export{register,inicioSesion};

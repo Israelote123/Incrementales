@@ -80,7 +80,7 @@ module.exports.requestt = async(friend) => {
 }
 //obtener solicitudes de amistad
 module.exports.solicitudAmistad = async (data) => {
-    let result = await sequelize.query(`SELECT receptor FROM friends where status='pendiente'`)
+    let result = await sequelize.query(`SELECT * FROM friends where status='pendiente' AND receptor='${data}'`)
     return result
 }
 
@@ -89,10 +89,10 @@ module.exports.solicitudAmistad = async (data) => {
 module.exports.updatee= async(actualizar) => {
     if(actualizar.status==rechazado)
     {
-        await sequelize.query(`UPDATE friends SET status='${actualizar.status}' WHERE receptor='${actualizar.receptor}' & emisor='${actualizar.emisor}'`)
+        await sequelize.query(`UPDATE friends SET status='${actualizar.status}' WHERE receptor='${actualizar.receptor}' AND emisor='${actualizar.emisor}'`)
     }
     else{
-        await sequelize.query(`UPDATE friends SET status='${actualizar.status}' WHERE receptor='${actualizar.receptor}' & emisor='${actualizar.emisor}'`)
+        await sequelize.query(`UPDATE friends SET status='${actualizar.status}' WHERE receptor='${actualizar.receptor}' AND emisor='${actualizar.emisor}'`)
        
     }
      return "friend request update";   
