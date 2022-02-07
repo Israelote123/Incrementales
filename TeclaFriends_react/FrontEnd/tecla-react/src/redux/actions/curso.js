@@ -1,4 +1,11 @@
-import { SAVE_CUORSE} from "./const";
+import {SET_LOADING, SAVE_CUORSE} from "./const";
+
+const setLoading=()=>{  
+    return{
+        type: SET_LOADING, 
+        loading:true     
+    }
+}
 
 const saveCourse=(curso)=>{  
     return{
@@ -7,17 +14,5 @@ const saveCourse=(curso)=>{
         loading:true     
     }
 }
- 
-/*const savingCourse=()=>{  
-    return{
-        type: SAVING_CUORSE ,
-        loading:true       
-    }
-}
-const savedCourse=()=>{  
-    return{
-        type: SAVED_CUORSE ,
-        loading:false       
-    }
-}*/
-export {saveCourse}
+
+export {saveCourse,setLoading}

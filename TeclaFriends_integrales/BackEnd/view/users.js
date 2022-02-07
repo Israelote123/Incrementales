@@ -1,6 +1,7 @@
 const userController = require('../controller/users')
 const validate = require('../middlewares/midd.user')
 module.exports = (app) => {
+
     //get para obtener informacion completa de todos los usuarios
     app.get('/information', async (req, res) => {
         //let data=req.params.mail;
@@ -86,6 +87,23 @@ module.exports = (app) => {
         let result = await userController.updateRequest(actualizar)
         res.json(result)
     })
+
+    //obtener personas que mandaron solicitud de amistad   
+    app.get('/amistad/:receptor', async (req, res) => {
+        let data = req.params.receptor;
+        let result = await userController.getAmistad(data)
+        res.json(result[0])
+    })
+
+    //obtener amigos   
+    app.get('/amigos/:receptor', async (req, res) => {
+        let data = req.params.receptor;
+        let result = await userController.getFriends(data)
+        res.json(result[0])
+    })
+    
+   
+    
 
    
 

@@ -19,9 +19,6 @@ function AmigosAgregar() {
     traerAmigos()
    },[])
 
-    //{state&&
-      //  traerAmigos()
-    //}   
     return (
         <div id="container-friends" className="d-flex justify-content-between flex-wrap">
          {

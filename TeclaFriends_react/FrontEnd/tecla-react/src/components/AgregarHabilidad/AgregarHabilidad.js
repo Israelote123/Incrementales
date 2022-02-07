@@ -1,30 +1,33 @@
-import { useState } from 'react';
+
 import './AgregarHabilidad.css';
-import { pushAbiliti } from '../../api/api';
+import { connect } from "react-redux";
+import { saveAbiliti, setLoading} from "../../redux/actions/abiliti";
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 
+const mapStateToProps = (state)=>{
+    return{
+      loading: state.abilitiReducer.loading,
+      error: state.abilitiReducer.error,
+    }
+  }
 
-function AgregarHabilidad() {
-    let variable = localStorage.getItem("variable");
-
-    const [loading, setLoading] = useState(false)
-
-
+function AgregarHabilidad({setLoading,saveAbiliti,loading,error}) {
+    
+  const [user]= useLocalStorage("USER",{})
+ 
   const onSubmit = (event) => {
         event.preventDefault()
+        console.log(loading)
         let data = {
-            mail: variable,
+            mail: user.mail,
             skill: event.target[0].value         
         };
-
-       setLoading(true)
-        setTimeout(() => {
-           
-            pushAbiliti(data)
-            setLoading(false)
+   
+            saveAbiliti(data)
+         
             event.target.reset()
-        }, 2000)             
-       console.log(loading);
+      
     }
 
     return (
@@ -35,19 +38,13 @@ function AgregarHabilidad() {
                 <div className="mb-3">
                     <label className="form-label">Habilidad</label>
                     <input required name='nombreC' type="text" className="form-control" /*onChange={nuevaHabilidad}*/ id="exampleInputEmail1" aria-describedby="emailHelp" />
-                </div>
-        
-                {!loading && (
+                </div>     
                     <button  className="btn btn-primary" >Save</button>
 
-                )}
-
-                {loading && (
-                    <div className="text-center">
-                        <div className="spinner-grow text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
+                {error && (
+                  <div className="alert alert-danger" role="alert">
+                     No es posible conectar con la base de datos
+                   </div>
                 )}
 
             </form>
@@ -56,4 +53,4 @@ function AgregarHabilidad() {
     );
 }
 
-export { AgregarHabilidad };
+export default connect(mapStateToProps, {saveAbiliti,setLoading} )(AgregarHabilidad);

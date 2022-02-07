@@ -5,7 +5,10 @@ import Config  from '../Config/Config';
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import { searchUser, searchedUser } from "../../redux/actions/search";
 import { userUnlogin } from "../../redux/actions/login";
+import {showNotifications} from "../../redux/actions/notifications"
 import { connect } from "react-redux";
+
+import { useEffect } from 'react';
 
 const mapStateToProps = (state) => {
     return {
@@ -14,10 +17,12 @@ const mapStateToProps = (state) => {
       data: state.loginReducer.data,
       users: state.searchReducer.users,
       searching: state.searchReducer.searching,
+      notifications:state.showNotificationsReducer.notifications,
+      finish:state.showNotificationsReducer.finish,
     };
   };
 
-function Nav({login, token, userUnlogin, data, users, searching, searchedUser, searchUser}) {
+function Nav({login, token, userUnlogin, data, users, searching, searchedUser, searchUser, notifications,finish,showNotifications}) {
     let noti=4;
     const [user, saveUser, deleteAllData] = useLocalStorage("USER", {});
     const [search, saveSearch] = useLocalStorage("BUSQUEDA", {});
@@ -37,6 +42,17 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
         document.querySelector('#inputSearch').value = "";
         
     }
+    
+    const traerNotificaciones = () =>{
+        showNotifications(user.mail)
+    }
+
+    useEffect(()=>{
+        traerNotificaciones()
+    },[user])
+ 
+
+  
     
    return (
     <nav id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
@@ -68,7 +84,6 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                         </li>
                         <li className="nav-item">
                             <NavLink id='cambio' className="cambiar nav-link" to="/agregarAmigos">Agregar amigos</NavLink>
-                           
                         </li>
                         <li className="nav-item">
                             <NavLink id='cambio' className="nav-link" to="/publicar">Publicar</NavLink>
@@ -80,18 +95,21 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                     <div className="d-flex justify-content-between align-content-center flex-wrap">
                         <input onChange={busqueda} className="form-control me-2" id="inputSearch" type="search" placeholder="Buscar"
                             aria-label="Search" />
-
                            <div className="btn-group" role="group" aria-label="Basic example">
                                 {/*<button type="button" class="btn "><i className="icon-nav fas fa-search fa-lg" id="icon-search"></i></button>*/}
-                                <button type="" className=" btn"><div className="position-relative">
-                                <i className="icon-nav fas fa-users fa-2x"></i>
-                             {noti>0&&  <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-                                  {noti}
-                                 <span className="visually-hidden">unread messages</span>
-                              </span>  
-                              }   
-                             
-                            </div></button>
+                                <button type="" className=" btn">
+                                    <div className="position-relative">
+                                <NavLink id='cambio' className="nav-link" to="/notificaciones"><i className="icon-nav fas fa-users fa-2x"></i></NavLink>  
+                                    {finish&& 
+                                        <>
+                                            <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+                                                {notifications.length}
+                                                <span className="visually-hidden">unread messages</span>
+                                            </span>                                  
+                                        </> 
+                                    } 
+                                    </div>
+                                </button>
                            </div>
                         <div className="dropdown">
                                 <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,8 +119,7 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                                     <Config/>
                                 </ul>
                                 </div>
-                        <NavLink  className="nav-link" onClick={unlogin} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>
-                                              
+                        <NavLink  className="nav-link" onClick={unlogin} to="/"><i className="icon-nav fas fa-sign-out-alt fa-lg" id="icon-close"></i>  </NavLink>                                            
                     </div>
                     {searching && 
                        <>
@@ -115,7 +132,6 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                         </div>
                       </>
                     }
-
                 </div>
             </div>
             </>
@@ -125,5 +141,4 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
   );
 }
 
-
-export default connect(mapStateToProps, { userUnlogin, searchUser, searchedUser })(Nav);
+export default connect(mapStateToProps, { userUnlogin, searchUser, searchedUser, showNotifications })(Nav);

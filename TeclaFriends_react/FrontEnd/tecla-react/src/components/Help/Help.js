@@ -1,90 +1,65 @@
-import { useState } from 'react';
 import './Help.css';
-import { pushHelp } from '../../api/api';
+import { connect } from "react-redux";
+import { saveHelp,setLoading } from "../../redux/actions/help";
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
+const mapStateToProps = (state)=>{
+    return{
+      loading: state.helpReducer.loading,
+      error: state.helpReducer.error,
+    }
+  }
 
-
-function Help() {
-    var data;
-    let variable = localStorage.getItem("variable");
+function Help({saveHelp,setLoading,loading,error}) {
     
-    let obtainData = () => {
-        data = {
-            mail: variable,
-            titulo: state.titulo,
-            consulta:state.consulta,
-            problemas:state.problemas       
+    
+    const [user]= useLocalStorage("USER",{})
+
+    const onSubmit= (event) => {
+        event.preventDefault() 
+        let  data = {
+            mail: user.mail,
+            titulo: event.target[0].value,
+            consulta:event.target[1].value,
+            problemas:event.target[2].value,       
         };
-        return data;
-    };
 
-    const [state, setState] = useState({ titulo: "",consulta: "",problemas: ""})
-    const [save, setSave] = useState(false);
-    const [loading, setLoading] = useState(false)
-
-   const nuevoTitulo = (e) => {
-        let newState = {
-            ...state,
-            titulo: e.target.value,
-        }
-        setState(newState)
-    }
-    const nuevaConsulta = (e) => {
-        let newState = {
-            ...state,
-            consulta: e.target.value,
-        }
-        setState(newState)
-    }
-    const nuevosProblemas = (e) => {
-        let newState = {
-            ...state,
-            problemas: e.target.value,
-        }
-        setState(newState)
-    }
-
-    const saveInfo = (event) => {
-        event.preventDefault()
-        setLoading(true)
-        setTimeout(() => {
-            setSave(true)
-            pushHelp(obtainData)
-            setLoading(false)
+      
+            saveHelp(data)
             event.target.reset()
-        }, 2000)
-    }
+        
 
+    }
+      
     return (
         <div className="Habilidades">
-            <form   onSubmit={saveInfo}>
+            <form   onSubmit={onSubmit}>
                 <div id="blue">
                     <h1>¿Necesitas ayuda?</h1>
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Titulo</label>
-                    <input required name='nombreC' type="text" className="form-control" onChange={nuevoTitulo} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input required name='nombreC' type="text" className="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Consulta</label>
-                    <input required name='nombreC' type="text" className="form-control" onChange={nuevaConsulta} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input required name='nombreC' type="text" className="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Problemas comunes</label>
-                    <input required name='nombreC' type="text" className="form-control" onChange={nuevosProblemas} id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input required name='nombreC' type="text" className="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
         
-                {!loading && (
+      
                     <button  className="btn btn-primary" >Save</button>
 
-                )}
+          
 
-                {loading && (
-                    <div className="text-center">
-                        <div className="spinner-grow text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
+              
+                 {error && (
+                  <div className="alert alert-danger" role="alert">
+                     No es posible conectar con la base de datos
+                   </div>
                 )}
 
             </form>
@@ -94,5 +69,6 @@ function Help() {
         </div>
     );
 }
+export default connect(mapStateToProps, {saveHelp,setLoading} )(Help);
 
-export { Help };
+

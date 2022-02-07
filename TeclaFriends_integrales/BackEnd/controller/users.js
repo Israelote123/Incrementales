@@ -15,6 +15,8 @@ module.exports.accessLogin = async (login)=>{
 }
 
 
+
+
 module.exports.getDatos = async (data)=>{
     let result = await userModel.datos(data)
     return result
@@ -82,6 +84,19 @@ module.exports.updateRequest= async (actualizar) => {
     let result=await userModel.updatee(actualizar)
     return result;
 }
+
+//obtener personas que mandaron solicitud de amistad
+module.exports.getAmistad = async (data)=>{
+    let result = await userModel.solicitudFriend(data)
+    return result
+}
+//obtener amigos
+module.exports.getFriends= async (data)=>{
+    let result = await userModel.friends(data)
+    return result
+}
+
+
 
 
 

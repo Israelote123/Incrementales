@@ -1,6 +1,6 @@
 import './PerfilSearch.css'
 import { connect } from "react-redux";
-import { sendRequest } from "../../redux/actions/request";
+import { sendRequest,cancelQuery } from "../../redux/actions/request";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,22 +11,25 @@ const mapStateToProps = (state) => {
   }
 }
 
-function PerfilSearch({ sendRequest,send, loading, error, dataSearch }) {
+function PerfilSearch({ sendRequest,send, loading, error, dataSearch, cancelQuery }) {
 
   const sendQuery = (e) => {
     e.preventDefault();
-    console.log("solicitud mandada")
-
-    let data = {
-      receptor: "juan@algo",
-      emisor: "pedro@algo",
+      let data = {
+      receptor: searchUser.mail,
+      emisor: user.mail,
       status: "pendiente",
     };
 
     setTimeout(() => {
       sendRequest(data)
-    }, 2000)
+    }, 500)
 
+  }
+
+  const cancel=(e)=>{
+    e.preventDefault();
+    cancelQuery()
   }
 
   return (
@@ -50,15 +53,14 @@ function PerfilSearch({ sendRequest,send, loading, error, dataSearch }) {
               </div>
             </div>
           )}
+
           {error && (
             <div className="alert alert-danger" role="alert">
               No es posible conectar con la base de datos
             </div>
           )}
           {send &&
-               <div className="alert alert-success" role="alert">
-               solicitud mandada
-             </div>
+                <div className="col-6 infoUser"><a onClick={cancel} href="#" className="btn btn-danger" >cancel</a></div>
           }
         </div>
       </div>
@@ -66,6 +68,6 @@ function PerfilSearch({ sendRequest,send, loading, error, dataSearch }) {
   );
 }
 
-export default connect(mapStateToProps, { sendRequest })(PerfilSearch);
+export default connect(mapStateToProps, { sendRequest,cancelQuery })(PerfilSearch);
 
 //export {PerfilSearch};
