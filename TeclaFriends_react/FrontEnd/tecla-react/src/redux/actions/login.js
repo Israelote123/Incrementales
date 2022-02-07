@@ -1,4 +1,4 @@
-import {USER_LOGIN, USER_UNLOGIN, USER_SAVE_DATA} from './const'
+import {USER_LOGIN, USER_UNLOGIN, USER_SAVE_DATA, USER_LOGIN_CHECK} from './const'
 
 const userLogin = (data) => {
     return {
@@ -30,4 +30,14 @@ const userSaveData = (data) => {
     }
 }
 
-export {userLogin, userUnlogin, userSaveData}
+const userLoginCheck = (actualToken) => {
+    return {
+        type: USER_LOGIN_CHECK,
+        payload: actualToken,
+        loading: false,
+        data: {},
+        login:false
+    }
+}
+
+export {userLogin, userUnlogin, userSaveData, userLoginCheck}

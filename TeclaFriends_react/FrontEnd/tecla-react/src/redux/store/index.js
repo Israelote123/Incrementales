@@ -4,6 +4,7 @@ import {themeReducer} from "../reducers/theme";
 import {loginReducer} from "../reducers/login";
 import { courseReducer } from "../reducers/curso";
 import {requestReducer} from "../reducers/request";
+import {searchReducer} from "../reducers/search";
 import { rootSaga } from "../sagas/";
 
 
@@ -14,8 +15,7 @@ const reducers = combineReducers({
   loginReducer,
   courseReducer,
   requestReducer,
-
-
+  searchReducer,
 });
 
 const logger = (store) => (next) => (action) => {

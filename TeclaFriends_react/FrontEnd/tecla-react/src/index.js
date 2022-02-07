@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import reportWebVitals from './reportWebVitals';
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import PublicarPage  from "./pages/PublicarPage";
 import  {AgregarAmigos}  from "./pages/AgregarAmigos";
 import { Chismetecla } from "./pages/Chismetecla";
 import { Amigos } from "./pages/Amigos";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
-import reportWebVitals from './reportWebVitals';
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
 import { Configuration } from './pages/Configuration';
@@ -18,7 +18,7 @@ import Nav from './components/Nav/Nav'
 ReactDOM.render(
   <Provider store = {store}>
     <BrowserRouter>
-      <Nav />  
+      <Nav /><br />  
         <Routes>
           <Route path="/" element={<Login  />} />
           <Route path="/new-user" element={<Register/>} />

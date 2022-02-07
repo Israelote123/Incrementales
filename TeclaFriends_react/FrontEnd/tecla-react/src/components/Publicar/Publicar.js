@@ -24,14 +24,9 @@ function Publicar() {
     const ayuda = () => {
         setHelp(!help)
     }
-
-    function abrir() {
-
+    const abrir = () => {
         var file = document.getElementById("file").click();
-        
-        }
-        
-          
+        }   
     return (
         <div className="Nav">
             <div id="container-friends" className="d-flex justify-content-between flex-wrap">
