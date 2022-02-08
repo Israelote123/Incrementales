@@ -1,4 +1,5 @@
 import './PerfilSearch.css'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { connect } from "react-redux";
 import { sendRequest,cancelQuery } from "../../redux/actions/request";
 
@@ -12,6 +13,8 @@ const mapStateToProps = (state) => {
 }
 
 function PerfilSearch({ sendRequest,send, loading, error, dataSearch, cancelQuery }) {
+  const [searchUser] = useLocalStorage("BUSQUEDA", {})
+  const [user]= useLocalStorage("USER",{})
 
   const sendQuery = (e) => {
     e.preventDefault();

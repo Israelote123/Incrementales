@@ -12,6 +12,7 @@ import {showAbilitieReducer} from '../reducers/showAbilities'
 import {showNotificationsReducer} from '../reducers/notifications'
 import {posibbleFriendReducer } from '../reducers/possibleFriend'
 import {friendReducer} from '../reducers/showFriends'
+import {discoverFriendReducer} from '../reducers/discoverFriends'
 import { rootSaga } from "../sagas/";
 
 
@@ -30,6 +31,7 @@ const reducers = combineReducers({
   showNotificationsReducer,
   posibbleFriendReducer,
   friendReducer,
+  discoverFriendReducer,
 });
 
 const logger = (store) => (next) => (action) => {

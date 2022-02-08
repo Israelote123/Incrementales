@@ -109,6 +109,11 @@ module.exports.friends= async (data) => {
     let result = await sequelize.query(`SELECT * FROM register LEFT JOIN friends ON mail=emisor  WHERE receptor='${data}' AND status='amigo' `)
     return result
 }
+//obtener noamigos para descubrir
+module.exports.noFriends= async (data) => {
+    let result = await sequelize.query(`SELECT * FROM register LEFT JOIN friends ON mail=emisor WHERE NOT receptor='${data}' OR status IS NULL AND NOT mail='${data}'  `)
+    return result
+}
 
 
 

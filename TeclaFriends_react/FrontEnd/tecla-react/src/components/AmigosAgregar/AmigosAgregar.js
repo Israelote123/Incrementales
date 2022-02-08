@@ -1,42 +1,55 @@
 import './AmigosAgregar.css';
-import { useState,useEffect } from 'react';
-import { getFriends } from '../../api/api'
+import {useEffect } from 'react';
 
-function AmigosAgregar() {
-    const [save, setSave] = useState([]);
-    const [state, setState] = useState(true);
 
-    const traerAmigos =async () => {
-        let newPokemon = await getFriends()
-        let pokeJSON = await newPokemon.json()
-        setSave(save[0] = pokeJSON)
-        console.log(pokeJSON)
-        console.log(save)
-        setState(false)
-    }
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { discoverFriends } from '../../redux/actions/discoverFriends'
+import { connect } from "react-redux";
 
-    useEffect(()=>{
+const mapStateToProps = (state) => {
+  return {
+    friendDiscover: state.discoverFriendReducer.friendDiscover,
+    finish: state.discoverFriendReducer.finish,
+
+  };
+};
+
+function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
+  const [user] = useLocalStorage("USER", {})
+
+  const traerAmigos = async () => {
+    discoverFriends(user.mail)
+  }
+
+  useEffect(() => {
     traerAmigos()
-   },[])
+  }, [])
 
-    return (
-        <div id="container-friends" className="d-flex justify-content-between flex-wrap">
-         {
-           save.map(r =>                                                                                                                                             
-                  <div className="card perfil_container">
-                        <div className="card-body">
-                          <img src={r.profile_photo} className="perfil card-img-top " alt="..."/>
-                          <div className="card-body ">
-                             <h5 className="card-title">{r.name}</h5>
-                             <h5 className="card-title">{r.middle_name}</h5>
-                             <p className="card-text">{r.country}</p>
-                             <a href="#" className="btn btn-info" >add user</a>
-                          </div>
-                       </div>
-                    </div>                                    
-                  )
-          }     
-        </div>  
-    );
+  return (
+    <div id="container-friends" className="d-flex justify-content-between flex-wrap">
+      {finish &&
+        <>
+          {
+            friendDiscover.map(r =>
+              <div className="card perfil_container">
+                <div className="card-body">
+                  <img src={r.profile_photo} className="perfil card-img-top " alt="..." />
+                  <div className="card-body ">
+                    <h5 className="card-title">{r.name}</h5>
+                    <h5 className="card-title">{r.middle_name}</h5>
+                    <h5 className="card-title">{r.status}</h5>
+                    <p className="card-text">{r.country}</p>
+                    <a href="#" className="btn btn-info" >Add user</a>
+                  </div>
+                </div>
+              </div>
+
+            )
+          }
+        </>
+      }
+
+    </div>
+  );
 }
-export { AmigosAgregar };
+export default connect(mapStateToProps, { discoverFriends })(AmigosAgregar);

@@ -1,6 +1,6 @@
 import { Nav } from "../components/Nav/Nav";
 import { BarraLat } from "../components/BarraLat/BarraLat";
-import {AmigosAgregar} from '../components/AmigosAgregar/AmigosAgregar';
+import AmigosAgregar from '../components/AmigosAgregar/AmigosAgregar';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman';
 import {useState} from 'react';

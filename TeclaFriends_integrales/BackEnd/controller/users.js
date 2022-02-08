@@ -14,9 +14,6 @@ module.exports.accessLogin = async (login)=>{
     return result
 }
 
-
-
-
 module.exports.getDatos = async (data)=>{
     let result = await userModel.datos(data)
     return result
@@ -95,6 +92,13 @@ module.exports.getFriends= async (data)=>{
     let result = await userModel.friends(data)
     return result
 }
+
+//obtener noamigos
+module.exports.getNoFriends= async (data)=>{
+    let result = await userModel.noFriends(data)
+    return result
+}
+
 
 
 

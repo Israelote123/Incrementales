@@ -10,6 +10,7 @@ import {showAbilitiWatcher} from './showAbiliti'
 import {showNotificationsWatcher} from './notifications'
 import { possibleFriendWatcher} from './possibleFriend'
 import {friendWatcher} from './showFriends'
+import {discoverFriendWatcher} from './discoverFriends'
 
 
 function* rootSaga() {
@@ -25,6 +26,7 @@ function* rootSaga() {
         showNotificationsWatcher(),
         possibleFriendWatcher(),
         friendWatcher(),
+        discoverFriendWatcher(),
     ])
 }
 

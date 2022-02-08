@@ -230,6 +230,18 @@ const inicioSesion = async (obtainData) => {
       .catch((err) => console.log(err));
    };
 
-export { getPossibleFriend, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
+    //obtener personas que te han manadado solicitudes
+  const discoverFriend = async (data) => {
+    return await fetch(`http://localhost:3001/noamigos/${data}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json"
+       },
+     })  
+      .then((res) => res.json())  
+      .catch((err) => console.log(err));
+   };
+
+export {discoverFriend, getPossibleFriend, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
 
 export{register,inicioSesion};

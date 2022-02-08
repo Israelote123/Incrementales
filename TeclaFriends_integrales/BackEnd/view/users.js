@@ -102,6 +102,13 @@ module.exports = (app) => {
         res.json(result[0])
     })
     
+    //obtener no amigos   
+    app.get('/noamigos/:receptor', async (req, res) => {
+        let data = req.params.receptor;
+        let result = await userController.getNoFriends(data)
+        res.json(result[0])
+    })
+    
    
     
 
