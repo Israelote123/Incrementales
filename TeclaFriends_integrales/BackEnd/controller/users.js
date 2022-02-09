@@ -9,7 +9,7 @@ module.exports.getInformation = async ()=>{
 module.exports.accessLogin = async (login)=>{
     let result = await userModel.login(login)
     if(result.login){
-        return {token: await jwt.sign(result.data, "sePasaEnEts", {expiresIn: '7d'})}
+        return {token: await jwt.sign(result.data, "sePasaEnEts")}
     }
     return result
 }
@@ -37,6 +37,7 @@ module.exports.getAbility = async (data)=>{
 module.exports.getBusqueda = async (searchUser)=>{
     let result = await userModel.busqueda(searchUser)
     if(result.search){
+        console.log(result.data)
         return result.data
     }
     return {error : "Usuario no encontrado"}

@@ -6,7 +6,6 @@ import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import PublicarPage  from "./pages/PublicarPage";
 import  {AgregarAmigos}  from "./pages/AgregarAmigos";
-import { Chismetecla } from "./pages/Chismetecla";
 import { Amigos } from "./pages/Amigos";
 import { SearchPerfil } from './pages/SearchPerfil';
 import { PerfilPage } from "./pages/PerfilPage";
@@ -23,9 +22,8 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<Login  />} />
           <Route path="/new-user" element={<Register/>} />
-          <Route path="/publicar" element={<PublicarPage/> }/>
+          <Route path="/chismetecla" element={<PublicarPage/> }/>
           <Route path="/agregarAmigos" element={<AgregarAmigos  /> }/>
-          <Route path="/chismetecla" element={<Chismetecla/> }/>
           <Route path="/amigos" element={<Amigos/>}/>
           <Route path="/busquedaPerfil" element={<SearchPerfil/>}/>
           <Route path="/perfil" element={<PerfilPage/>}/>

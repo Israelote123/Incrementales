@@ -2,6 +2,7 @@ import './PerfilSearch.css'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { connect } from "react-redux";
 import { sendRequest,cancelQuery } from "../../redux/actions/request";
+import {useLocalStorage} from "../../hooks/useLocalStorage"
 
 const mapStateToProps = (state) => {
   return {
@@ -16,17 +17,17 @@ function PerfilSearch({ sendRequest,send, loading, error, dataSearch, cancelQuer
   const [searchUser] = useLocalStorage("BUSQUEDA", {})
   const [user]= useLocalStorage("USER",{})
 
+  const [user] = useLocalStorage("USER",{})
+
   const sendQuery = (e) => {
     e.preventDefault();
       let data = {
-      receptor: searchUser.mail,
+      receptor: dataSearch.mail,
       emisor: user.mail,
       status: "pendiente",
     };
 
-    setTimeout(() => {
-      sendRequest(data)
-    }, 500)
+    sendRequest(data)
 
   }
 

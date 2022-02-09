@@ -2,7 +2,6 @@ import { BarraLat } from "../components/BarraLat/BarraLat";
 import {Perfil} from '../components/Perfil/Perfil';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
-import { ThemeContext } from '../Context/AppContext'
 
 
 function PerfilPage() {

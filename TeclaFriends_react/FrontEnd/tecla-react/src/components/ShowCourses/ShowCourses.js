@@ -11,11 +11,11 @@ const mapStateToProps = (state) => {
     return {
       curso:state.showCourseReducer.curso,
       finish:state.showAbilitieReducer.finish,
-      abiliti:state.showAbilitieReducer.abiliti,
+      ability:state.showAbilitieReducer.ability,
     };
   };
 
-function ShowCourses({showCourse,showAbilities,curso,finish,abiliti}) {
+function ShowCourses({showCourse,showAbilities,curso,finish,ability}) {
     const [user]= useLocalStorage("USER",{})
 
     const mostrarCourses =  () => {
@@ -48,7 +48,7 @@ function ShowCourses({showCourse,showAbilities,curso,finish,abiliti}) {
                             )
                         }
                         <h3 className="card-title">Habilidades</h3>                                             
-                        { abiliti.map(t =>                                                                                                                                                        
+                        { ability.map(t =>                                                                                                                                                        
                           <div className="col-lg-6">                                                  
                             <div className="card">
                                <div className="card-body">

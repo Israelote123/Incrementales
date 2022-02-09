@@ -1,13 +1,22 @@
 import './Nav.css';
 import logo from '../img/logo tecla.jpg'
+<<<<<<< HEAD
 import { NavLink } from 'react-router-dom'
 import Config from '../Config/Config';
 import { useLocalStorage } from "../../hooks/useLocalStorage"
 import { searchUser, searchedUser } from "../../redux/actions/search";
 import { userUnlogin } from "../../redux/actions/login";
 import { showNotifications } from "../../redux/actions/notifications"
+=======
+import { NavLink, useNavigate } from 'react-router-dom'
+import Config  from '../Config/Config';
+import {useLocalStorage} from "../../hooks/useLocalStorage"
+import { searchUser, searchedUser } from "../../redux/actions/search";
+import { userUnlogin, userLoginCheck, userSaveData } from "../../redux/actions/login";
+import {showNotifications} from "../../redux/actions/notifications"
+>>>>>>> b33e797c8b232af139d07cbcd99d28da1d3a811e
 import { connect } from "react-redux";
-
+import {decode} from "../../hooks/decode"
 import { useEffect } from 'react';
 
 const mapStateToProps = (state) => {
@@ -22,9 +31,11 @@ const mapStateToProps = (state) => {
     };
 };
 
-function Nav({ login, token, userUnlogin, data, users, searching, searchedUser, searchUser, notifications, finish, showNotifications }) {
 
+function Nav({login, token, userUnlogin, data, users, searching, searchedUser, searchUser, notifications,finish,showNotifications, userLoginCheck, userSaveData}) {
+    const navigate = useNavigate()
     const [user, saveUser, deleteAllData] = useLocalStorage("USER", {});
+    const [userToken] = useLocalStorage("TOKEN", {})
     const [search, saveSearch] = useLocalStorage("BUSQUEDA", {});
     const busqueda = async (e) => {
         e.preventDefault()
@@ -146,4 +157,4 @@ function Nav({ login, token, userUnlogin, data, users, searching, searchedUser, 
     );
 }
 
-export default connect(mapStateToProps, { userUnlogin, searchUser, searchedUser, showNotifications })(Nav);
+export default connect(mapStateToProps, { userUnlogin, searchUser, searchedUser, showNotifications, userLoginCheck, userSaveData })(Nav);

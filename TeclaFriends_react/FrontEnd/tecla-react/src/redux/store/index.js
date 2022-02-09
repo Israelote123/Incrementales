@@ -5,7 +5,7 @@ import {loginReducer} from "../reducers/login";
 import { courseReducer } from "../reducers/curso";
 import {requestReducer} from "../reducers/request";
 import {searchReducer} from "../reducers/search";
-import{abilitiReducer} from '../reducers/abiliti'
+import{abilitiReducer} from '../reducers/ability'
 import { helpReducer } from "../reducers/help";
 import {showCourseReducer} from '../reducers/showCourses'
 import {showAbilitieReducer} from '../reducers/showAbilities'

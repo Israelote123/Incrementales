@@ -1,9 +1,9 @@
-import { GET_ABILITI} from "./const";
+import { GET_ABILITY} from "./const";
 
 
 const showAbilities=(user)=>{  
     return{
-        type: GET_ABILITI ,
+        type: GET_ABILITY ,
         payload:user,
         loading:false,     
     }

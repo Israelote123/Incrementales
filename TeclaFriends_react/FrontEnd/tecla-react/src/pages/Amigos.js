@@ -1,9 +1,7 @@
-import { useState,useEffect } from 'react';
 import { BarraLat } from "../components/BarraLat/BarraLat";
 import ShowFriends from '../components/ShowFriends/ShowFriends';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
-import { ThemeContext } from '../Context/AppContext'
 
 
 function Amigos() {
