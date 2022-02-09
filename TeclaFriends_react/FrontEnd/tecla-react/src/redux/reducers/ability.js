@@ -1,4 +1,4 @@
-import {SET_LOADING,SAVE_ABILITI,SAVED_ABILITI,SAVED_ABILITI_ERROR}from '../actions/const'
+import {SET_LOADING,SAVE_ABILITY,SAVED_ABILITY,SAVED_ABILITY_ERROR}from '../actions/const'
 
 const initialState={
     loading:false,
@@ -11,13 +11,13 @@ const initialState={
       case SET_LOADING:
         return {...state,loading:true}
         
-      case SAVE_ABILITI :
-        return {...state,abiliti:action.payload,loading:false,} ;
+      case SAVE_ABILITY :
+        return {...state,ability:action.payload,loading:false,} ;
 
-      case SAVED_ABILITI :
+      case SAVED_ABILITY :
         return {...state,error:false}  ;
 
-      case SAVED_ABILITI_ERROR:
+      case SAVED_ABILITY_ERROR:
         return {...state,error:true};  ;
     
 

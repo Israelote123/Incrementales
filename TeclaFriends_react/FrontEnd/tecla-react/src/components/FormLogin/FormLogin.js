@@ -27,7 +27,7 @@ function FormLogin({token, loading, loginBool, error, userLogin,userSaveData}){
           mail: event.target[0].value,
           password: event.target[1].value,
         };
-        const waiting = await userLogin(dataUser);
+        await userLogin(dataUser);
     };
     useEffect(()=>{
         try{

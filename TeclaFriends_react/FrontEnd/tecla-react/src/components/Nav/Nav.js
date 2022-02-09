@@ -1,13 +1,13 @@
 import './Nav.css';
 import logo from '../img/logo tecla.jpg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Config  from '../Config/Config';
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import { searchUser, searchedUser } from "../../redux/actions/search";
-import { userUnlogin } from "../../redux/actions/login";
+import { userUnlogin, userLoginCheck, userSaveData } from "../../redux/actions/login";
 import {showNotifications} from "../../redux/actions/notifications"
 import { connect } from "react-redux";
-
+import {decode} from "../../hooks/decode"
 import { useEffect } from 'react';
 
 const mapStateToProps = (state) => {
@@ -22,9 +22,10 @@ const mapStateToProps = (state) => {
     };
   };
 
-function Nav({login, token, userUnlogin, data, users, searching, searchedUser, searchUser, notifications,finish,showNotifications}) {
-    let noti=4;
+function Nav({login, token, userUnlogin, data, users, searching, searchedUser, searchUser, notifications,finish,showNotifications, userLoginCheck, userSaveData}) {
+    const navigate = useNavigate()
     const [user, saveUser, deleteAllData] = useLocalStorage("USER", {});
+    const [userToken] = useLocalStorage("TOKEN", {})
     const [search, saveSearch] = useLocalStorage("BUSQUEDA", {});
     const busqueda = async (e)=>{
             e.preventDefault() 
@@ -42,18 +43,26 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
         document.querySelector('#inputSearch').value = "";
         
     }
-    
-    const traerNotificaciones = () =>{
-        showNotifications(user.mail)
-    }
 
     useEffect(()=>{
-        traerNotificaciones()
-    },[user])
- 
+        try{
+        showNotifications(data.mail)
+        } catch (error) {}
+    },[finish])
 
-  
-    
+    useEffect(()=>{
+            userLoginCheck(userToken)
+        if(login){
+            let dataCheck = decode(JSON.stringify(userToken).split(".")[1])
+            userSaveData(JSON.parse(dataCheck))
+            navigate("/chismetecla") 
+            }
+        if(!login){
+            navigate("/")
+            deleteAllData()
+        }
+    },[])
+ 
    return (
     <nav id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
         <div className="container-fluid">
@@ -100,7 +109,7 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                                 <button type="" className=" btn">
                                     <div className="position-relative">
                                 <NavLink id='cambio' className="nav-link" to="/notificaciones"><i className="icon-nav fas fa-users fa-2x"></i></NavLink>  
-                                    {finish&& 
+                                    {finish && 
                                         <>
                                             <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                                 {notifications.length}
@@ -141,4 +150,4 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
   );
 }
 
-export default connect(mapStateToProps, { userUnlogin, searchUser, searchedUser, showNotifications })(Nav);
+export default connect(mapStateToProps, { userUnlogin, searchUser, searchedUser, showNotifications, userLoginCheck, userSaveData })(Nav);

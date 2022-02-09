@@ -3,10 +3,10 @@ import { loginWatcher } from "./login";
 import {courseWatcher} from './course'
 import {requestWatcher} from './request'
 import {searchWatcher} from './search'
-import { abilitiWatcher } from "./abiliti";
+import { abilitiWatcher } from "./ability";
 import {helpWatcher} from './help'
 import {showCourseWatcher} from './showCourses'
-import {showAbilitiWatcher} from './showAbiliti'
+import {showAbilitiWatcher} from './showAbility'
 import {showNotificationsWatcher} from './notifications'
 import { possibleFriendWatcher} from './possibleFriend'
 import {friendWatcher} from './showFriends'

@@ -11,7 +11,7 @@ const initialState = {
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN_CHECK:
-      return { ...state, token:action.payload};
+      return { ...state, token:action.payload, login: false};
     case USER_LOGIN_CHECKED:
       return { ...state, login: action.payload};
     case USER_LOGIN:
@@ -21,7 +21,7 @@ const loginReducer = (state = initialState, action) => {
     case USER_SAVE_DATA:
       return {...state, data: action.payload}
     case USER_UNLOGIN:
-      return { ...state, token: action.payload, login:false };
+      return { ...state, token: action.payload, login:false, data: {} };
     case USER_LOGIN_ERROR:
       return { ...state, loading: false, error: true };
     default:

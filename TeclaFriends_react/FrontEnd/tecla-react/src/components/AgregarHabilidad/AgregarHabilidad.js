@@ -1,7 +1,7 @@
 
 import './AgregarHabilidad.css';
 import { connect } from "react-redux";
-import { saveAbiliti, setLoading} from "../../redux/actions/abiliti";
+import { saveAbility, setLoading} from "../../redux/actions/ability";
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state)=>{
     }
   }
 
-function AgregarHabilidad({setLoading,saveAbiliti,loading,error}) {
+function AgregarHabilidad({setLoading,saveAbility,loading,error}) {
     
   const [user]= useLocalStorage("USER",{})
  
@@ -24,7 +24,7 @@ function AgregarHabilidad({setLoading,saveAbiliti,loading,error}) {
             skill: event.target[0].value         
         };
    
-            saveAbiliti(data)
+            saveAbility(data)
          
             event.target.reset()
       
@@ -53,4 +53,4 @@ function AgregarHabilidad({setLoading,saveAbiliti,loading,error}) {
     );
 }
 
-export default connect(mapStateToProps, {saveAbiliti,setLoading} )(AgregarHabilidad);
+export default connect(mapStateToProps, {saveAbility,setLoading} )(AgregarHabilidad);
