@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { showPossibleFriends } from '../../redux/actions/possibleFriend'
+import { updateStatus} from '../../redux/actions/status'
 import { connect } from "react-redux";
 
 
@@ -9,22 +10,40 @@ const mapStateToProps = (state) => {
   return {
     possible_friend: state.posibbleFriendReducer.possible_friend,
     finish: state.posibbleFriendReducer.finish,
-
+    
   };
 };
 
 
-function ShowSolicitudes({ possible_friend, finish, showPossibleFriends }) {
+function ShowSolicitudes({ updateStatus,possible_friend, finish, showPossibleFriends }) {
   const [user] = useLocalStorage("USER", {})
+  const [profileRequests,profileRequestsSearch] = useLocalStorage("REQUEST", {});
  
 
   const traerAmigos = async () => {
     showPossibleFriends(user.mail)
   }
 
+  const update = (info,estado) => {
+  
+    let data = { 
+      name:info.name,   
+      emisor: info.mail,
+      receptor: user.mail,
+      status: estado,
+     };
+     
+
+     updateStatus(data)
+     console.log(data)
+     // saveCourse(data)
+  }
+   
+
+
   useEffect(() => {
     traerAmigos()
-  }, [])
+  }, [possible_friend])
 
   return (
     <div id="container-friends" className="d-flex justify-content-between flex-wrap">
@@ -43,11 +62,13 @@ function ShowSolicitudes({ possible_friend, finish, showPossibleFriends }) {
                     <h5 className="card-title">{r.middle_name}</h5>
                     <h5 className="card-title">{r.status}</h5>
                     <p className="card-text">{r.country}</p>
-                    <a href="#" className="btn btn-info" >Accept</a>
+                    <a onClick={() => { update(r,"amigo") }} href="#" className="btn btn-info" >Accept</a>
+                    <br></br>
+                    <br></br>
+                    <a onClick={() => { update(r,"rechazado") }} href="#" className="btn btn-danger" >Reject</a>
                   </div>
                 </div>
-              </div>
-               
+              </div>              
             )
           }
         </>
@@ -55,5 +76,5 @@ function ShowSolicitudes({ possible_friend, finish, showPossibleFriends }) {
     </div>
   );
 }
-export default connect(mapStateToProps, { showPossibleFriends })(ShowSolicitudes);
+export default connect(mapStateToProps, { showPossibleFriends,updateStatus })(ShowSolicitudes);
 

@@ -4,6 +4,7 @@ import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
 
 
+
 function PerfilPage() {
     return (
         <div>
@@ -18,6 +19,7 @@ function PerfilPage() {
                     <div className="col-lg-3">
                         <BarraLatRight />
                         <Spiderman />
+                        
                     </div>
                 </div>
             </div>

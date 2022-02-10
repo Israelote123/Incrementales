@@ -1,20 +1,11 @@
 import './Nav.css';
 import logo from '../img/logo tecla.jpg'
-<<<<<<< HEAD
-import { NavLink } from 'react-router-dom'
-import Config from '../Config/Config';
-import { useLocalStorage } from "../../hooks/useLocalStorage"
-import { searchUser, searchedUser } from "../../redux/actions/search";
-import { userUnlogin } from "../../redux/actions/login";
-import { showNotifications } from "../../redux/actions/notifications"
-=======
 import { NavLink, useNavigate } from 'react-router-dom'
 import Config  from '../Config/Config';
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 import { searchUser, searchedUser } from "../../redux/actions/search";
 import { userUnlogin, userLoginCheck, userSaveData } from "../../redux/actions/login";
 import {showNotifications} from "../../redux/actions/notifications"
->>>>>>> b33e797c8b232af139d07cbcd99d28da1d3a811e
 import { connect } from "react-redux";
 import {decode} from "../../hooks/decode"
 import { useEffect } from 'react';
@@ -51,7 +42,6 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
         saveSearch(JSON.stringify(dataSearch))
         await searchedUser(dataSearch);
         document.querySelector('#inputSearch').value = "";
-
     }
 
     const traerNotificaciones = () => {
@@ -63,7 +53,6 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
     }, [data])
 
 
-    console.log(user)
 
     return (
         <nav id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
@@ -94,11 +83,9 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                                         <NavLink id='cambio' className="nav-link" to="/perfil">Perfil</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink id='cambio' className="cambiar nav-link" to="/agregarAmigos">Agregar amigos</NavLink>
+                                        <NavLink id='cambio' className="cambiar nav-link" to="/agregarAmigos">Descubrir amigos</NavLink>
                                     </li>
-                                    <li className="nav-item">
-                                        <NavLink id='cambio' className="nav-link" to="/publicar">Publicar</NavLink>
-                                    </li>
+                                    
                                 </ul>
                                 <div id="sesionImage">
                                     <img src={data.profile_photo} className="perfilUser" alt="..."></img>

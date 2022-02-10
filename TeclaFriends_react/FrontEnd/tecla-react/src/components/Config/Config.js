@@ -13,18 +13,7 @@ const mapStateToProps = (state)=>{
   }
 
 function Config({ tema,darkChange,lightChange } ) {
-   /* const themes = {
-        dark: {
-            //color: "white",
-            background: "black"
-        },
-        light: {
-            //color: "black",
-            background: "white"
-        }
-    };*/
-
-    //const { modo, modoState } = useContext(ThemeContext)
+   
     
     const changeTheme = () => {
         tema=="black"
@@ -32,17 +21,7 @@ function Config({ tema,darkChange,lightChange } ) {
         :document.querySelector('#flexRadioDefault2').checked = true;   
     }
 
-  /*const modoFunction=()=>{
-       modoState(themes.dark)
-       console.log("cambio a dark")
-       console.log(modo);
-   }*/
-  
-   /* const modoFunction2=()=>{
-    modoState(themes.light)
-    console.log("cambio a light")
-    console.log(modo);
-   }*/
+ 
 
     useEffect(() => {
         changeTheme()

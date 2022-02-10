@@ -89,6 +89,7 @@ module.exports = (app) => {
         let result = await userController.getRequest(data)
         res.json(result[0])
     })
+
     //Actualizar stattus 
     app.post('/request/update', auth.authenticate, async (req, res) => {
         let actualizar = req.body
@@ -110,14 +111,19 @@ module.exports = (app) => {
         res.json(result[0])
     })
     
-    //obtener no amigos   
+    //obtener no amigos para descubrir  
     app.get('/noamigos/:receptor', async (req, res) => {
         let data = req.params.receptor;
         let result = await userController.getNoFriends(data)
         res.json(result[0])
     })
     
-   
+    //formulario feedback
+    app.post('/feedback', auth.authenticate, async (req, res) => {
+        let data = req.body
+        let result = await userController.addFeedback(data)
+        res.json(result)
+    })
     
 
    

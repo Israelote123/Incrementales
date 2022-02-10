@@ -2,6 +2,7 @@ import { all } from "redux-saga/effects";
 import { loginWatcher } from "./login";
 import {courseWatcher} from './course'
 import {requestWatcher} from './request'
+import {requestCancelWatcher} from './request'
 import {searchWatcher} from './search'
 import { abilitiWatcher } from "./ability";
 import {helpWatcher} from './help'
@@ -11,6 +12,8 @@ import {showNotificationsWatcher} from './notifications'
 import { possibleFriendWatcher} from './possibleFriend'
 import {friendWatcher} from './showFriends'
 import {discoverFriendWatcher} from './discoverFriends'
+import {updateStatusWatcher}  from './status'
+import {feedbackWatcher} from './feedback'
 
 
 function* rootSaga() {
@@ -18,6 +21,7 @@ function* rootSaga() {
         loginWatcher(),
         courseWatcher(),
         requestWatcher(),
+        requestCancelWatcher(),
         searchWatcher(),
         abilitiWatcher(),
         helpWatcher(),
@@ -27,6 +31,8 @@ function* rootSaga() {
         possibleFriendWatcher(),
         friendWatcher(),
         discoverFriendWatcher(),
+        updateStatusWatcher(),
+        feedbackWatcher(),
     ])
 }
 

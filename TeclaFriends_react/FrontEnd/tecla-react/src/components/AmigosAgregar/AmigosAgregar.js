@@ -1,5 +1,5 @@
 import './AmigosAgregar.css';
-import {useEffect } from 'react';
+import { useEffect } from 'react';
 
 
 import { useLocalStorage } from '../../hooks/useLocalStorage'
@@ -15,6 +15,9 @@ const mapStateToProps = (state) => {
 };
 
 function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
+  let comparation = "hola"
+  let contador = 0;
+
   const [user] = useLocalStorage("USER", {})
 
   const traerAmigos = async () => {
@@ -25,26 +28,37 @@ function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
     traerAmigos()
   }, [])
 
+
+
   return (
     <div id="container-friends" className="d-flex justify-content-between flex-wrap">
       {finish &&
         <>
           {
-            friendDiscover.map(r =>
-              <div className="card perfil_container">
-                <div className="card-body">
-                  <img src={r.profile_photo} className="perfil card-img-top " alt="..." />
-                  <div className="card-body ">
-                    <h5 className="card-title">{r.name}</h5>
-                    <h5 className="card-title">{r.middle_name}</h5>
-                    <h5 className="card-title">{r.status}</h5>
-                    <p className="card-text">{r.country}</p>
-                    <a href="#" className="btn btn-info" >Add user</a>
+            friendDiscover.filter(friend => {
+              if (contador > 0) {
+                comparation = friendDiscover[contador - 1].mail;
+              }
+              contador++;
+              return friend.mail != comparation
+            }
+            )
+              .map(r => (
+                <div className="card perfil_container">
+                  <div className="card-body">
+                    <img src={r.profile_photo} className="perfil card-img-top " alt="..." />
+                    <div className="card-body ">
+                      <h5 className="card-title">{r.name}</h5>
+                      <h5 className="card-title">{r.middle_name}</h5>
+                      
+                      <p className="card-text">{r.country}</p>
+                      <a href="#" className="btn btn-info" >Add user</a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )
 
-            )
+              )
           }
         </>
       }

@@ -27,8 +27,6 @@ function Cursos({saveCourse,setLoading,loading,error}) {
        
             saveCourse(data)
             event.target.reset()
-        
-
     }
 
     return (

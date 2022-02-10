@@ -1,10 +1,11 @@
 import { REQUEST_SEND,REQUEST_CANCEL} from "./const";
 
 
-const cancelQuery=()=>{
-    console.log("cancelado")  
+const cancelQuery=(data)=>{
+   
     return{
         type: REQUEST_CANCEL,
+        payload:data,
         send:false,   
     }
 }

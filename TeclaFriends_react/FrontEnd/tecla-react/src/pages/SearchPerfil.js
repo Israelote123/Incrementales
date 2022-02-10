@@ -2,6 +2,7 @@ import { BarraLat } from "../components/BarraLat/BarraLat";
 import PerfilSearch from '../components/PerfilSearch/PerfilSearch';
 import {BarraLatRight} from '../components/BarraLatRight/BarraLatRight'
 import Spiderman from '../components/Spiderman/Spiderman'
+import FormFeedback from '../components/FormFeedback/FormFeedback'
 import { ThemeContext } from '../Context/AppContext'
 
 
@@ -19,6 +20,7 @@ function SearchPerfil() {
                     <div className="col-lg-3">
                         <BarraLatRight />
                         <Spiderman />
+                        <FormFeedback/>
                     </div>
                 </div>
             </div>

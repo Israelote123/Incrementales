@@ -224,19 +224,9 @@ const getPossibleFriend = async (data) => {
       .catch((err) => console.log(err));
    };
 
-export {discoverFriend, getPossibleFriend, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
-const requestApi = async (data) => {
-  return await fetch(`http://localhost:3001/request/`, {
-    method: "POST", // or 'PUT'
-    body: JSON.stringify(data), // data can be `string` or {object}!
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
-    },
-  })
-    .then((res) => res.json())
-    .catch((error) => console.error("Error:", error));
-};
+//export {discoverFriend, getPossibleFriend, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
+
+
 
 //Checar login
 const loginCheck = async (obtainData) => {
@@ -250,6 +240,60 @@ const loginCheck = async (obtainData) => {
     .then((res) => res.json())
     .catch((error) => console.error("Error:", error));
 };
+//mandar solicitudes de amistad
+const requestApi = async (data) => {
+  return await fetch(`http://localhost:3001/request/`, {
+    method: "POST", // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+    },
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      alert(json);
+      console.log(json);
+    })
+    .catch((error) => console.error("Error:", error));
+};
+
+//Actualizar estatus 
+const updateStatus = async (data) => {
+  return await fetch(`http://localhost:3001/request/update`, {
+    method: "POST", // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+    },
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      alert(json);
+      console.log(json);
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
+//feedback
+const pushfeedback= async (data) => {
+  return await fetch(`http://localhost:3001/feedback`, {
+    method: "POST", // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+    },
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      alert(json);
+      console.log(json);
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
 
 export {
   getPossibleFriend,
@@ -262,6 +306,10 @@ export {
   pushCourse,
   getNotifications,
   requestApi,
+  discoverFriend,
+  updateStatus,
+  pushfeedback
+
 };
 
 export { register, inicioSesion, loginCheck };

@@ -1,7 +1,7 @@
 import './PerfilSearch.css'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { connect } from "react-redux";
 import { sendRequest,cancelQuery } from "../../redux/actions/request";
+import { updateStatus} from '../../redux/actions/status'
 import {useLocalStorage} from "../../hooks/useLocalStorage"
 
 const mapStateToProps = (state) => {
@@ -13,11 +13,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-function PerfilSearch({ sendRequest,send, loading, error, dataSearch, cancelQuery }) {
+function PerfilSearch({ updateStatus,sendRequest,send, loading, error, dataSearch, cancelQuery }) {
   const [searchUser] = useLocalStorage("BUSQUEDA", {})
   const [user]= useLocalStorage("USER",{})
 
-  const [user] = useLocalStorage("USER",{})
+
 
   const sendQuery = (e) => {
     e.preventDefault();
@@ -26,14 +26,18 @@ function PerfilSearch({ sendRequest,send, loading, error, dataSearch, cancelQuer
       emisor: user.mail,
       status: "pendiente",
     };
-
     sendRequest(data)
 
   }
 
   const cancel=(e)=>{
     e.preventDefault();
-    cancelQuery()
+    let data = {
+      receptor: dataSearch.mail,
+      emisor: user.mail,
+      status: "cancel",
+    };
+    cancelQuery(data)
   }
 
   return (
@@ -47,31 +51,31 @@ function PerfilSearch({ sendRequest,send, loading, error, dataSearch, cancelQuer
           <div className="col-12 infoUser"> LinkedIn: <a href={dataSearch.linkedIn} id="linkedIn">{dataSearch.linkedIn}</a></div>
           <div className="col-6 infoUser"> Direccion: {dataSearch.country}, {dataSearch.city}</div>
           <div className="col-6 infoUser"> Hobbies: {dataSearch.hobbies}</div>
-          {!loading &&
-            <div className="col-6 infoUser"><a onClick={sendQuery} className="btn btn-info" >add user</a></div>
+
+          {!send &&
+            <div className="col-6 infoUser"><a onClick={sendQuery} className="btn btn-info" >
+            <i className="fa-solid fas fa-user-plus fa-2x"></i>
+           </a></div>
           }
-          {loading && (
-            <div className="text-center">
-              <div className="spinner-grow text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
-          )}
+
+          
 
           {error && (
             <div className="alert alert-danger" role="alert">
               No es posible conectar con la base de datos
             </div>
           )}
+
           {send &&
                 <div className="col-6 infoUser"><a onClick={cancel} href="#" className="btn btn-danger" >cancel</a></div>
           }
+          
         </div>
       </div>
     </div>
   );
 }
 
-export default connect(mapStateToProps, { sendRequest,cancelQuery })(PerfilSearch);
+export default connect(mapStateToProps, {updateStatus, sendRequest,cancelQuery })(PerfilSearch);
 
 //export {PerfilSearch};

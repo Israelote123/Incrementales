@@ -100,7 +100,11 @@ module.exports.getNoFriends= async (data)=>{
     return result
 }
 
-
+//formulario feedback
+module.exports.addFeedback = async (data) => {
+    let result=await userModel.feedback(data)
+    return result;
+}
 
 
 
