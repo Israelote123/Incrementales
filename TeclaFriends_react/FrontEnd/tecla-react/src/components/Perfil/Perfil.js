@@ -2,7 +2,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useState } from 'react';
 import './Perfil.css'
 import ShowCourses from '../ShowCourses/ShowCourses';
-import ContainerPublications from '../ContainerPublications/ContainerPublications';
+import PublicationsPerfil from '../PublicationsPerfil/PublicationPerfil';
 import { getFeedback } from "../../redux/actions/getFeedback"
 import { connect } from "react-redux";
 
@@ -126,7 +126,7 @@ function Perfil({ getFeedback, feedbackData, finish }) {
             <br></br>
           
                 <>
-                    <ContainerPublications />
+                    <PublicationsPerfil />
                 </>
             
         </div>
