@@ -5,8 +5,6 @@ import ShowCourses from '../ShowCourses/ShowCourses';
 import PublicationsPerfil from '../PublicationsPerfil/PublicationPerfil';
 import { getFeedback } from "../../redux/actions/getFeedback"
 import { connect } from "react-redux";
-
-
 const mapStateToProps = (state) => {
     return {
         error: state.feedbackGetReducer.error,
@@ -14,30 +12,20 @@ const mapStateToProps = (state) => {
         finish: state.feedbackGetReducer.finish
     };
 };
-
-
 function Perfil({ getFeedback, feedbackData, finish }) {
     const [user] = useLocalStorage("USER", {})
     const [state, setState] = useState(false);
     const [show,showState]= useState(false);
-
-
     const onChange = () => {
         getFeedback(user.mail)
-        showChange() 
+        showChange()
     }
-
     const stateChange = () => {
         setState(!state)
     }
     const showChange = () => {
         showState(!show)
     }
-
-
-
-
-
     return (
         <div  >
             <div className="nave card contenedor" >
@@ -47,36 +35,29 @@ function Perfil({ getFeedback, feedbackData, finish }) {
                         <a className="enlaces_nuevos" >
                             <div className="iconos_post">
                                 <i className="fa-2x fas fa-graduation-cap"></i>
-                                
                             </div>
                         </a>
-
                         <a className="enlaces_nuevos" >
                             <div className="iconos_post">
                                 <i onClick={onChange} className="fa-2x fas fa-envelope"></i>
                             </div>
                         </a>
-
                         <a className="enlace_nuevos" >
                             <div className="iconos_post">
                                 <i onClick={stateChange} className="fa-2x fas fa-eye"></i>
-                                
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
             <br></br>
-
             {finish && show  &&
                 <>
                     <div id='title' className='card container'>
-
                         <h2>FeedbackFriend</h2>
                         {
-                            
                             feedbackData.map(r =>
-                            <div style={{ color: "blue" }} className="card perfil_containers" >    
+                            <div style={{ color: "blue" }} className="card perfil_container" >    
                                 <div className="card-body  ">
                                     <h5 className="card-title">Nombre: {r.name}</h5>
                                     <h5 className="card-title">Email: {r.author}</h5>
@@ -86,15 +67,9 @@ function Perfil({ getFeedback, feedbackData, finish }) {
                             </div>
                         )
                     }
-
                     </div>
                 </>
             }
-
-
-
-
-
           {state &&
                 <div className='card'>
                     <div className="card-body">
@@ -102,11 +77,7 @@ function Perfil({ getFeedback, feedbackData, finish }) {
                     </div>
                 </div>
             }  
-          
-
             <br></br>
-
-
             <div className='card contenedor' >
                 <div className='card-body' >
                     <img src={user.profile_photo} className="perfilUser" alt="..." id="userPhoto"></img>
@@ -120,13 +91,10 @@ function Perfil({ getFeedback, feedbackData, finish }) {
                     </div>
                 </div>
             </div>
-
             <br></br>
-          
                 <>
                     <PublicationsPerfil />
                 </>
-            
         </div>
     );
 }
