@@ -291,9 +291,9 @@ const pushfeedback= async (data) => {
     .catch((error) => console.error("Error:", error));
 }
 
-   //obtener los diferentes feedback
-   const getFeedback = async (data) => {
 
+   //obtener los diferentes feedback
+   const feedbackGet = async (data) => {
     return await fetch(`http://localhost:3001/feedbackget/${data}`, {
        method: "GET",
        headers: {
@@ -301,13 +301,8 @@ const pushfeedback= async (data) => {
        },
      })  
       .then((res) => res.json())  
-      .then((res) =>{
-        console.log(res)
-      } ) 
       .catch((err) => console.log(err));
    };
-
-
 
 export {
   getPossibleFriend,
@@ -323,7 +318,7 @@ export {
   discoverFriend,
   updateStatus,
   pushfeedback,
-  getFeedback
+  feedbackGet,
 
 };
 

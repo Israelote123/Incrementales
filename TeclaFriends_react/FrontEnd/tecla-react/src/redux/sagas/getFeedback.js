@@ -1,4 +1,4 @@
-import {getFeedback  } from '../../api/api'
+import {feedbackGet} from '../../api/api'
 import {takeLatest,put} from  "redux-saga/effects"
 import  { GET_FEEDBACK,GOT_FEEDBACK,GOT_FEEDBACK_ERROR} from '../actions/const'
 
@@ -8,7 +8,7 @@ export function* feedbackGetWatcher(){
 
 function* feedbackGetWorker(action){
     try{      
-      let payload =yield getFeedback(action.payload)
+      let payload =yield feedbackGet(action.payload)
      console.log(payload)
       yield put ({type:GOT_FEEDBACK, payload:payload})
     }

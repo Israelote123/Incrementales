@@ -33,3 +33,13 @@ main {
   .infoUser:last-child {
     font-style: italic;
   }
+
+  .perfil_container{
+   width: 100%;
+  
+  }
+  #title{
+    color: navy;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+  }

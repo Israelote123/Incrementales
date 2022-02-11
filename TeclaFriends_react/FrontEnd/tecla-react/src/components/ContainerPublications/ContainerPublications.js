@@ -2,8 +2,22 @@ import adame from './adame.jpg'
 import calamardo from './calamardo.jpg'
 import bob from './bobe.jpg'
 import './ContainerPublications.css'
+import {useLocalStorage} from "../../hooks/useLocalStorage"
 
-function ContainerPublications() {
+import { connect } from "react-redux";
+
+
+const mapStateToProps = (state) => {
+    return {
+       
+        data: state.loginReducer.data,
+       
+    };
+};
+
+
+function ContainerPublications({data}) {
+    const [user] = useLocalStorage("USER", {});
     let mensages = 80;
 
     let informacion = [
@@ -33,9 +47,9 @@ function ContainerPublications() {
             <div className="card-body">
 
                 <div className="d-flex bd-highlight mb-3">
-                    <div className="p-2 bd-highlight"> <img src={informacion[0][0].foto} className="perfiPublication" alt="..." id=""></img>
+                    <div className="p-2 bd-highlight">  <img src={user.profile_photo} className="perfiPublication" alt="..."></img>
                     </div>
-                    <div className="p-2 bd-highlight"> <h4>{informacion[0][0].name}</h4></div>
+                    <div className="p-2 bd-highlight"> <h4>{user.name} {user.middle_name} </h4></div>
                     <div className="dropdown ms-auto p-2 bd-highlight">
                         <a  className="btn btn-light " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <i className="fas fa-angle-double-down"></i>
@@ -112,64 +126,8 @@ function ContainerPublications() {
 
         </div>
     );
-    {/*<div className="nave card" >
-            <div className="card-body">
-                <div className="d-flex justify-content-start align-content-center flex-wrap">
-                    <i className="fa-2x fas fa-user-astronaut"></i>
-                    <p>Ivan Rodriguez</p>
-                </div>
-                <div className="icons-container d-flex justify-content-evenly align-content-center flex-wrap">
-                    <p>Para celebrar el Quincuagésimo Aniversario de El Padrino, la obra maestra del ganador del Premio de la Academia®, el director Francis Ford Coppola, Paramount Home Entertainment Latinoamérica anuncia el lanzamiento en 4K Ultra HD en descarga digital el 22 de marzo de 2021.
-                        Las tres películas de la seria han sido meticulosamente restauradas bajo la dirección de Coppola con gran cantidad de material adicional en plataformas seleccionadas. #ElPadrino50</p>
-                </div>
-
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">item</li>
-                    <div className=" row">
-
-                        <div className="col-3 ">
-                            <div className="position-relative">
-                                <i className="icon_help perfiles fa-2x fas fa-thumbs-up"></i>
-                                <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-                                    {mensages}
-                                    <span className="visually-hidden">unread messages</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="col-3">
-                            <div className="position-relative">
-                                <i className="icon_help perfiles fa-2x far fa-comment"></i>
-                                <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-                                    {mensages}
-                                    <span className="visually-hidden">unread messages</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div className="col-3">
-                            <div className="position-relative">
-                                <i className="icon_help perfiles fa-2x fab fa-gratipay"></i>
-                                <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-                                    {mensages}
-                                    <span className="visually-hidden">unread messages</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div className="col-3">
-                            <div className="position-relative">
-                                <i className="icon_help perfiles fa-2x fas fa-heart-broken"></i>
-                                <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-                                    {mensages}
-                                    <span className="visually-hidden">unread messages</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </ul>
-
-            </div>
-    </div>*/}
+  
 
 }
 
-export { ContainerPublications };
+export default connect(mapStateToProps, {  })(ContainerPublications);

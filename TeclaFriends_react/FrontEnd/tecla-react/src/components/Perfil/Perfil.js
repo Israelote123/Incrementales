@@ -2,7 +2,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useState } from 'react';
 import './Perfil.css'
 import ShowCourses from '../ShowCourses/ShowCourses';
-import { ContainerPublications } from '../ContainerPublications/ContainerPublications';
+import ContainerPublications from '../ContainerPublications/ContainerPublications';
 import { getFeedback } from "../../redux/actions/getFeedback"
 import { connect } from "react-redux";
 
@@ -18,14 +18,22 @@ const mapStateToProps = (state) => {
 
 
 
-function Perfil({ getFeedback, feedback_data, feedState, finish }) {
+function Perfil({ getFeedback, feedbackData, finish }) {
     const [user] = useLocalStorage("USER", {})
-    const [state, setState] = useState(true);
+    const [state, setState] = useState(false);
+    const [show,showState]= useState(false);
 
 
     const onChange = () => {
-
         getFeedback(user.mail)
+        showChange() 
+    }
+
+    const stateChange = () => {
+        setState(!state)
+    }
+    const showChange = () => {
+        showState(!show)
     }
 
 
@@ -37,10 +45,11 @@ function Perfil({ getFeedback, feedback_data, feedState, finish }) {
             <div className="nave card contenedor" >
                 <div className="card-body gustos">
                     <div className="  d-flex bd-highlight mb-3">
-                        <div className="me-auto p-2 bd-highlight"> <i className=" fa-2x fas fa-paint-brush">WELCOME TO OUR HOME</i></div>
+                        <div className="me-auto p-2 bd-highlight"> <i className="fa-2x fas fa-couch"> WELCOME TO OUR HOME</i></div>
                         <a className="enlaces_nuevos" >
                             <div className="iconos_post">
                                 <i className="fa-2x fas fa-graduation-cap"></i>
+                                
                             </div>
                         </a>
 
@@ -52,7 +61,8 @@ function Perfil({ getFeedback, feedback_data, feedState, finish }) {
 
                         <a className="enlace_nuevos" >
                             <div className="iconos_post">
-                                <i className="fa-2x fas fa-eye"></i>
+                                <i onClick={stateChange} className="fa-2x fas fa-eye"></i>
+                                
                             </div>
                         </a>
                     </div>
@@ -60,19 +70,41 @@ function Perfil({ getFeedback, feedback_data, feedState, finish }) {
             </div>
             <br></br>
 
-            
+            {finish && show  &&
+                <>
+                    <div id='title' className='card container'>
+
+                        <h2>FeedbackFriend</h2>
+                        {
+                            
+                            feedbackData.map(r =>
+                            <div style={{ color: "blue" }} className="card perfil_container" >    
+                                <div className="card-body  ">
+                                    <h5 className="card-title">Nombre: {r.name}</h5>
+                                    <h5 className="card-title">Email: {r.author}</h5>
+                                    <h5 className="card-title">Feedback: {r.feedback}</h5>
+                                    <p className="card-text">Comentarios Adicionales:{r.commit}</p>
+                                </div>
+                            </div>
+                        )
+                    }
+
+                    </div>
+                </>
+            }
 
 
 
 
 
-            {feedState &&
+          {state &&
                 <div className='card'>
                     <div className="card-body">
-                        {/*  <ShowCourses />  */}
+                    <ShowCourses />  
                     </div>
                 </div>
-            }
+            }  
+          
 
             <br></br>
 
@@ -92,11 +124,11 @@ function Perfil({ getFeedback, feedback_data, feedState, finish }) {
             </div>
 
             <br></br>
-            {state &&
+          
                 <>
                     <ContainerPublications />
                 </>
-            }
+            
         </div>
     );
 }

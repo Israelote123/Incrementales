@@ -4,7 +4,7 @@ import  Cursos  from '../Cursos/Cursos';
 import  ShowCourses  from '../ShowCourses/ShowCourses';
 import  AgregarHabilidad  from "../AgregarHabilidad/AgregarHabilidad";
 import  Help  from "../Help/Help"
-import { ContainerPublications } from '../ContainerPublications/ContainerPublications';
+import  ContainerPublications  from '../ContainerPublications/ContainerPublications';
 
 function Publicar() {
     const [save, setSave] = useState(false);
