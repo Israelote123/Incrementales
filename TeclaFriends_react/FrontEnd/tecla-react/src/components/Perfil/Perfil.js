@@ -16,8 +16,6 @@ const mapStateToProps = (state) => {
 };
 
 
-
-
 function Perfil({ getFeedback, feedbackData, finish }) {
     const [user] = useLocalStorage("USER", {})
     const [state, setState] = useState(false);
@@ -78,7 +76,7 @@ function Perfil({ getFeedback, feedbackData, finish }) {
                         {
                             
                             feedbackData.map(r =>
-                            <div style={{ color: "blue" }} className="card perfil_container" >    
+                            <div style={{ color: "blue" }} className="card perfil_containers" >    
                                 <div className="card-body  ">
                                     <h5 className="card-title">Nombre: {r.name}</h5>
                                     <h5 className="card-title">Email: {r.author}</h5>
