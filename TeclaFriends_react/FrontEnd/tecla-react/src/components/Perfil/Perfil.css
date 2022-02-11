@@ -10,7 +10,7 @@ main {
     height: 200px;
   }
 
-  #contenedor{
+  .contenedor{
     margin: auto;
     padding: 2em;
     border: 1px solid #ccc;
@@ -32,4 +32,14 @@ main {
   
   .infoUser:last-child {
     font-style: italic;
+  }
+
+  .perfil_container{
+   width: 100%;
+  
+  }
+  #title{
+    color: navy;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
   }

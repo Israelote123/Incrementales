@@ -14,6 +14,7 @@ import {friendWatcher} from './showFriends'
 import {discoverFriendWatcher} from './discoverFriends'
 import {updateStatusWatcher}  from './status'
 import {feedbackWatcher} from './feedback'
+import {feedbackGetWatcher} from './getFeedback'
 
 
 function* rootSaga() {
@@ -33,6 +34,7 @@ function* rootSaga() {
         discoverFriendWatcher(),
         updateStatusWatcher(),
         feedbackWatcher(),
+        feedbackGetWatcher(),
     ])
 }
 

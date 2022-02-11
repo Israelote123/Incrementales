@@ -106,6 +106,17 @@ module.exports.addFeedback = async (data) => {
     return result;
 }
 
+//obtener noamigos
+module.exports.getNoFriends= async (data)=>{
+    let result = await userModel.noFriends(data)
+    return result
+}
+
+//obtener feedback
+module.exports.getFeedback= async (data)=>{
+    let result = await userModel.feedbackGet(data)
+    return result
+}
 
 
 
