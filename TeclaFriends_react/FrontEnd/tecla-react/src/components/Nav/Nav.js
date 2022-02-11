@@ -52,7 +52,18 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
         traerNotificaciones()
     }, [data])
 
-
+    useEffect(()=>{
+        userLoginCheck(userToken)
+        if(login){
+            let dataCheck = decode(JSON.stringify(userToken).split(".")[1])
+            userSaveData(JSON.parse(dataCheck))
+            navigate("/chismetecla") 
+        }
+        if(!login){
+            navigate("/")
+            deleteAllData()
+        }
+    },[])
 
     return (
         <nav id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
