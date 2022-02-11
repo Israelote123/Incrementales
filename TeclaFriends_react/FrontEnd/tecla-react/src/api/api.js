@@ -224,9 +224,6 @@ const getPossibleFriend = async (data) => {
       .catch((err) => console.log(err));
    };
 
-//export {discoverFriend, getPossibleFriend, getCuorse, getFriends, pushAbiliti, getAbility, pushHelp, getSearch,pushCourse,getNotifications};
-
-
 
 //Checar login
 const loginCheck = async (obtainData) => {
@@ -294,6 +291,23 @@ const pushfeedback= async (data) => {
     .catch((error) => console.error("Error:", error));
 }
 
+   //obtener los diferentes feedback
+   const getFeedback = async (data) => {
+
+    return await fetch(`http://localhost:3001/feedbackget/${data}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json"
+       },
+     })  
+      .then((res) => res.json())  
+      .then((res) =>{
+        console.log(res)
+      } ) 
+      .catch((err) => console.log(err));
+   };
+
+
 
 export {
   getPossibleFriend,
@@ -308,7 +322,8 @@ export {
   requestApi,
   discoverFriend,
   updateStatus,
-  pushfeedback
+  pushfeedback,
+  getFeedback
 
 };
 

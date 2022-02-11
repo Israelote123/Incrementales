@@ -124,6 +124,14 @@ module.exports = (app) => {
         let result = await userController.addFeedback(data)
         res.json(result)
     })
+
+     //obtener los feedback  
+     app.get('/feedbackget/:user', async (req, res) => {
+        console.log("hollaaa")
+        let data = req.params.user;
+        let result = await userController.getFeedback(data)
+        res.json(result[0])
+    })
     
 
    

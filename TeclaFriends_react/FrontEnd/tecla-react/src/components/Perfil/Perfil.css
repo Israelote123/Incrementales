@@ -10,7 +10,7 @@ main {
     height: 200px;
   }
 
-  #contenedor{
+  .contenedor{
     margin: auto;
     padding: 2em;
     border: 1px solid #ccc;

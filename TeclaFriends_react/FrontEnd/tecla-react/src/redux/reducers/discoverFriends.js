@@ -1,16 +1,17 @@
 import { DISCOVER_FRIENDS ,DISCOVERED_FRIENDS, DISCOVER_FRIENDS_ERROR} from '../actions/const'
 
 const initialState={
-    usuario:"",
+    user:"",
     error:false,
     friendDiscover:[],
     finish:false,
 }  
+
   const discoverFriendReducer =  (state=initialState, action) => {
     switch (action.type) {
      
       case DISCOVER_FRIENDS:
-        return {...state,usuario:action.payload} ;
+        return {...state,user:action.payload} ;
 
       case DISCOVERED_FRIENDS:
         return {...state,error:false,friendDiscover:action.payload,finish:true}  ;
