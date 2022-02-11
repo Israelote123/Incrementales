@@ -5,8 +5,10 @@ import  ShowCourses  from '../ShowCourses/ShowCourses';
 import  AgregarHabilidad  from "../AgregarHabilidad/AgregarHabilidad";
 import  Help  from "../Help/Help"
 import  ContainerPublications  from '../ContainerPublications/ContainerPublications';
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 function Publicar() {
+    const [user] = useLocalStorage("USER", {})
     const [save, setSave] = useState(false);
     const [state, setState] = useState(false);
     const [abil, setAbil] = useState(false);
@@ -26,7 +28,22 @@ function Publicar() {
     }
     const abrir = () => {
         var file = document.getElementById("file").click();
-        }   
+        }  
+        
+        const onSubmit = (event) => {
+            event.preventDefault()
+            let data = {
+                mail: user.mail,
+                contenido: event.target[0].value,
+               
+            };
+    
+            console.log(data) 
+            //saveHelp(data)
+            event.target.reset()
+    
+    
+        }    
     return (
         <div className="Nav">
             <div id="container-friends" className="d-flex justify-content-between flex-wrap">
@@ -52,10 +69,21 @@ function Publicar() {
                             </a>
                         </div>
 
-                        <div className="icons-container d-flex justify-content-evenly align-content-center flex-wrap">
-                            <i className="fa-2x fas fa-user-astronaut"></i>
-                            <input type="text" className="form-control" id="publication" placeholder=" ¿Que estas pensando?" />
+                        <div>
+                           
+                            
+                           <form style={{width:"100%"}} onSubmit={onSubmit}>
+                           <div className="icons-container d-flex justify-content-evenly align-content-center flex-wrap">
+                           <img src={user.profile_photo} className="perfiPublication" alt="..."></img>
+                               <input type="text" className="form-control" id="publication" placeholder=" ¿Que estas pensando?" />
+                               <br></br>
+                               
+                               <button className="btn btn-info" >Publicar</button>
+                            </div>
+                            </form> 
+                            
                         </div>
+                        <br></br>
                         <div  className=" d-flex justify-content-around align-content-center flex-wrap">
                             <input id = "file" type="file" style ={{display: "none"}}/>                                                    
                             <i className="icon_help fa-2x fas fa-camera" style = {{cursor:"pointer"}} onClick={abrir}></i>                            

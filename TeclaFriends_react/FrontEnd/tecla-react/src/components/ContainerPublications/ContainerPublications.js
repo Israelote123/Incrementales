@@ -1,6 +1,8 @@
 import adame from './adame.jpg'
 import felicidad from './felicidad.jpg'
+import onix from './onix.jpg'
 import calamardo from './calamardo.jpg'
+import arenita from './arenita.jpg'
 import bob from './bobe.jpg'
 import './ContainerPublications.css'
 import { useLocalStorage } from "../../hooks/useLocalStorage"
@@ -40,7 +42,15 @@ function ContainerPublications({ data }) {
                 name: "Bob esponja Pantalones Cuadrados",
                 description: "fue bueno ese dia",
                 image:felicidad
+            },
+            {
+                    foto: arenita,
+                    contenido: "El pleito callejero en el que se vio involucrado Alfredo Adame sigue siendo un tema de conversación. En el video que ayer se volvió tendencia se observa al actor peleando con una mujer y un hombre en plena calle de la Ciudad de México. El que no dejó la oportunidad de reaccionar al conflicto fue Carlos Trejo, 'archienemigo' del ex conductor de Hoy, y por si fuera poco anunció que ya está planeando su tan esperada pelea.",
+                    name: "Arenita Mejilla",
+                    description: "XD",
+                    image:onix
             }
+
          
         ]
     
