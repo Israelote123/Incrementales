@@ -140,5 +140,10 @@ module.exports.feedback = async(data) => {
      return "Feedback sent";   
 }
 
+//obtener los feedback
+module.exports.feedbackGet= async (data) => {
+    let result = await sequelize.query(`SELECT * FROM feedbackk WHERE mail='${data}' `)
+    return result
+}
 
 
