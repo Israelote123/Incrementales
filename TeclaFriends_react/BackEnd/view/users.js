@@ -112,7 +112,7 @@ module.exports = (app) => {
     })
     
     //obtener no amigos para descubrir  
-    app.get('/noamigos/:receptor', async (req, res) => {
+    app.get('/noamigos/:receptor', auth.authenticate, async (req, res) => {
         let data = req.params.receptor;
         let result = await userController.getNoFriends(data)
         res.json(result[0])
@@ -125,7 +125,7 @@ module.exports = (app) => {
         res.json(result)
     })
     
-    app.get('/feedbackget/:user', async (req, res) => {
+    app.get('/feedbackget/:user', auth.authenticate, async (req, res) => {
         console.log("hollaaa")
         let data = req.params.user;
         let result = await userController.getFeedback(data)

@@ -297,7 +297,8 @@ const pushfeedback= async (data) => {
     return await fetch(`http://localhost:3001/feedbackget/${data}`, {
        method: "GET",
        headers: {
-         "Content-Type": "application/json"
+         "Content-Type": "application/json",
+         "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
        },
      })  
       .then((res) => res.json())  
