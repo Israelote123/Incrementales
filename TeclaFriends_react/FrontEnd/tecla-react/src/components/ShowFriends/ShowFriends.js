@@ -56,7 +56,7 @@ function ShowFriends({updateStatus,showFriends, friend, finish }) {
                     <p className="card-text">{r.country}</p>
                     
                     
-                    <a onClick={() => { update(r,"rechazado") }} href="#" className="btn btn-danger" ><i className="fa-solid fas fa-user-minus"></i></a>
+                    <a onClick={() => { update(r,"eliminar") }} href="#" className="btn btn-danger" ><i className="fa-solid fas fa-user-minus"></i></a>
                   </div>
                 </div>
               </div>

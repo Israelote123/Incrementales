@@ -106,6 +106,10 @@ module.exports.addFeedback = async (data) => {
     return result;
 }
 
-
+//obtener feedback
+module.exports.getFeedback= async (data)=>{
+    let result = await userModel.feedbackGet(data)
+    return result
+}
 
 
