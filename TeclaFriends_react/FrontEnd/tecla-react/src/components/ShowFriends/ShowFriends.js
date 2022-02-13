@@ -29,11 +29,10 @@ function ShowFriends({updateStatus,showFriends, friend, finish }) {
       receptor: user.mail,
       status: estado,
      };
-     
 
      updateStatus(data)
      console.log(data)
-     // saveCourse(data)
+
   }
 
   useEffect(() => {
@@ -53,19 +52,15 @@ function ShowFriends({updateStatus,showFriends, friend, finish }) {
                     <h5 className="card-title">{r.name}</h5>
                     <h5 className="card-title">{r.middle_name}</h5>
                     <h5 className="card-title">{r.status}</h5>
-                    <p className="card-text">{r.country}</p>
-                    
-                    
+                    <p className="card-text">{r.country}</p>                    
                     <a onClick={() => { update(r,"eliminar") }} href="#" className="btn btn-danger" ><i className="fa-solid fas fa-user-minus"></i></a>
                   </div>
                 </div>
               </div>
-
             )
           }
         </>
       }
-
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import './AmigosAgregar.css';
 import { useEffect } from 'react';
-
-
+import { sendRequest, cancelQuery } from "../../redux/actions/request";
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { discoverFriends } from '../../redux/actions/discoverFriends'
 import { connect } from "react-redux";
@@ -10,11 +9,11 @@ const mapStateToProps = (state) => {
   return {
     friendDiscover: state.discoverFriendReducer.friendDiscover,
     finish: state.discoverFriendReducer.finish,
-
+    send:state.requestReducer.send,
   };
 };
 
-function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
+function AmigosAgregar({ send,sendRequest, cancelQuery, discoverFriends, friendDiscover, finish }) {
   let comparation = "hola"
   let contador = 0;
 
@@ -22,6 +21,26 @@ function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
 
   const traerAmigos = async () => {
     discoverFriends(user.mail)
+  }
+
+  const sendQuery = (info) => {
+    //e.preventDefault();
+    let data = {
+      receptor: info.mail,
+      emisor: user.mail,
+      status: "pendiente",
+    };
+    sendRequest(data)
+  }
+
+  const cancel = (info) => {
+    //e.preventDefault();
+    let data = {
+      receptor: info.mail,
+      emisor: user.mail,
+      status: "cancel",
+    };
+    cancelQuery(data)
   }
 
   useEffect(() => {
@@ -45,14 +64,23 @@ function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
             )
               .map(r => (
                 <div className="card perfil_container">
-                  <div className="card-body">
+                  <div key={r.mail} className="card-body">
                     <img src={r.profile_photo} className="perfil card-img-top " alt="..." />
                     <div className="card-body ">
                       <h5 className="card-title">{r.name}</h5>
                       <h5 className="card-title">{r.middle_name}</h5>
-                      
                       <p className="card-text">{r.country}</p>
-                      <a href="#" className="btn btn-info" >Add user</a>
+
+                      {!send &&
+                        <a onClick={()=>{ sendQuery(r) }}  className="btn btn-info" >
+                          <i className="fa-solid fas fa-user-plus fa-2x"></i>
+                        </a>
+                      }
+
+                      {send &&
+                        <a onClick={()=>{ cancel(r)}}  href="#" className="btn btn-danger" >cancel</a>
+                      }
+
                     </div>
                   </div>
                 </div>
@@ -66,4 +94,4 @@ function AmigosAgregar({ discoverFriends, friendDiscover, finish }) {
     </div>
   );
 }
-export default connect(mapStateToProps, { discoverFriends })(AmigosAgregar);
+export default connect(mapStateToProps, { sendRequest, cancelQuery, discoverFriends })(AmigosAgregar);

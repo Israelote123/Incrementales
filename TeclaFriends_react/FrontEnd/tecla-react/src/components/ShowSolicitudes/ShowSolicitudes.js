@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { showPossibleFriends } from '../../redux/actions/possibleFriend'
 import { updateStatus} from '../../redux/actions/status'
+import { sendRequest } from "../../redux/actions/request";
 import { connect } from "react-redux";
 
 
@@ -15,7 +16,7 @@ const mapStateToProps = (state) => {
 };
 
 
-function ShowSolicitudes({ updateStatus,possible_friend, finish, showPossibleFriends }) {
+function ShowSolicitudes({ sendRequest ,updateStatus,possible_friend, finish, showPossibleFriends }) {
   const [user] = useLocalStorage("USER", {})
   const [profileRequests,profileRequestsSearch] = useLocalStorage("REQUEST", {});
  
@@ -33,10 +34,22 @@ function ShowSolicitudes({ updateStatus,possible_friend, finish, showPossibleFri
       status: estado,
      };
      
-
+     
      updateStatus(data)
+
+     
+     let data2 = {
+      receptor: info.mail,
+      emisor: user.mail,
+      status: "amigo",
+    };
+    sendRequest(data2)
+     
+     
+     
+     
      console.log(data)
-     // saveCourse(data)
+
   }
    
 
@@ -76,5 +89,5 @@ function ShowSolicitudes({ updateStatus,possible_friend, finish, showPossibleFri
     </div>
   );
 }
-export default connect(mapStateToProps, { showPossibleFriends,updateStatus })(ShowSolicitudes);
+export default connect(mapStateToProps, { sendRequest ,showPossibleFriends,updateStatus })(ShowSolicitudes);
 

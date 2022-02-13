@@ -27,7 +27,6 @@ function PerfilSearch({ updateStatus,sendRequest,send, loading, error, dataSearc
       status: "pendiente",
     };
     sendRequest(data)
-
   }
 
   const cancel=(e)=>{
@@ -58,7 +57,9 @@ function PerfilSearch({ updateStatus,sendRequest,send, loading, error, dataSearc
            </a></div>
           }
 
-          
+          {send &&
+                <div className="col-6 infoUser"><a onClick={cancel} href="#" className="btn btn-danger" >cancel</a></div>
+          }          
 
           {error && (
             <div className="alert alert-danger" role="alert">
@@ -66,9 +67,7 @@ function PerfilSearch({ updateStatus,sendRequest,send, loading, error, dataSearc
             </div>
           )}
 
-          {send &&
-                <div className="col-6 infoUser"><a onClick={cancel} href="#" className="btn btn-danger" >cancel</a></div>
-          }
+         
           
         </div>
       </div>

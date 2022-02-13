@@ -116,6 +116,7 @@ module.exports.solicitudFriend = async (data) => {
 
 //obtener amigos
 module.exports.friends= async (data) => {
+
     let result = await sequelize.query(`SELECT * FROM register LEFT JOIN friends ON mail=emisor  WHERE receptor='${data}' AND status='amigo' `)
     return result
 }
