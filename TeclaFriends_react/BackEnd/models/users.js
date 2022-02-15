@@ -30,7 +30,7 @@ module.exports.Ability = async (data) => {
 
 
 module.exports.busqueda = async (searchUser) => {
-    let result = await sequelize.query(`SELECT ${process.env.ROWS} FROM register where name LIKE '%${searchUser}%'`)
+    let result = await sequelize.query(`SELECT ${process.env.ROWS} FROM register where (name LIKE '%${searchUser}%' OR middle_name LIKE '%${searchUser}%' OR last_name LIKE '%${searchUser}%' OR mail LIKE '%${searchUser}%')`)
     let searchResult = await result[0] ? true : false;
     console.log(result[0])
     let searchRes = {

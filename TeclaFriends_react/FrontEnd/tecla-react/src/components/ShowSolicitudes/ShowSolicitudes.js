@@ -44,11 +44,6 @@ function ShowSolicitudes({ sendRequest ,updateStatus,possible_friend, finish, sh
       status: "amigo",
     };
     sendRequest(data2)
-     
-     
-     
-     
-     console.log(data)
 
   }
    

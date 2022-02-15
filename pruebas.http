@@ -1,6 +1,6 @@
 
 //prueba api para buscar ppsible amigos
-GET http://localhost:3001/noamigos/patricio69@gmail.com
+GET http://localhost:3001/noamigos/calamardo69@mail.com
 //prueba api para traer todos los feedbacks
 #####
 GET http://localhost:3001/getfeedback/jantonios44@hotmail.com
