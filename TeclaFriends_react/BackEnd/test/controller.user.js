@@ -1,5 +1,3 @@
-//const { DESCRIBE } = require("sequelize/dist/lib/query-types");
-//const { INET } = require("sequelize/dist");
 const userController = require("../controller/users");
 const expect =require ("chai").expect;
 const should = require('chai').should()
@@ -51,6 +49,8 @@ describe("testing userController",()=>{
     })   
   })
 
+  
+  //cambiar el ${process.env.ROWS} de la funcion login en models/users, por la variable global de .env, para pasar el test
   describe("Check login function", () => {
     it("Check return type ", async () => {
       let dataUser = {
@@ -58,7 +58,7 @@ describe("testing userController",()=>{
         password: "24681012ja",
       };
       let result = await userController.accessLogin(dataUser);
-      result.should.be.an('object');
+      expect(result).be.a('object');
       //should(result).to.be.a('object');    
     });
   });
@@ -70,19 +70,3 @@ describe("testing userController",()=>{
 
 
 
-/*const userController = require("../controller/users");
-const expect = require("chai").expect;
-
-describe("Testing userController", () => {
-    describe("Check login funcion", () => {
-      it("Check return type ", async () => {
-        let dataUser = {
-          mail: "pozoleblanco@gmail.com",
-          password: "pozoleBlanco33",
-        };
-        let result = await userController.accessLogin(dataUser);
-        expect(result).to.be.a('array');
-      });
-    });
-
-});*/
