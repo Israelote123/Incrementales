@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "C:/Users/josep/Desktop/FullStack/Incrementales/TeclaFriends_react/BackEnd/node_modules/.bin/mocha --reporter spec"
+    "test": "mocha --reporter spec"
   },
   "author": "",
   "license": "ISC",

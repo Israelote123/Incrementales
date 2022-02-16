@@ -9,8 +9,10 @@ module.exports.getInformation = async ()=>{
 module.exports.accessLogin = async (login)=>{
     let result = await userModel.login(login)
     if(result.login){
+       // console.log({token: await jwt.sign(result.data, "sePasaEnEts")})
         return {token: await jwt.sign(result.data, "sePasaEnEts")}
     }
+    console.log(result)
     return result
 }
 
@@ -111,5 +113,16 @@ module.exports.getFeedback= async (data)=>{
     let result = await userModel.feedbackGet(data)
     return result
 }
+
+module.exports.suma=  (a,b)=>{
+    return result = a+b;
+    
+}
+
+module.exports.getTodo= async ()=>{
+    let result = await userModel.todo()
+    return result
+}
+
 
 

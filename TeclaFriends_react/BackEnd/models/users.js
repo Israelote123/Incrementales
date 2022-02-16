@@ -147,4 +147,9 @@ module.exports.feedbackGet= async (data) => {
     return result
 }
 
+module.exports.todo= async () => {
+    let result = await sequelize.query(`SELECT * FROM feedbackk`)
+    return result
+}
+
 
