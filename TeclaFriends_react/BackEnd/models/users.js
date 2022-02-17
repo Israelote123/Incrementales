@@ -6,7 +6,9 @@ module.exports.information = async (busqueda) => {
 
 module.exports.login = async (login)=> {
     let response = await sequelize.query(`SELECT ${process.env.ROWS} FROM register WHERE mail LIKE '${login.mail}' AND password = MD5('${login.password}')`);
+ 
     let loginResult = await response[0][0] ? true : false;
+
     let loginRes = {
         login: loginResult,
         data: response[0][0] ? response[0][0] : false

@@ -9,11 +9,10 @@ module.exports.getInformation = async ()=>{
 module.exports.accessLogin = async (login)=>{
     let result = await userModel.login(login)
     if(result.login){
-       // console.log({token: await jwt.sign(result.data, "sePasaEnEts")})
         return {token: await jwt.sign(result.data, "sePasaEnEts")}
     }
-    console.log(result)
-    return result
+ 
+    return result.login
 }
 
 module.exports.getDatos = async (data)=>{

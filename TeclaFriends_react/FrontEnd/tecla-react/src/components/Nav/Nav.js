@@ -70,7 +70,7 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
         <nav id="barraNav" className="navbar navbar-expand-md navbar-light sticky-top">
             <div className="container-fluid">
                 <NavLink className="navbar-brand" id="titulo" to="/chismetecla"><img className="logo d-inline-block align-text-center" src={logo} alt="Logo" />TeclaFriends</NavLink>
-                {login &&
+                {login && token &&
                     <>
                         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasMd"
                             aria-controls="navbarOffcanvasMd" id="hamburguesa">

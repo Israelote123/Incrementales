@@ -120,6 +120,12 @@
     color: #747474;
   }
   
+  /*errores en el formulario*/
+  .error{
+    color: red;
+  }
+
+
   /*responsive*/
   @media screen and (max-width: 1400px) {
     .register {

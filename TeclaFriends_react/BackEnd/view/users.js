@@ -15,6 +15,7 @@ module.exports = (app) => {
     app.post('/login', async (req, res) => {
         let result = await userController.accessLogin(req.body);
         //res.json("Bienvenido "+result[0][0].name)
+
         res.status(200).send(JSON.stringify(result))
     })
 

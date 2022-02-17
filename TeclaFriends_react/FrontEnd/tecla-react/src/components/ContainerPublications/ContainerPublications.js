@@ -60,7 +60,7 @@ function ContainerPublications({ data }) {
         
             {
                 informacion.map(r =>
-                    <div className="card" style={{ width: "100%", background: "turquoise" }}>
+                    <div  key={r.foto}  className="card" style={{ width: "100%", background: "turquoise" }}>
                         <div className="card-body">
                             <div className="d-flex bd-highlight mb-3">
                                 <div className="p-2 bd-highlight">  <img src={r.foto} className="perfiPublication" alt="..."></img>

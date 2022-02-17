@@ -102,7 +102,8 @@ const getFriends = async (data) => {
 };
 
 //registar nuevo ususario
-const register = async (newUser) => {
+const registers = async (newUser) => {
+  console.log(newUser)
   var url = "http://localhost:3001/register";
   var urlPhoto =
     "https://api.imgbb.com/1/upload?key=8bf495d29a8eaf97bf28a9d4e52cea42";
@@ -113,18 +114,18 @@ const register = async (newUser) => {
 
   let obtainData = () => {
     return {
-      mail: newUser[1].value,
-      name: newUser[2].value,
-      middle_name: newUser[3].value,
-      last_name: newUser[4].value,
-      city: newUser[6].value,
-      country: newUser[5].value,
-      birth_date: newUser[10].value,
-      academic_level: newUser[8].value,
-      lenguages: newUser[9].value,
-      linkedIn: newUser[7].value,
-      hobbies: newUser[12].value,
-      password: newUser[11].value,
+      mail: newUser.mail,
+      name: newUser.nameUser,
+      middle_name: newUser.middleNameUser,
+      last_name: newUser.lastNameUser,
+      city: newUser.userDirection,
+      country: newUser.userCountry,
+      birth_date: newUser.userBirth,
+      academic_level: newUser.userStudies,
+      lenguages: newUser.userLenguages,
+      linkedIn: newUser.userLinkedIn,
+      hobbies: newUser.userHobbies,
+      password: newUser.user_password,
       profile_photo: resultado.data.url,
     };
   };
@@ -175,6 +176,7 @@ const register = async (newUser) => {
 
 //iniciar sesion
 const inicioSesion = async (obtainData) => {
+  let resultado;
   return await fetch("http://localhost:3001/login", {
     method: "POST", // or 'PUT'
     body: JSON.stringify(obtainData), // data can be `string` or {object}!
@@ -182,7 +184,22 @@ const inicioSesion = async (obtainData) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => res.json())
+  .then((res) => res.json())
+  /*.then(json => {
+    resultado = json;
+    console.log(resultado)
+  })
+    //.then((res)=>{
+      //console.log(res)
+     /* if (res=="Contraseña erronea"||res=="Usuario no encontrado") {
+        alert(res);
+      }
+     else {
+        console.log("Success:", resultado);
+        console.log(`inicio de sesión exitoso, bienvenido ${resultado[0][0].name}`)
+        location.href = './chismeTecla/index.html';
+      }*/
+    //})
     .catch((error) => console.error("Error:", error));
 };
 
@@ -324,4 +341,4 @@ export {
 
 };
 
-export { register, inicioSesion, loginCheck };
+export { registers, inicioSesion, loginCheck };
