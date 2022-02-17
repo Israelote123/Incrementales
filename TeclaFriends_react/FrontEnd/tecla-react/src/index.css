@@ -1,0 +1,12 @@
+
+.size-icon {
+    font-size: 32px;
+  }
+
+  @media screen and (max-width: 606px) {
+
+    .size-icon{
+      font-size: 25px;
+    }
+  
+  }

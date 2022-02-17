@@ -101,7 +101,7 @@ function ContainerPublications({ data }) {
 
                                 <div className="col-3 ">
                                     <div className="position-relative">
-                                        <i className="icon_publication fa-2x fas fa-thumbs-up"></i>
+                                        <i className="icon_publication size-icon fas fa-thumbs-up"></i>
                                         <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                             {mensages}
                                             <span className="visually-hidden">unread messages</span>
@@ -111,7 +111,7 @@ function ContainerPublications({ data }) {
 
                                 <div className="col-3">
                                     <div className="position-relative">
-                                        <i className="icon_publication perfiles fa-2x fas fa-comments"></i>
+                                        <i className="icon_publication perfiles size-icon fas fa-comments"></i>
                                         <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                             {mensages}
                                             <span className="visually-hidden">unread messages</span>
@@ -120,7 +120,7 @@ function ContainerPublications({ data }) {
                                 </div>
                                 <div className="col-3">
                                     <div className="position-relative">
-                                        <i className="icon_publication perfiles fa-2x fab fa-gratipay"></i>
+                                        <i className="icon_publication perfiles size-icon fab fa-gratipay"></i>
                                         <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                             {mensages}
                                             <span className="visually-hidden">unread messages</span>
@@ -129,7 +129,7 @@ function ContainerPublications({ data }) {
                                 </div>
                                 <div className="col-3">
                                     <div className="position-relative">
-                                        <i className="icon_publication perfiles fa-2x fas fa-heart-broken"></i>
+                                        <i className="icon_publication perfiles size-icon fas fa-heart-broken"></i>
                                         <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                                             {mensages}
                                             <span className="visually-hidden">unread messages</span>

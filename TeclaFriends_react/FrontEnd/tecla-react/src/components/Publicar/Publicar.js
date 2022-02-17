@@ -50,21 +50,24 @@ function Publicar() {
                 <div className="nave card" >
                     <div className="card-body gustos">
                         <div className="  d-flex bd-highlight mb-3">
-                            <div className="me-auto p-2 bd-highlight"> <i className=" fa-2x fas fa-paint-brush">Crear Post</i></div>
+                            <div className="me-auto p-2 bd-highlight">
+                                <i className="size-icon fas fa-paint-brush d-none d-md-block">Crear Post</i>
+                                <i className="size-icon fas fa-paint-brush d-md-none"></i>
+                                </div>
                             <a onClick={changeSave} className="enlaces_nuevos" >
                                 <div className="iconos_post">
-                                    <i className="fa-2x fas fa-graduation-cap"></i>
+                                    <i className="size-icon fas fa-graduation-cap"></i>
                                 </div>
                             </a>
 
                             <a onClick={changeState} className="enlaces_nuevos" >
                                 <div className="iconos_post">
-                                    <i className="fa-2x fas fa-eye"></i>
+                                    <i className="size-icon fas fa-eye"></i>
                                 </div>
                             </a>
                             <a onClick={changeAbil} className="enlace_nuevos" >
                                 <div className="iconos_post">
-                                    <i className="fa-2x fas fa-table-tennis"></i>
+                                    <i className="size-icon fas fa-table-tennis"></i>
                                 </div>
                             </a>
                         </div>
@@ -86,10 +89,10 @@ function Publicar() {
                         <br></br>
                         <div  className=" d-flex justify-content-around align-content-center flex-wrap">
                             <input id = "file" type="file" style ={{display: "none"}}/>                                                    
-                            <i className="icon_help fa-2x fas fa-camera" style = {{cursor:"pointer"}} onClick={abrir}></i>                            
-                            <i className="icon_help fa-2x fas fa-video" style = {{cursor:"pointer"}} onClick={abrir}></i>
-                            <i className="icon_help fa-2x fas fa-image" style = {{cursor:"pointer"}} onClick={abrir}></i>
-                            <i  onClick={ayuda} className="icon_help fa-2x fas fa-question-circle"></i>
+                            <i className="icon_help size-icon fas fa-camera" style = {{cursor:"pointer"}} onClick={abrir}></i>                            
+                            <i className="icon_help size-icon fas fa-video" style = {{cursor:"pointer"}} onClick={abrir}></i>
+                            <i className="icon_help size-icon fas fa-image" style = {{cursor:"pointer"}} onClick={abrir}></i>
+                            <i  onClick={ayuda} className="icon_help size-icon fas fa-question-circle"></i>
                         </div>
                     </div>
                 </div>

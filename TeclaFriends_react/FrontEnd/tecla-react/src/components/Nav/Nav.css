@@ -43,23 +43,19 @@
   border: turquoise;
 }
 
-/*Cuerpo*/
+.align-middle-modify{
+  padding-top: 15px;
+}
 
+/*Cuerpo*/
 
 main {
   margin-top: 2%;
 }
 
-
-
-
-
 input::placeholder {
   font-family: "Patrick Hand", cursive;
 }
-
-
-
 
 #inputSearch{
   width: 40%;
@@ -111,26 +107,103 @@ input::placeholder {
 }
 
 
-#cambio:hover{
+.cambio:hover{
   color: white;
   font-weight: bold;
 }
 
-@media screen and (max-width: 1400px) {
-  .register {
-    width: 712px;
+@media screen and (max-width: 992px) {
+  .perfilUser {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo {
+    height: 40px;
+    width: 40px;
+  }
+
+  .nav-center{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 30%;
+  }
+
+  i{
+    font-size: 30px;
   }
 }
+@media screen and (max-width: 800px) {
+
+  .nav-center{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 25%;
+  }
+
+}
+
+@media screen and (max-width: 570px) {
+
+  .nav-center{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 10%;
+  }
+
+}
+
+@media screen and (max-width: 360px) {
+
+  .cell{
+    padding-left: 5px;
+  }
+
+  i{
+    font-size: 5px;
+    
+  }
+
+  .logo {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 5px;
+  }
+
+}
+
+@media screen and (max-width: 280px) {
+
+  .cell{
+    padding-right: 5px;
+    padding-left: 13px;
+  }
+
+}
+
+@media screen and (max-width: 408px) {
+
+  .nav-center{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 5%;
+  }
+
+}
+
+@media screen and (max-width: 460px) {
+  i{
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 766px) {
   nav {
     height: 80px;
-  }
-
-  #hamburguesa {
-    height: 40px;
-    width: 56px;
-    position: absolute;
-    right: 5%;
   }
 
   button {
