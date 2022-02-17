@@ -3,6 +3,7 @@ import './AgregarHabilidad.css';
 import { connect } from "react-redux";
 import { saveAbility, setLoading} from "../../redux/actions/ability";
 import { useLocalStorage } from '../../hooks/useLocalStorage'
+import{useForm} from 'react-hook-form'
 
 
 const mapStateToProps = (state)=>{
@@ -13,33 +14,49 @@ const mapStateToProps = (state)=>{
   }
 
 function AgregarHabilidad({setLoading,saveAbility,loading,error}) {
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState:{errors},
+    } = useForm() 
     
   const [user]= useLocalStorage("USER",{})
  
-  const onSubmit = (event) => {
-        event.preventDefault()
-        console.log(loading)
+  const onSubmit = (payload) => {
+        
+       
         let data = {
             mail: user.mail,
-            skill: event.target[0].value         
+            skill: payload.habilidad         
         };
    
             saveAbility(data)
          
-            event.target.reset()
+            
       
     }
 
     return (
-         <form  onSubmit={onSubmit}>
+         <form  onSubmit={handleSubmit(onSubmit)}>
                 <div id="blue">
                     <h1>Nueva Habilidad</h1>
                 </div>
+
                 <div className="mb-3">
-                    <label className="form-label">Habilidad</label>
-                    <input required name='nombreC' type="text" className="form-control" /*onChange={nuevaHabilidad}*/ id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <label htmlFor='abiliti' className="form-label">Habilidad</label>
+                    <input 
+                     {...register("habilidad",{
+                        required:true,
+                      
+                    } 
+                    )} 
+                     name='habilidad' type="text" className="form-control"  id="abiliti" aria-describedby="emailHelp" />
+                     {errors?.habilidad?.type==="required" && <p className="alert alert-danger">This field is required</p>}
                 </div>     
-                    <button  className="btn btn-primary" >Save</button>
+
+                <button  className="btn btn-primary" >Save</button>
 
                 {error && (
                   <div className="alert alert-danger" role="alert">

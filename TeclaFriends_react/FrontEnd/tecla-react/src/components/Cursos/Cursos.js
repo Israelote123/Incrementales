@@ -3,6 +3,7 @@ import './Cursos.css';
 import { connect } from "react-redux";
 import { saveCourse,setLoading } from "../../redux/actions/curso";
 import { useLocalStorage } from '../../hooks/useLocalStorage'
+import{useForm} from 'react-hook-form'
 
 const mapStateToProps = (state)=>{
     return{
@@ -12,47 +13,70 @@ const mapStateToProps = (state)=>{
   }
 
 function Cursos({saveCourse,setLoading,loading,error}) {
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState:{errors},
+        } = useForm() 
     
     const [user]= useLocalStorage("USER",{})
 
-    const onSubmit= (event) => {
-        event.preventDefault() 
+    const onSubmit= (payload) => {
+         
         let data = {
             mail: user.mail,
-            nombre_curso: event.target[0].value,
-            lugar_curso: event.target[1].value,
-            fecha_curso: event.target[2].value,
+            nombre_curso: payload.nombre_curso,
+            lugar_curso: payload.lugar_curso,
+            fecha_curso: payload.fecha_curso,
         };
-
-       
-            saveCourse(data)
-            event.target.reset()
+        saveCourse(data)          
     }
 
     return (
-          <form  onSubmit={onSubmit}>
+          <form  onSubmit={handleSubmit( onSubmit)}>
                 <div id="blue">
                     <h1>Nuevo curso</h1>
                 </div>
-                <div className="mb-3">
-                    <label className="form-label">Nombre curso</label>
-                    <input required name='nombreC' type="text" className="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Lugar curso</label>
-                    <input required name='lugarC' type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Fecha curso</label>
-                    <input required name='lugarC' type="date" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                </div>
-             
-                    <button  className="btn btn-primary" >Save</button>
 
-           
+                <div className="mb-3">
+                    <label htmlFor='NombreCourse' className="form-label">Nombre curso</label>
+                    <input 
+                    {...register("nombre_curso",{
+                        required:true,
+                      
+                    } 
+                    )} 
+                    name='nombre_curso' type="text" className="form-control"  id="NombreCourse" aria-describedby="emailHelp" />
+                    {errors?.nombre_curso?.type==="required" && <p className="alert alert-danger">This field is required</p>}
+                </div>
 
+                <div className="mb-3">
+                    <label htmlFor='placeCourse' className="form-label">Lugar curso</label>
+                    <input 
+                     {...register("lugar_curso",{
+                        required:true,
+                      
+                    } 
+                    )} 
+                    name='lugar_curso' type="text" className="form-control" id="placeCourse" aria-describedby="emailHelp" />
+                    {errors?.lugar_curso?.type==="required" && <p className="alert alert-danger">This field is required</p>}
+                </div>
 
-               
+                <div className="mb-3">
+                    <label htmlFor='dateCourse' className="form-label">Fecha curso</label>
+                    <input 
+                       {...register("fecha_curso",{
+                        required:true,
+                      
+                    } 
+                    )} 
+                    name='fecha_curso' type="date" className="form-control" id="dateCourse" aria-describedby="emailHelp" />
+                    {errors?.fecha_curso?.type==="required" && <p className="alert alert-danger">This field is required</p>}
+                </div>
+
+                <button  className="btn btn-primary" >Save</button>
                 {error && (
                   <div className="alert alert-danger" role="alert">
                      No es posible conectar con la base de datos
