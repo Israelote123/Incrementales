@@ -3,7 +3,7 @@ import './BarraLatRight.css';
 
 function BarraLatRight() {
     return (
-        <div className="BarraLatRight">
+        <div className="BarraLatRight d-none d-lg-block">
             <div className="nave card" >
                 <div className="card-body gustos">
                 <h5 className="card-title">Geek activity</h5>

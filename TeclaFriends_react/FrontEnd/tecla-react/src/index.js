@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import './index.css';
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import PublicarPage  from "./pages/PublicarPage";
@@ -14,6 +15,7 @@ import {MostrarSolicitudes} from './pages/MostrarSolicitudes'
 import { Provider } from "react-redux";
 import { store } from "./redux/store"; 
 import Nav from './components/Nav/Nav'
+
 
 ReactDOM.render(
   <Provider store = {store}>

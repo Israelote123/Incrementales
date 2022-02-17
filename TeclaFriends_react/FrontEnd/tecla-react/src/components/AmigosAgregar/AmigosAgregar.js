@@ -63,7 +63,7 @@ function AmigosAgregar({ send,sendRequest, cancelQuery, discoverFriends, friendD
             }
             )
               .map(r => (
-                <div className="card perfil_container">
+                <div className="card perfil_containers">
                   <div key={r.mail} className="card-body">
                     <img src={r.profile_photo} className="perfil card-img-top " alt="..." />
                     <div className="card-body ">
@@ -73,7 +73,7 @@ function AmigosAgregar({ send,sendRequest, cancelQuery, discoverFriends, friendD
 
                       {!send &&
                         <a onClick={()=>{ sendQuery(r) }}  className="btn btn-info" >
-                          <i className="fa-solid fas fa-user-plus fa-2x"></i>
+                          <i className="fa-solid fas fa-user-plus size-icon"></i>
                         </a>
                       }
 

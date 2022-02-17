@@ -9,9 +9,17 @@
     object-fit: cover;
   }
 
-  .perfil_container {
-    text-align: center;
-    margin-left: 1%;
-    margin-bottom: 1%;
-    width:40%;
+.perfil_containers {
+  text-align: center;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  width:241px;
+}
+
+@media screen and (max-width: 515px) {
+
+  .perfil_containers{
+    width: 400px;
   }
+
+}

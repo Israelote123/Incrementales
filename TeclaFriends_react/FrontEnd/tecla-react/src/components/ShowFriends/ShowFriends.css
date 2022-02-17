@@ -9,14 +9,21 @@
     object-fit: cover;
   }
 
+  #container-friends{
+     margin-top: 3%;
+  }
+
   .perfil_container {
     text-align: center;
     margin-left: 1%;
     margin-bottom: 1%;
-    width:40%;
-    
+    width:241px;
   }
-
-  #container-friends{
-     margin-top: 3%;
+  
+  @media screen and (max-width: 515px) {
+  
+    .perfil_container{
+      width: 400px;
+    }
+  
   }

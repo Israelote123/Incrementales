@@ -2,7 +2,7 @@
 import './BarraLat.css';
 function BarraLat() {
     return (
-        <div className="BarraLat">
+        <div className="BarraLat d-none d-lg-block">
                       <div className=" nave card" >
                           <div className=" gustos card-body">
                               <h5 className="card-title">New feeds</h5>
