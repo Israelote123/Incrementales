@@ -66,7 +66,7 @@ function FormLogin({ token, loading, loginBool, error, userLogin, userSaveData }
                                 type="email" className="form-control text"
                                 name="mail"
                                 placeholder="user@mail.com" />
-                                    <br></br>
+
                             {errors?.mail?.type === "required" && <p className="alert alert-danger">This field is required</p>}
                             {errors?.mail?.type === "maxLength" && <p className="alert alert-danger">This field cannot exeed 16 characters</p>}
                             {errors?.mail?.type === "minLength" && <p className="alert alert-danger">This field required almost 8</p>}
@@ -84,7 +84,6 @@ function FormLogin({ token, loading, loginBool, error, userLogin, userSaveData }
                                 type="password" className="form-control text"
                                 id="password" name="password"
                                 placeholder="Password"  />
-                                <br></br>
                             {errors?.password?.type === "required" && <p className="alert alert-danger">This field is required</p>}
                             <label htmlFor="floatingPassword password">Contraseña:</label>
                         </div>
