@@ -97,7 +97,7 @@ function Nav({login, token, userUnlogin, data, users, searching, searchedUser, s
                             </NavLink>
 
                             <NavLink className="nav-link cambio d-lg-none cell" to="/perfil">
-                                <i class="icon-nav fas fa-solid fa-address-card"></i>
+                                <i className="icon-nav fas fa-solid fa-address-card"></i>
                             </NavLink>
 
                             {notifications.length > 0 && (

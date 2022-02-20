@@ -107,6 +107,7 @@ const registers = async (newUser) => {
   var url = "http://localhost:3001/register";
   var urlPhoto =
     "https://api.imgbb.com/1/upload?key=8bf495d29a8eaf97bf28a9d4e52cea42";
+                                        
   var formData = new FormData();
   let resultado;
   var fileField = document.querySelector("#profilePhoto");
@@ -185,22 +186,7 @@ const inicioSesion = async (obtainData) => {
     },
   })
   .then((res) => res.json())
-  /*.then(json => {
-    resultado = json;
-    console.log(resultado)
-  })
-    //.then((res)=>{
-      //console.log(res)
-     /* if (res=="Contraseña erronea"||res=="Usuario no encontrado") {
-        alert(res);
-      }
-     else {
-        console.log("Success:", resultado);
-        console.log(`inicio de sesión exitoso, bienvenido ${resultado[0][0].name}`)
-        location.href = './chismeTecla/index.html';
-      }*/
-    //})
-    .catch((error) => console.error("Error:", error));
+  .catch((error) => console.error("Error:", error));
 };
 
 //obtener notificaciones para mostrarlas en la nav
@@ -255,6 +241,7 @@ const loginCheck = async (obtainData) => {
     .then((res) => res.json())
     .catch((error) => console.error("Error:", error));
 };
+
 //mandar solicitudes de amistad
 const requestApi = async (data) => {
   return await fetch(`http://localhost:3001/request/`, {
@@ -323,6 +310,130 @@ const pushfeedback= async (data) => {
       .catch((err) => console.log(err));
    };
 
+
+   //subir publicaciones a la abse de datos
+/*const pushPublications = async (obtainData) => {
+  return await fetch(`http://localhost:3001/publications/`, {
+    method: "POST", // or 'PUT'
+    body: JSON.stringify(obtainData), // data can be `string` or {object}!
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+    },
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      alert(json);
+      console.log(json);
+    })
+    .catch((error) => console.error("Error:", error));
+};*/
+
+
+const pushPublications = async (data) => {
+    var url = "http://localhost:3001/publications";
+    var urlPhoto =
+      "https://api.imgbb.com/1/upload?key=6c351fa09a4c04960e3bab815f559fdd";
+                                          
+    var formData = new FormData();
+    let resultado={
+      data:{
+         url:""
+      }
+    }
+    var fileField = document.querySelector("#file");
+    formData.append("image", fileField.files[0]);
+
+
+    let obtainData = () => {
+      return {
+        mail: data.mail,
+        content: data.content,
+        photos_post: resultado.data.url,
+        likes: data.likes,
+        comments: data.comments,
+        heart: data.heart,
+        break_heart: data.break_heart,
+      };
+    };
+    
+    let sendData = async () => {
+      
+      await fetch(url, {
+        method: "POST", // or 'PUT'
+        body: JSON.stringify(obtainData()), // data can be `string` or {object}!
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+        },
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          resultado = json;
+          alert(resultado)
+        })
+
+        .catch((error) => console.error("Error:", error));
+    };
+
+
+    console.log("contar")
+  
+  if(document.querySelector("#file").value!="")
+  {
+    console.log("contenido")
+    await fetch(urlPhoto, {
+      mode: "cors",
+      method: "POST",
+      mimeType: "multipart/form-data",
+      body: formData,
+      data: formData,
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        resultado = json;
+      })
+      .then(() => {
+       
+      })
+      .catch((error) => console.error("Error:", error));
+   
+  }
+
+
+  sendData()
+   
+   
+  };
+
+
+
+  //obtener publicaciones de un usuario
+  const getPublicationsUser = async (data) => {
+    return await fetch(`http://localhost:3001/publications/${data}`, {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json",
+         "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+       },
+     })  
+      .then((res) => res.json())  
+      .catch((err) => console.log(err));
+   };
+
+ //obtener todas las publicaciones
+ const getPublicationsAll = async () => {
+  return await fetch(`http://localhost:3001/publicationsall/`, {
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+       "Authorization": `${JSON.parse(window.localStorage.getItem("TOKEN")).token}`
+     },
+   })  
+    .then((res) => res.json())  
+    .catch((err) => console.log(err));
+ };
+
 export {
   getPossibleFriend,
   getCuorse,
@@ -338,7 +449,9 @@ export {
   updateStatus,
   pushfeedback,
   feedbackGet,
-
+  pushPublications,
+  getPublicationsUser,
+  getPublicationsAll,   
 };
 
 export { registers, inicioSesion, loginCheck };

@@ -113,13 +113,28 @@ module.exports.getFeedback= async (data)=>{
     return result
 }
 
-module.exports.suma=  (a,b)=>{
-    return result = a+b;
-    
+
+
+/*module.exports.getTodo= async ()=>{
+    let result = await userModel.todo()
+    return result
+}*/
+
+//subir publicaciones
+module.exports.addPublications = async (data) => {
+    let result=await userModel.publications(data)
+    return result;
 }
 
-module.exports.getTodo= async ()=>{
-    let result = await userModel.todo()
+//obtener publicaciones de un usuario
+module.exports.getUserPublications= async (data)=>{
+    let result = await userModel.userPublications(data)
+    return result
+}
+
+//obtener todas las publicaciones 
+module.exports.getAllPublications= async ()=>{
+    let result = await userModel.allPublications()
     return result
 }
 

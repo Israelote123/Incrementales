@@ -16,7 +16,10 @@ import {discoverFriendReducer} from '../reducers/discoverFriends'
 import {updateStatusReducer} from '../reducers/status'
 import {feedbackReducer} from '../reducers/feedback'
 import {feedbackGetReducer} from '../reducers/getFeedback'
+import {userPublicationReducer} from '../reducers/userPublications'
+import {allPublicationReducer} from '../reducers/allPublications'
 import { rootSaga } from "../sagas/";
+
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -38,6 +41,8 @@ const reducers = combineReducers({
   updateStatusReducer,
   feedbackReducer,
   feedbackGetReducer,
+  userPublicationReducer,
+  allPublicationReducer,
 });
 
 const logger = (store) => (next) => (action) => {
