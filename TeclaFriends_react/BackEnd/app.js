@@ -3,6 +3,12 @@ const cors = require("cors");
 let app = express();
 require("dotenv").config()
 const userView = require('./view/users')
+const postView = require('./view/post')
+const helpView = require('./view/help')
+const friendsView = require('./view/friends')
+const feedbackView = require('./view/feedback')
+const coursesView = require('./view/courses')
+const abilitiesView = require('./view/abilities')
 const sequelize = require('./db/conexion.js')
 
 app.use(express.json());
@@ -27,3 +33,9 @@ async function serverStart() {
 serverStart();
 //Routes
 userView(app);
+postView(app);
+helpView(app);
+friendsView(app);
+feedbackView(app);
+coursesView(app);
+abilitiesView(app);
