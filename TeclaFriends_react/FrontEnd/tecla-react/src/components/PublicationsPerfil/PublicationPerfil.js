@@ -45,7 +45,7 @@ function PublicationsPerfil({ showUserPublications,error,publicationUser,finish 
         {finish &&
           <>
             {
-              publicationUser.map(r =>
+              publicationUser.slice(0).reverse().map(r =>
                     <div className="card" style={{ width: "100%", background: "turquoise" }}>
 
                         <div className="card-body">

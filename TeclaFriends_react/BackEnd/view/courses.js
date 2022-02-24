@@ -6,14 +6,14 @@ module.exports = (app) => {
     //obtener cursos con mail
     app.get('/cursos/:mail', auth.authenticate, async (req, res) => {
         let data = req.params.mail;
-        let result = await userController.getCourse(data)
+        let result = await coursesController.getCourse(data)
         res.json(result[0])
     })
 
      //insertar informacion en tabla cursos
      app.post('/cursos', auth.authenticate, async (req, res) => {
         let course = req.body
-        let result = await userController.addCourse(course)
+        let result = await coursesController.addCourse(course)
         res.json(result)
     })
 

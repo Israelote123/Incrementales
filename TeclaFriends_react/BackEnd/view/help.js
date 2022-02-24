@@ -6,7 +6,7 @@ module.exports = (app) => {
     //formulario de ayuda
     app.post('/help', auth.authenticate, async (req, res) => {
         let help = req.body
-        let result = await userController.addHelp(help)
+        let result = await helpController.addHelp(help)
         res.json(result)
     })
 

@@ -46,7 +46,7 @@ function ContainerPublications({ showAllPublications,data,error,publicationAll,f
         {finish &&
           <>
             {
-              publicationAll.map(r =>
+              publicationAll.slice(0).reverse().map(r =>
                 <div  key={r.id}  className="card" style={{ background: "turquoise" }}>
                     <div className="card-body">
                         <div className="d-flex bd-highlight mb-3">

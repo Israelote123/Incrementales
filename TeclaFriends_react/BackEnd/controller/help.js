@@ -1,7 +1,7 @@
-const postModel = require('../models/post')
+const helpModel = require('../models/help')
 
 //insertar nuevas petciciones de ayuda
 module.exports.addHelp = async (help) => {
-    let result=await userModel.help(help)
+    let result=await helpModel.help(help)
     return result;
 }
